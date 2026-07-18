@@ -6,8 +6,9 @@ Clean-room research repository for the paper:
 
 ## Status
 
-Phase 0: problem formulation and evidence policy. No method, dataset, result,
-or manuscript claim has been admitted yet.
+Phase 0: literature, problem-definition, and novelty audit. The initial audit
+decision is **proceed with narrowing**. No method, dataset, result, or
+manuscript claim has been admitted yet.
 
 ## Clean-Room Boundary
 
@@ -29,4 +30,3 @@ sensitivity and accounting checks.
 5. Separate development, validation, and one-time sealed-test access.
 
 See `docs/RESEARCH_CHARTER.md` and `docs/EVIDENCE_POLICY.md`.
-

@@ -14,5 +14,9 @@
   "remote_attached": true,
   "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
   "remote_verified_empty_before_first_push": true,
-  "phase": "P0_problem_formulation"
+  "phase": "P0_literature_problem_novelty_audit",
+  "p0_initial_decision": "proceed_with_narrowing",
+  "method_selected": false,
+  "dataset_accessed": false,
+  "experiment_run": false
 }
