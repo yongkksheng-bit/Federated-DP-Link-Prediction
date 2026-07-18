@@ -27,6 +27,9 @@ data/**
 !data/README.md
 results/**
 !results/README.md
+!results/p1_synthetic/
+!results/p1_synthetic/records.jsonl
+!results/p1_synthetic/summary.json
 artifacts/
 logs/
 tmp/

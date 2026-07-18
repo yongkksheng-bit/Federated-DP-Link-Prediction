@@ -22,7 +22,12 @@
   "p0_problem_definition_frozen": true,
   "p0_accountant_audit_complete": true,
   "p0_closed": true,
+  "p1_protocol_frozen_commit": "e64033760276bcf3a3fa3620a797a54512d7672d",
+  "p1_synthetic_reference_gate": "GO",
+  "p1_synthetic_records": 60,
+  "p1_real_data_authorized": false,
   "method_selected": false,
   "dataset_accessed": false,
-  "experiment_run": false
+  "experiment_run": true,
+  "experiment_scope": "synthetic_only"
 }
