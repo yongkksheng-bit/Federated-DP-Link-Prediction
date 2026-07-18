@@ -26,9 +26,10 @@ Unknown fields remain unknown. A title containing "differential privacy" or "fed
 ### PrivFGL (TrustCom, 2025)
 
 - Identity: Songyan Zhang, Hanyu Lu, and Hongfa Ding, [PrivFGL](https://doi.org/10.1109/TRUSTCOM66490.2025.00307), pp. 2606--2611.
-- Evidence: **A**. IEEE identifies document 11354599, but neither an accessible full paper nor an author manuscript was available during this audit.
+- Evidence: **A+code**. IEEE identifies document 11354599. The indexed IEEE PDF URL returns HTTP 418 outside an entitled browser session, ResearchGate reports no deposited full text, and no archival author manuscript was found. The public companion repository was inspected separately; it is supporting implementation evidence, not a substitute for the paper.
 - Verified from the abstract: PrivFGL attributes DP-FGL utility loss to noise-amplified client heterogeneity and applies a local Personalized Data Transformation module to perturbed client data. It evaluates two datasets against one heterogeneity-oriented method.
-- Not verified: graph ownership, graph task, neighboring-dataset definition, clipping unit, accountant, adversary, test-edge message passing, and released output.
+- Verified from the [public companion repository](https://github.com/syzhang725/PrivFGL1): the only executable artifact loads the PyG Planetoid Cora and CiteSeer datasets, constructs Louvain or random client partitions, and retains node labels and train/validation/test node masks. The repository therefore supports a node-classification empirical interpretation, not a link-prediction evaluation. It contains no PDT implementation, DP mechanism, clipping code, accountant, configuration, results, or paper PDF.
+- Not verified: graph ownership, neighboring-dataset definition, clipping unit, accountant, adversary, exact privacy theorem, and released output.
 - Backward-reference signal: the available bibliography is dominated by heterogeneous DP-FL and personalized data transformation, with only a small graph-learning component. This helps classify the paper but does not replace its missing method text.
 - Relation: adjacent DP-FGL utility method. It cannot yet be admitted as an edge-DP LP baseline or used to support an exact novelty claim.
 
@@ -44,8 +45,10 @@ Unknown fields remain unknown. A title containing "differential privacy" or "fed
 ### Privacy-Assured Analytics on Decentralized Graphs (TrustCom, 2025)
 
 - Identity: Longji Li, Yifeng Zheng, Songlei Wang, Zhongyun Hua, Lei Xu, and Yansong Gao, [Privacy-Assured Analytics on Decentralized Graphs: The Case of Graph Learning](https://doi.org/10.1109/TRUSTCOM66490.2025.00162), pp. 1396--1405.
-- Evidence: **A**. The exact paper was discovered through backward and same-venue tracing. Full technical fields remain unverified.
-- Relation: mandatory unresolved competitor because its title and ownership language directly approach the decentralized-private-graph intersection. P0 cannot be declared complete until its adjacency, task, and output are inspected or an explicit access limitation is recorded for submission.
+- Evidence: **A/F2-abstract**. The indexed IEEE PDF URL returns HTTP 418 outside an entitled browser session, and no archival author manuscript or public code repository was located. The publisher/author-indexed abstract and an official rendered introduction fragment were inspected; full technical fields remain unverified.
+- Verified scope: PDGL assumes a graph fully decentralized among nodes, each holding a limited local view. The abstract claims simultaneous protection of links, private feature data, and labels, with utility comparable to centralized graph learning. The rendered introduction fragment describes each node as holding a neighbor list, features, and possibly labels, and positions PDGL against LDP collection followed by server-side GCN training.
+- Not verified: whether link privacy is formal edge-LDP, central DP, cryptographic confidentiality, or a hybrid; the adjacency relation; composition/accounting; the exact downstream task; whether experiments are node classification only; and what model, graph, embeddings, labels, or scores are released.
+- Relation: mandatory strong near predecessor because its ownership and claimed protected objects directly approach the decentralized-private-graph intersection. Nothing currently inspected establishes federated link prediction or an inference-closed private LP output, but absence cannot be claimed until the full method and experiment sections are read.
 
 ## Earlier works promoted by backward tracing
 
@@ -94,8 +97,8 @@ The exact intersection remains provisional: ordinary add/remove-edge DP for the 
 
 ## Open verification queue
 
-1. Obtain or author-contact the full PrivFGL paper.
-2. Obtain the full TrustCom 2025 privacy-assured analytics paper.
+1. Obtain the full PrivFGL paper from an entitled IEEE session or its authors; a send-ready request is recorded in `P0_FULLTEXT_REQUESTS.md`.
+2. Obtain the full TrustCom 2025 privacy-assured analytics paper from an entitled IEEE session or its authors; a send-ready request is recorded in `P0_FULLTEXT_REQUESTS.md`.
 3. Inspect the full LGA-PGNN definitions and experimental task tables.
 4. Trace forward citations of Solitude, LGA-PGNN, DPLP, GAP, FKGE, and FedLink in at least two independent indexes immediately before submission.
 5. Re-run the frozen query families immediately before freezing P1 and again before manuscript submission.
