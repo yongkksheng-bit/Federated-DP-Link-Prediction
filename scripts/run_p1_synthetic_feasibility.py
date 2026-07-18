@@ -4,10 +4,14 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
 
 from fed_dp_lp.accounting import DEFAULT_ORDERS, calibrate_gaussian
 from fed_dp_lp.block_release import (
@@ -20,7 +24,6 @@ from fed_dp_lp.metrics import paired_summary, roc_auc
 from fed_dp_lp.synthetic import generate_sbm
 
 
-ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "results" / "p1_synthetic"
 SEEDS = tuple(range(30))
 DOMAINS = {
