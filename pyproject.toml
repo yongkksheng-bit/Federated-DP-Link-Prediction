@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "federated-dp-link-prediction"
+version = "0.1.0"
+description = "Clean-room research code for federated edge-DP link prediction"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26,<2",
+  "scipy>=1.10,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.packages.find]
+where = ["src"]
