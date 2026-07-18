@@ -17,10 +17,8 @@
   "phase": "P0_literature_problem_novelty_audit",
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
-  "p0_unresolved_fulltexts": [
-    "PP_HGRL_IPM_2026",
-    "CF_DPGNN_ICSIP_2025"
-  ],
+  "p0_high_risk_fulltexts_classified": true,
+  "p0_unresolved_fulltexts": [],
   "p0_closed": false,
   "method_selected": false,
   "dataset_accessed": false,

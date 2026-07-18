@@ -19,7 +19,7 @@ its task, ownership model, adjacency unit, and released output all overlap.
 | FedGNNLDP, [Federated graph neural network with locally differential privacy](https://doi.org/10.1016/j.cose.2025.104757), Computers & Security 2026 | Subgraphs of a larger graph distributed across clients | Randomizes selected dimensions of per-node embedding features to produce epsilon-LDP features before federated training | Mandatory feature-LDP FGL predecessor. The publisher-exposed method text does not establish ordinary add/remove-edge adjacency, complete-transcript accounting, or an LP-specific released scorer |
 | Guo et al., [CE-FedGNN](https://arxiv.org/abs/2605.26243), 2026 preprint | Coupled federated graphs with infrequent aggregated representation exchange | RDP-composed metric-DP for released representations under a public-cohort threat model | Important current competitor for cross-client dependencies, but metric-DP in embedding distance is not worst-case add/remove edge-DP |
 | He et al., [PPGNN](https://arxiv.org/abs/2607.04777), 2026 preprint | Users hold private node features; the server holds the complete node set and adjacency matrix | Personalized LDP for node features and privacy-level choices | Current decentralized private graph learner, but explicitly leaves topology public and therefore does not protect ordinary graph edges |
-| Wang et al., [PP-HGRL](https://doi.org/10.1016/j.ipm.2026.104722), Information Processing & Management 2026 | HIN recommendation explicitly cast as link prediction; private local subgraphs distributed across clients and a central server | Publisher text claims dual-stage edge-DP from randomized-response graph publishing through Gaussian embedding perturbation and model deployment | Highest-risk near predecessor. Full adjacency, accountant, adversary, cross-client candidates, and deployed output require the licensed paper before novelty can be frozen |
+| Wang et al., [PP-HGRL](https://doi.org/10.1016/j.ipm.2026.104722), Information Processing & Management 2026 | HIN recommendation cast as LP; server owns raw user-item interactions while clients one-shot publish perturbed auxiliary relations; training is then centralized | RR plus degree-adaptive graph publication for auxiliary edges; Gaussian perturbation of server-side hidden embeddings; model output claimed edge-DP | Highest-risk near predecessor. Rules out broad decentralized edge-DP recommendation novelty, but has no federated optimization over distributed interaction edges, cross-client candidates, or formally bounded score transcript |
 
 ## Federated graph-learning neighbors
 
@@ -39,7 +39,7 @@ its task, ownership model, adjacency unit, and released output all overlap.
 |---|---|
 | GAP, USENIX Security 2023 | Strong edge-DP aggregation and inference-closure precedent |
 | DPLP, ICDE 2024 | Strongest centralized formal link-prediction baseline |
-| CF-DPGNN, [ICSIP 2025](https://doi.org/10.1109/ICSIP65915.2025.11171497) | GNN collaborative-filtering recommendation with subgraph-sampled DP-SGD and claimed edge-level privacy amplification; ownership, accountant, and output await full text |
+| CF-DPGNN, [ICSIP 2025](https://doi.org/10.1109/ICSIP65915.2025.11171497) | Centralized GNN collaborative-filtering LP with popularity-aware overlapping-subgraph sampling, per-subgraph clipping, Gaussian updates, and claimed edge-level RDP amplification; no clients or federated transcript |
 | EdgeRefine, [2026 preprint](https://arxiv.org/abs/2607.08659) | Very recent local edge-private graph perturbation; evaluated on node/graph classification rather than federated LP |
 | DyGAN-EDP, [Neurocomputing 2026](https://doi.org/10.1016/j.neucom.2026.132926) | Edge-private dynamic graph generation for downstream tasks, including temporal LP |
 
@@ -55,9 +55,8 @@ its task, ownership model, adjacency unit, and released output all overlap.
 
 ## Current matrix conclusion
 
-No **F1-checked** work simultaneously establishes all of the following. PP-HGRL
-is a high-overlap F2 exception that must be resolved before this sentence can
-be retained:
+No **F1-checked** work in this audit simultaneously establishes all of the
+following:
 
 1. one ordinary graph whose private edges are distributed across clients;
 2. add/remove edge-level DP against an explicitly stated federated adversary;
@@ -71,5 +70,6 @@ This is a provisional intersection gap, not yet a novelty claim. The first
 forward and backward citation pass is recorded in
 `P0_FULLTEXT_AND_CITATION_AUDIT.md`. PrivFGL and PDGL have been inspected in
 full, and LGA-PGNN has now been inspected from its author-hosted copy. The newly
-identified PP-HGRL and CF-DPGNN full texts and a second pre-submission citation
-pass remain mandatory.
+identified PP-HGRL and CF-DPGNN full texts have also been inspected. A second
+pre-submission citation pass and independent re-derivation of their privacy
+accountants remain mandatory.

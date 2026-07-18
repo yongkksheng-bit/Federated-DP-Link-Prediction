@@ -36,15 +36,19 @@
    visibility, and a private score service create a distinct mechanism problem.
 6. **PP-HGRL already claims decentralized edge-DP link recommendation from
    data sharing to model deployment.**
-   Response requirement: inspect the complete theorem and implementation, then
-   distinguish ordinary homogeneous-graph ownership, cross-client candidates,
-   server transcript visibility, and released pair scores only where the
-   distinction is technically real.
+   Verified distinction: its server owns raw user-item interactions, clients
+   publish auxiliary relations once, and training is centralized. Response
+   requirement: compare against PP-HGRL and distinguish distributed ownership
+   of the prediction edges, multi-round transcript visibility, cross-client
+   candidates, and released pair scores. Do not imply that one-shot
+   decentralized publication is irrelevant or that its privacy claim is
+   directly comparable without re-deriving composition.
 7. **CF-DPGNN already applies amplified DP-SGD to graph collaborative
    filtering.**
-   Response requirement: inspect whether its edge adjacency, ownership, and
-   release contract overlap; if centralized, include it as a matched objective
-   and accountant baseline rather than dismissing it by venue or terminology.
+   Verified distinction: it is centralized and clips sampled-subgraph
+   gradients under an overlap-aware amplification expression. Include it as a
+   matched centralized objective/accountant baseline, reproduce its sampler
+   carefully, and do not dismiss it by venue or terminology.
 
 ## Privacy correctness
 

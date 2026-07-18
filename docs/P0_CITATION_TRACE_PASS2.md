@@ -29,23 +29,29 @@ not establish add/remove-edge DP for a released LP scorer.
 
 ### PP-HGRL newly elevated
 
-The 2026 publisher text explicitly formulates decentralized HIN recommendation
-as link prediction, claims edge-level DP from graph publishing to model
-deployment, and distributes private local subgraphs across clients and a
-server. This is the closest discovered work to the target intersection. F1
-inspection is mandatory before P0 closure.
+The complete 2026 paper was subsequently obtained and promoted to F1. It
+formulates heterogeneous recommendation as link prediction, but the server
+already owns the raw user-item interaction graph. Clients publish perturbed
+auxiliary relation graphs once; all HGNN training then occurs centrally. It is
+the closest discovered work to the target intersection and rules out broad
+novelty based on decentralized edge-DP recommendation, while leaving open
+multi-round federated optimization over distributed prediction edges,
+cross-client candidates, and a bounded private score transcript.
 
 ### CF-DPGNN newly elevated
 
-The DPLP forward-citation chain exposed CF-DPGNN (ICSIP 2025). Publisher text
-confirms graph collaborative filtering, subgraph-sampled DP-SGD, privacy
-amplification, and three recommendation datasets. Its ownership, adjacency,
-accountant, and released output remain unknown without the full text.
+The DPLP forward-citation chain exposed CF-DPGNN (ICSIP 2025), which was then
+obtained and promoted to F1. It is centralized graph collaborative filtering:
+overlapping sampled subgraphs are clipped as training examples and Gaussian
+noise is added under a claimed multiplicity-aware RDP amplification bound.
+There are no clients or federated transcript, but it is a mandatory
+centralized edge-DP recommendation baseline whose accountant must be
+independently re-derived before comparison.
 
 ## Pass-2 decision
 
-P0 remains **open**. The ordinary homogeneous-graph, cross-client,
-transcript-accounted, inference-closed LP gap is still plausible, but PP-HGRL
-may cover a substantial fraction of it and CF-DPGNN may be a mandatory utility
-baseline. No model design or real-data experiment is authorized until both
-full texts are classified.
+The two high-risk papers are now classified. The ordinary homogeneous-graph,
+cross-client, transcript-accounted, inference-closed LP gap remains plausible,
+but it is narrow and does not justify a "first" claim. P0 remains **open** until
+the problem definition is frozen and the two nonstandard privacy accountants
+are re-derived; no real-data experiment is authorized before that gate.

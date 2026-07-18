@@ -97,7 +97,9 @@ P1 may begin only with the following constraints:
 - prohibit all real-data access until the feasibility theorem and synthetic
   mechanism tests are committed.
 
-The two mandatory TrustCom 2025 papers have been inspected in full. P0 is
-still not closed because PP-HGRL is a newly identified high-overlap 2026 work,
-LGA-PGNN remains below F1, and second-pass citation items remain open. No
-"first" claim is admissible during P0.
+The mandatory TrustCom papers, LGA-PGNN, PP-HGRL, and CF-DPGNN have now been
+inspected in full. PP-HGRL narrows the gap substantially but does not implement
+federated optimization over distributed interaction edges or cross-client LP;
+CF-DPGNN is centralized. P0 remains open pending final problem-definition
+freeze, privacy-accountant re-derivation, and the scheduled independent
+citation pass. No "first" claim is admissible during P0 or in the manuscript.
