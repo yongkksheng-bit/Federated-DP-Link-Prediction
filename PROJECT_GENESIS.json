@@ -11,6 +11,8 @@
   "inherited_manuscript_text": false,
   "legacy_bundle_sha256": "94AC8F29F46C851E56A626874F6DD142F11E6E2CAAD9BF62D59301CD1F9C09BB",
   "legacy_archive_is_admissible_evidence": false,
-  "remote_attached": false,
+  "remote_attached": true,
+  "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
+  "remote_verified_empty_before_first_push": true,
   "phase": "P0_problem_formulation"
 }
