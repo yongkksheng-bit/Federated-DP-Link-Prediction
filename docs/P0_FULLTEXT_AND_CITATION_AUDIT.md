@@ -67,10 +67,12 @@ Unknown fields remain unknown. A title containing "differential privacy" or "fed
 ### LGA-PGNN (IEEE TIFS, 2024)
 
 - Identity: Xinjun Pei et al., [Privacy-Enhanced Graph Neural Network for Decentralized Local Graphs](https://doi.org/10.1109/TIFS.2023.3329971).
-- Evidence: **A/F2**. The publisher bibliographic record and substantial abstract/reference trail were available; a complete accessible manuscript was not located during this pass.
-- Verified scope: decentralized local graphs, local-DP perturbation, local neighborhood augmentation, attribute-inference and link-stealing attacks.
-- Not established in this pass: an ordinary add/remove-edge federated transcript guarantee or a private LP release.
-- Relation: strong near predecessor for decentralized graph LDP and topology attack evaluation.
+- Evidence: **F1**. The complete 16-page paper was downloaded from the authors' [Central South University publication page](https://faculty.csu.edu.cn/dengxiaoheng/en/lwcg/10453/content/56084.htm), inspected, and hashed in `P0_RESTRICTED_EVIDENCE_REGISTER.md`.
+- Ownership and protocol: isolated data holders own local graphs. They perturb node-feature vectors locally, upload perturbed features and labels, and the cloud aligns entities, trains a GNN, and exposes a black-box node-classification API returning class-probability vectors.
+- Formal privacy: Definition 1 is generic tuple-level epsilon-LDP. Algorithm 1 and Lemma 1 establish epsilon-LDP for a piecewise mechanism applied to selected dimensions of numerical **vertex attributes**. Local graph augmentation uses a conditional graph autoencoder and an unbiased neighborhood estimator over perturbed attributes.
+- Task and attacks: the learned task is node classification on eight datasets. Attribute inference and link stealing are adversarial evaluations against released predictions; link stealing is not the downstream learning task.
+- Limitation for this project: despite prose claiming edge- and vertex-level protection under different applications, the paper does not provide an add/remove-edge neighboring-graph definition, an edge sensitivity/composition theorem for the released model/API, a federated transcript accountant, or a private LP scorer.
+- Relation: strong predecessor for decentralized feature-LDP learning, graph augmentation, and topology-attack evaluation, but not a formal edge-DP federated LP method.
 
 ## Forward citation tracing
 
@@ -92,6 +94,23 @@ No indexed citing paper was found. This is not evidence that no citation exists;
 - [CA-LDP](https://doi.org/10.3390/sym18040689) and Solitude make novelty based on decentralized edge-LDP collection unsafe even without federated LP.
 - PPGNN makes novelty based on personalized private decentralized graph learning unsafe, but its public-topology assumption cleanly separates it from private-edge LP.
 
+### PP-HGRL (Information Processing & Management, 2026)
+
+- Identity: Kun Wang, Yong Wang, Zhiqiang Zhang, Jiangzhou Deng, and Jingyuan Liu, [Privacy-preserving heterogeneous graph representation learning for recommendation](https://doi.org/10.1016/j.ipm.2026.104722), volume 63, issue 6, article 104722.
+- Evidence: **F2**. The publisher-rendered abstract, highlights, introduction, contribution list, and references were inspected; the complete licensed PDF and theorem text were not publicly accessible during this pass.
+- Verified overlap: the paper explicitly casts HIN recommendation as link prediction over latent user-item links. It considers private local subgraphs distributed across clients and a central server, and proposes PP-HGRL with a dual-stage edge-DP design spanning data sharing and model deployment.
+- Verified mechanism summary: Private Graph Data Publishing combines randomized response with adaptive edge sampling before client upload; Graph Embedding Perturbation adds calibrated Gaussian noise to hidden-layer node embeddings and claims privacy amplification and cumulative accounting. A relation-aware knowledge-transfer module supports heterogeneous recommendation.
+- Not verified: the exact edge-adjacency relation, clipping/sensitivity of embedding perturbation, composition theorem, adversary and transcript visibility, whether model deployment covers arbitrary scores or only model release, cross-client candidate construction, and whether the central server owns part of the private HIN.
+- Relation: **mandatory highest-risk near predecessor**. It already combines decentralized/federated graph ownership, an LP-instantiated recommendation task, edge-level DP, and a deployment claim. The project cannot freeze novelty or enter P1 until the full method, privacy theorem, and evaluation protocol are inspected.
+
+### CF-DPGNN (ICSIP, 2025)
+
+- Identity: Xiaoxuan Hu and Zeyu He, [CF-DPGNN: An Edge-Level Differential Privacy Framework for Collaborative Filtering Recommendation System](https://doi.org/10.1109/ICSIP65915.2025.11171497), pp. 1--8.
+- Evidence: **F2**. The complete publisher abstract, outline, and rendered introduction fragment were inspected; IEEE reports no public PDF access and ResearchGate has no deposited full text.
+- Verified overlap: user-item interactions are modeled as a bipartite graph for GNN collaborative filtering. CF-DPGNN combines subgraph sampling with DP-SGD and claims privacy amplification, improved recommendation utility, and stronger privacy-attack defense on three online-platform datasets.
+- Not verified: whether the ownership is federated or centrally curated, the edge adjacency and clipping unit, the subsampling accountant, whether epsilon protects individual interactions, the released output, and whether inference rereads a private graph.
+- Relation: mandatory edge-DP recommendation baseline candidate. It may be centralized rather than federated, but it directly challenges novelty and utility claims based on edge-DP graph recommendation alone.
+
 ## Citation-tracing conclusion
 
 The surviving gap is narrower than the initial keyword search suggested. A future contribution must distinguish itself simultaneously from decentralized edge-LDP graph collection and reconstruction, federated LP without formal edge-DP, federated graph training with feature/representation/update perturbation, and centralized edge-DP LP.
@@ -100,6 +119,7 @@ The exact intersection remains provisional: ordinary add/remove-edge DP for the 
 
 ## Open verification queue
 
-1. Inspect the full LGA-PGNN definitions and experimental task tables.
-2. Trace forward citations of Solitude, LGA-PGNN, DPLP, GAP, PDGL, FKGE, and FedLink in at least two independent indexes immediately before submission.
-3. Re-run the frozen query families immediately before freezing P1 and again before manuscript submission.
+1. Obtain and inspect PP-HGRL in full, including both DP stages and its deployment output.
+2. Obtain and inspect CF-DPGNN in full, including its ownership, adjacency, accountant, and release model.
+3. Trace forward citations of Solitude, LGA-PGNN, DPLP, GAP, PDGL, PP-HGRL, CF-DPGNN, FKGE, and FedLink in at least two independent indexes immediately before submission.
+4. Re-run the frozen query families immediately before freezing P1 and again before manuscript submission.

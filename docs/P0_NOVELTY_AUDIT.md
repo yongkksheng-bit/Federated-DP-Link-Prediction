@@ -11,7 +11,10 @@ training-time DP. Solitude, LGA-PGNN, and PDGL also rule out novelty based
 merely on decentralized local graphs plus edge or topology privacy. PDGL goes
 further by combining edge-LDP collection, edge-DP model training,
 MPC-protected features and labels, and secure node-classification inference.
-The defensible opportunity lies in a stricter operational intersection.
+PP-HGRL additionally claims decentralized HIN recommendation formulated as
+link prediction with dual-stage edge-DP from data sharing to deployment. The
+defensible opportunity, if any, therefore lies in a stricter ordinary-graph,
+cross-client, transcript-and-score intersection that PP-HGRL does not cover.
 
 ## Potentially admissible novelty
 
@@ -39,6 +42,7 @@ during P0:
 - "the first federated edge-private link-prediction framework";
 - "the first differentially private federated graph learner";
 - "the first private federated link-prediction method";
+- "the first edge-DP federated recommendation or link-prediction method";
 - "secure aggregation guarantees differential privacy";
 - "federated learning prevents data leakage";
 - "the final encoder implies private embeddings and scores";
@@ -93,7 +97,7 @@ P1 may begin only with the following constraints:
 - prohibit all real-data access until the feasibility theorem and synthetic
   mechanism tests are committed.
 
-The two mandatory TrustCom 2025 papers have now been inspected in full. P0 is
-still not closed while the remaining full-text and second-pass citation items
-in `P0_FULLTEXT_AND_CITATION_AUDIT.md` remain open. No "first" claim is
-admissible during P0.
+The two mandatory TrustCom 2025 papers have been inspected in full. P0 is
+still not closed because PP-HGRL is a newly identified high-overlap 2026 work,
+LGA-PGNN remains below F1, and second-pass citation items remain open. No
+"first" claim is admissible during P0.
