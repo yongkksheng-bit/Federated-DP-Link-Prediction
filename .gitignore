@@ -30,6 +30,10 @@ results/**
 artifacts/
 logs/
 
+# Copyright-restricted papers used only for local scholarly review
+literature/restricted/**
+!literature/restricted/.gitkeep
+
 # Manuscript build products
 *.aux
 *.bbl
@@ -39,4 +43,3 @@ logs/
 *.log
 *.out
 *.synctex.gz
-
