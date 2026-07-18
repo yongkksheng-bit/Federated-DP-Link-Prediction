@@ -1,0 +1,16 @@
+{
+  "project": "Federated-DP-Link-Prediction",
+  "paper_title": "Differentially Private Link Prediction in Federated Setting",
+  "genesis_date": "2026-07-18",
+  "git_history": "new_unrelated_history",
+  "inherited_tracked_files": 0,
+  "inherited_code": false,
+  "inherited_data": false,
+  "inherited_splits": false,
+  "inherited_results": false,
+  "inherited_manuscript_text": false,
+  "legacy_bundle_sha256": "94AC8F29F46C851E56A626874F6DD142F11E6E2CAAD9BF62D59301CD1F9C09BB",
+  "legacy_archive_is_admissible_evidence": false,
+  "remote_attached": false,
+  "phase": "P0_problem_formulation"
+}
