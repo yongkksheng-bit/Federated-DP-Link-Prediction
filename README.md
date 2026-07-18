@@ -30,3 +30,6 @@ sensitivity and accounting checks.
 5. Separate development, validation, and one-time sealed-test access.
 
 See `docs/RESEARCH_CHARTER.md` and `docs/EVIDENCE_POLICY.md`.
+
+The current full-text evidence levels, unresolved competitors, and citation
+chains are tracked in `docs/P0_FULLTEXT_AND_CITATION_AUDIT.md`.

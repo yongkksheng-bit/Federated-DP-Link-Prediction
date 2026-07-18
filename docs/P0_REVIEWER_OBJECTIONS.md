@@ -1,5 +1,18 @@
 # P0 Reviewer Objection Register
 
+## Newly elevated objection
+
+0. **The gap ignores decentralized edge-LDP graph learning.**
+   Solitude already provides formal edge-LDP collection for decentralized
+   user-held adjacency lists, and LGA-PGNN studies LDP learning and
+   link-stealing attacks on decentralized local graphs. FedGNNLDP, PrivFGL,
+   CA-LDP, and PPGNN further crowd the private distributed graph-learning
+   space. The required response is not "we also distribute a graph." It is an
+   ordinary add/remove-edge guarantee for the complete federated transcript,
+   an inference-closed LP output, explicit cross-client candidates, and
+   matched utility beyond public inputs. No "first" statement is admissible
+   while the unresolved TrustCom full texts remain uninspected.
+
 ## Novelty
 
 1. **FKGE already performs differentially private federated link prediction.**

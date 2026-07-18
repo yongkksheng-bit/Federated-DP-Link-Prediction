@@ -7,8 +7,9 @@
 The broad intersection `federated + differential privacy + link prediction` is
 not novel: CIKM 2021 FKGE already combines all three for knowledge graphs, and
 2025--2026 work combines federated graph learning with local, metric, or
-training-time DP. The defensible opportunity lies in a stricter operational
-intersection.
+training-time DP. Solitude and LGA-PGNN also rule out novelty based merely on
+decentralized local graphs plus edge or topology privacy. The defensible
+opportunity lies in a stricter operational intersection.
 
 ## Potentially admissible novelty
 
@@ -51,6 +52,8 @@ The literature already rules out claiming novelty for:
 - federated DP knowledge-graph link prediction;
 - edge-private aggregation perturbation;
 - private subgraph GNN extraction;
+- decentralized edge-LDP graph collection or reconstruction;
+- local-DP learning over decentralized local graphs;
 - cross-client representation exchange;
 - local-noise federated GNN training; or
 - privacy-preserving graph learning based solely on not sharing raw data.
@@ -86,3 +89,8 @@ P1 may begin only with the following constraints:
 - establish an information-bearing non-private statistic before adding noise;
 - prohibit all real-data access until the feasibility theorem and synthetic
   mechanism tests are committed.
+
+P0 is not closed while the unresolved TrustCom full texts listed in
+`P0_FULLTEXT_AND_CITATION_AUDIT.md` remain uninspected. If access cannot be
+obtained, the project must retain conditional wording and cannot use a "first"
+claim.

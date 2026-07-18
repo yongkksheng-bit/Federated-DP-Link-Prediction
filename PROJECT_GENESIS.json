@@ -16,6 +16,13 @@
   "remote_verified_empty_before_first_push": true,
   "phase": "P0_literature_problem_novelty_audit",
   "p0_initial_decision": "proceed_with_narrowing",
+  "p0_fulltext_citation_pass_1_complete": true,
+  "p0_unresolved_fulltexts": [
+    "PrivFGL_TrustCom_2025",
+    "Privacy_Assured_Analytics_TrustCom_2025",
+    "LGA_PGNN_definition_tables"
+  ],
+  "p0_closed": false,
   "method_selected": false,
   "dataset_accessed": false,
   "experiment_run": false
