@@ -48,4 +48,3 @@
 20. Was the sealed test accessed only after the final freeze?
 
 An unanswered objection blocks the corresponding headline claim.
-

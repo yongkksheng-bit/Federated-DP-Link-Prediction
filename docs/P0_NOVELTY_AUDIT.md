@@ -86,4 +86,3 @@ P1 may begin only with the following constraints:
 - establish an information-bearing non-private statistic before adding noise;
 - prohibit all real-data access until the feasibility theorem and synthetic
   mechanism tests are committed.
-

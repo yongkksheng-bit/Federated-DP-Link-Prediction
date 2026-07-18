@@ -61,4 +61,3 @@ No checked work simultaneously establishes all of the following:
 This is a provisional intersection gap, not yet a novelty claim. Forward and
 backward citation checks and full-text verification of 2025--2026 competitors
 remain mandatory before submission.
-

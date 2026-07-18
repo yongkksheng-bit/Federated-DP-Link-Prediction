@@ -89,4 +89,3 @@ region.
 - Treating knowledge-graph triple completion as identical to ordinary graph LP.
 - Releasing arbitrary embeddings under a training-only guarantee.
 - Proving that a named loss is universally superior under DP.
-
