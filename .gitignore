@@ -29,6 +29,7 @@ results/**
 !results/README.md
 artifacts/
 logs/
+tmp/
 
 # Copyright-restricted papers used only for local scholarly review
 literature/restricted/**

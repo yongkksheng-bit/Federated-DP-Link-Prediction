@@ -27,8 +27,8 @@ its task, ownership model, adjacency unit, and released output all overlap.
 | Baek et al., [Personalized Subgraph Federated Learning](https://proceedings.mlr.press/v202/baek23a.html), ICML 2023 | Personalized learning when a global graph is split into private interconnected subgraphs | No formal edge-DP link-prediction release |
 | FedGCN, [Convergence-Communication Tradeoffs in Federated GCN Training](https://openreview.net/forum?id=ody3RBUuJS) | Cross-client neighbor handling and communication trade-offs | Node classification focus; privacy is not the fixed add/remove-edge output guarantee |
 | [FedGraph](https://openreview.net/forum?id=d48HjofVrf), 2025 | Scalable FGL library with cross-client edges, encrypted aggregation, and LP support | Encryption/secure aggregation is not differential privacy |
-| PrivFGL, [Differentially Private Federated Graph Learning via Personalized Data Transformation](https://doi.org/10.1109/TRUSTCOM66490.2025.00307), TrustCom 2025 | Uses personalized data transformation to mitigate perturbation-amplified client heterogeneity; its public artifact prepares Cora/CiteSeer node-classification partitions | Public code supports node classification rather than LP, but graph ownership, adjacency, accountant, theorem, and output remain unverified; it is an adjacent DP-FGL utility method, not yet an admissible edge-DP LP baseline |
-| Li et al., [Privacy-Assured Analytics on Decentralized Graphs: The Case of Graph Learning](https://doi.org/10.1109/TRUSTCOM66490.2025.00162), TrustCom 2025 | PDGL operates on a graph decentralized among nodes holding neighbor lists, features, and possible labels; its abstract claims simultaneous protection of links, features, and labels | Mandatory strong near predecessor. Exact privacy notion, adjacency, accountant, task, and released output require full text; no inspected source yet establishes federated LP or an inference-closed private scorer |
+| PrivFGL, [Differentially Private Federated Graph Learning via Personalized Data Transformation](https://doi.org/10.1109/TRUSTCOM66490.2025.00307), TrustCom 2025 | Cross-silo federated node classification on Cora/CiteSeer; local PDT adapts perturbed inputs before GCN training | Reports node-LDP/CDP utility but gives no adjacency, clipping, sensitivity, accountant, adversary, or output theorem; not a formal edge-DP LP baseline |
+| Li et al., [Privacy-Assured Analytics on Decentralized Graphs: The Case of Graph Learning](https://doi.org/10.1109/TRUSTCOM66490.2025.00162), TrustCom 2025 | Three non-colluding servers securely train LPGNet for node classification from node-held adjacency lists, features, and labels | Pure edge-LDP collection and add/remove-edge DP trained model, plus secure per-node label inference; no LP scorer, candidate-pair evaluation, cross-client LP, or private score output |
 | [DG-CoLearn](https://arxiv.org/abs/2605.31427), 2026 preprint | Collaborative dynamic graphs with cross-client edges; evaluates node classification and LP | Client-oblivious confidentiality model with a trusted coordinator holding global topology; no DP guarantee | Direct current federated or collaborative LP neighbor, but not an edge-DP method |
 | [FedGraph-LDP mechanism](https://doi.org/10.3390/sym17040565), 2025 | LDP perturbation of federated GNN gradients | Does not by itself resolve inference that rereads private adjacency |
 
@@ -65,6 +65,6 @@ No checked work simultaneously establishes all of the following:
 
 This is a provisional intersection gap, not yet a novelty claim. The first
 forward and backward citation pass is recorded in
-`P0_FULLTEXT_AND_CITATION_AUDIT.md`. Full-text access for PrivFGL and the
-TrustCom privacy-assured analytics paper, plus a second pre-submission citation
-pass, remain mandatory.
+`P0_FULLTEXT_AND_CITATION_AUDIT.md`. PrivFGL and PDGL have now been inspected
+in full. The remaining full-text queue and a second pre-submission citation
+pass remain mandatory.

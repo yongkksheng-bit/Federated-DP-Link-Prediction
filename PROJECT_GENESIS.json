@@ -18,8 +18,6 @@
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
   "p0_unresolved_fulltexts": [
-    "PrivFGL_TrustCom_2025",
-    "Privacy_Assured_Analytics_TrustCom_2025",
     "LGA_PGNN_definition_tables"
   ],
   "p0_closed": false,

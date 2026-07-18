@@ -2,6 +2,10 @@
 
 Prepared: 2026-07-18 (Asia/Shanghai).
 
+Status: fulfilled locally on 2026-07-18. Both proceedings PDFs were supplied
+by the researcher and inspected. The templates are retained only as an audit
+trail; no request needs to be sent.
+
 These requests are for scholarly verification. A received manuscript must be
 stored outside the public Git repository unless its license permits
 redistribution. Record its provenance and SHA-256 locally, then update the P0

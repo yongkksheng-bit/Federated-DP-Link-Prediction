@@ -26,12 +26,13 @@ Unknown fields remain unknown. A title containing "differential privacy" or "fed
 ### PrivFGL (TrustCom, 2025)
 
 - Identity: Songyan Zhang, Hanyu Lu, and Hongfa Ding, [PrivFGL](https://doi.org/10.1109/TRUSTCOM66490.2025.00307), pp. 2606--2611.
-- Evidence: **A+code**. IEEE identifies document 11354599. The indexed IEEE PDF URL returns HTTP 418 outside an entitled browser session, ResearchGate reports no deposited full text, and no archival author manuscript was found. The public companion repository was inspected separately; it is supporting implementation evidence, not a substitute for the paper.
+- Evidence: **F1+code**. A complete six-page IEEE proceedings copy supplied locally by the researcher was inspected and hashed in `P0_RESTRICTED_EVIDENCE_REGISTER.md`; the public companion repository was inspected separately.
 - Verified from the abstract: PrivFGL attributes DP-FGL utility loss to noise-amplified client heterogeneity and applies a local Personalized Data Transformation module to perturbed client data. It evaluates two datasets against one heterogeneity-oriented method.
-- Verified from the [public companion repository](https://github.com/syzhang725/PrivFGL1): the only executable artifact loads the PyG Planetoid Cora and CiteSeer datasets, constructs Louvain or random client partitions, and retains node labels and train/validation/test node masks. The repository therefore supports a node-classification empirical interpretation, not a link-prediction evaluation. It contains no PDT implementation, DP mechanism, clipping code, accountant, configuration, results, or paper PDF.
-- Not verified: graph ownership, neighboring-dataset definition, clipping unit, accountant, adversary, exact privacy theorem, and released output.
+- Verified task and protocol: the paper explicitly targets node-level graph tasks. Clients download a global GCN, jointly train a local PDT layer and local model, retain PDT locally, and upload the local model for aggregation. Experiments use Cora and CiteSeer, accuracy, node labels/masks, Louvain or random partitions, and node-LDP or central-DP variants.
+- Verified DP scope: the paper describes adding random noise either to local client data or uploaded/aggregated model updates. It mentions an initial edge-LDP diagnostic, but its reported method and tables use `node-LDP/CDP`. It gives no neighboring-dataset definition, clipping rule, sensitivity derivation, composition/accountant, delta, adversary theorem, or released-output theorem. Consequently, its epsilon values are not admissible evidence of the target complete-transcript add/remove-edge DP contract.
+- Verified artifact limitation: the [public companion repository](https://github.com/syzhang725/PrivFGL1) only prepares Cora/CiteSeer node-classification data and partitions. It contains no PDT, DP mechanism, clipping, accountant, configuration, results, or paper PDF.
 - Backward-reference signal: the available bibliography is dominated by heterogeneous DP-FL and personalized data transformation, with only a small graph-learning component. This helps classify the paper but does not replace its missing method text.
-- Relation: adjacent DP-FGL utility method. It cannot yet be admitted as an edge-DP LP baseline or used to support an exact novelty claim.
+- Relation: adjacent DP-FGL utility method, not a formal edge-DP LP baseline. It can inform a heterogeneity-control ablation, but cannot support the target privacy theorem or an exact novelty claim.
 
 ### PPGNN (arXiv, 2026)
 
@@ -45,10 +46,12 @@ Unknown fields remain unknown. A title containing "differential privacy" or "fed
 ### Privacy-Assured Analytics on Decentralized Graphs (TrustCom, 2025)
 
 - Identity: Longji Li, Yifeng Zheng, Songlei Wang, Zhongyun Hua, Lei Xu, and Yansong Gao, [Privacy-Assured Analytics on Decentralized Graphs: The Case of Graph Learning](https://doi.org/10.1109/TRUSTCOM66490.2025.00162), pp. 1396--1405.
-- Evidence: **A/F2-abstract**. The indexed IEEE PDF URL returns HTTP 418 outside an entitled browser session, and no archival author manuscript or public code repository was located. The publisher/author-indexed abstract and an official rendered introduction fragment were inspected; full technical fields remain unverified.
-- Verified scope: PDGL assumes a graph fully decentralized among nodes, each holding a limited local view. The abstract claims simultaneous protection of links, private feature data, and labels, with utility comparable to centralized graph learning. The rendered introduction fragment describes each node as holding a neighbor list, features, and possibly labels, and positions PDGL against LDP collection followed by server-side GCN training.
-- Not verified: whether link privacy is formal edge-LDP, central DP, cryptographic confidentiality, or a hybrid; the adjacency relation; composition/accounting; the exact downstream task; whether experiments are node classification only; and what model, graph, embeddings, labels, or scores are released.
-- Relation: mandatory strong near predecessor because its ownership and claimed protected objects directly approach the decentralized-private-graph intersection. Nothing currently inspected establishes federated link prediction or an inference-closed private LP output, but absence cannot be claimed until the full method and experiment sections are read.
+- Evidence: **F1**. A complete ten-page IEEE proceedings copy supplied locally by the researcher was inspected and hashed in `P0_RESTRICTED_EVIDENCE_REGISTER.md`.
+- Ownership and adversary: every node/user locally holds a feature vector, adjacency list, and possibly a label. Three semi-honest, non-colluding servers collect protected shares, train in the secret-sharing domain, and jointly answer inference requests.
+- Privacy: Theorem 5 proves pure edge-LDP for each server's view of a user's secret-shared neighbor list, with epsilon determined by the zero-sampling probability. Theorem 6 proves add/remove-edge epsilon-DP for the trained model by adding discrete Laplace noise of sensitivity two to each LPGNet cluster-degree matrix and allocating epsilon/K to each of K intermediate MLPs. Theorem 7 gives simulation security with explicitly differentially private leakage.
+- Task and output: PDGL is explicitly a **node-classification** system. It securely returns a secret-shared predicted label to the requesting unlabeled user. It does not train or expose a link-prediction scorer, evaluate candidate-pair AUC, or define intra-/cross-client LP outputs.
+- Experiments: Cora, CiteSeer, LastFM, and Facebook; Top-1 node-classification accuracy; LPGNet and Blink private baselines; three-server LAN/WAN training and per-node secure-inference cost. Communication is substantial (up to 1184.3 GB offline and 248.1 GB online for training in the reported Facebook setting).
+- Relation: a mandatory strong predecessor for decentralized edge-private graph learning and inference closure. It rules out novelty based on decentralized adjacency ownership, edge-LDP collection, edge-DP model training, cryptographic protection of features/labels, or secure graph inference. The surviving distinction is federated ordinary-graph **link prediction**, especially cross-client candidates and a formally private score output.
 
 ## Earlier works promoted by backward tracing
 
@@ -97,8 +100,6 @@ The exact intersection remains provisional: ordinary add/remove-edge DP for the 
 
 ## Open verification queue
 
-1. Obtain the full PrivFGL paper from an entitled IEEE session or its authors; a send-ready request is recorded in `P0_FULLTEXT_REQUESTS.md`.
-2. Obtain the full TrustCom 2025 privacy-assured analytics paper from an entitled IEEE session or its authors; a send-ready request is recorded in `P0_FULLTEXT_REQUESTS.md`.
-3. Inspect the full LGA-PGNN definitions and experimental task tables.
-4. Trace forward citations of Solitude, LGA-PGNN, DPLP, GAP, FKGE, and FedLink in at least two independent indexes immediately before submission.
-5. Re-run the frozen query families immediately before freezing P1 and again before manuscript submission.
+1. Inspect the full LGA-PGNN definitions and experimental task tables.
+2. Trace forward citations of Solitude, LGA-PGNN, DPLP, GAP, PDGL, FKGE, and FedLink in at least two independent indexes immediately before submission.
+3. Re-run the frozen query families immediately before freezing P1 and again before manuscript submission.

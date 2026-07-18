@@ -7,9 +7,11 @@
 The broad intersection `federated + differential privacy + link prediction` is
 not novel: CIKM 2021 FKGE already combines all three for knowledge graphs, and
 2025--2026 work combines federated graph learning with local, metric, or
-training-time DP. Solitude and LGA-PGNN also rule out novelty based merely on
-decentralized local graphs plus edge or topology privacy. The defensible
-opportunity lies in a stricter operational intersection.
+training-time DP. Solitude, LGA-PGNN, and PDGL also rule out novelty based
+merely on decentralized local graphs plus edge or topology privacy. PDGL goes
+further by combining edge-LDP collection, edge-DP model training,
+MPC-protected features and labels, and secure node-classification inference.
+The defensible opportunity lies in a stricter operational intersection.
 
 ## Potentially admissible novelty
 
@@ -53,6 +55,7 @@ The literature already rules out claiming novelty for:
 - edge-private aggregation perturbation;
 - private subgraph GNN extraction;
 - decentralized edge-LDP graph collection or reconstruction;
+- decentralized edge-DP graph-model training and secure node inference;
 - local-DP learning over decentralized local graphs;
 - cross-client representation exchange;
 - local-noise federated GNN training; or
@@ -90,7 +93,7 @@ P1 may begin only with the following constraints:
 - prohibit all real-data access until the feasibility theorem and synthetic
   mechanism tests are committed.
 
-P0 is not closed while the unresolved TrustCom full texts listed in
-`P0_FULLTEXT_AND_CITATION_AUDIT.md` remain uninspected. If access cannot be
-obtained, the project must retain conditional wording and cannot use a "first"
-claim.
+The two mandatory TrustCom 2025 papers have now been inspected in full. P0 is
+still not closed while the remaining full-text and second-pass citation items
+in `P0_FULLTEXT_AND_CITATION_AUDIT.md` remain open. No "first" claim is
+admissible during P0.
