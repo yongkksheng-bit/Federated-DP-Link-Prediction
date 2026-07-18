@@ -1,91 +1,118 @@
-# P0 Problem Definition Draft
+# P0 Frozen Problem Definition
 
-This document defines the narrow target discovered by the literature audit. It
-is a draft for formal review, not a frozen mechanism protocol.
+Frozen: 2026-07-18 (Asia/Shanghai).
 
-## Graph and federation
+This document fixes the scientific target. P1 may test mechanisms against this
+contract but may not silently weaken it.
 
-Let `V` be a fixed public node universe with public node descriptors `X`. A
-simple undirected graph has private edge set
+## Public universe and distributed private graph
 
-`E = union(E_1, ..., E_K)`,
+Let `V` be a fixed public node universe, `X` fixed public node descriptors, and
+`h: V -> {1,...,K}` a fixed public home-client map. The target is a simple
+undirected homogeneous graph with private edge set
 
-where client `k` owns `E_k`. Edge ownership must be unique and independent of
-the presence or absence of any other private edge. Node membership, client
-membership, and public descriptors are fixed under edge adjacency.
+`E = disjoint_union(E_1, ..., E_K)`.
 
-The target task scores candidate pairs in `V x V`, with separate reporting for
-intra-client and cross-client pairs. A cross-client pair is a prediction target,
-not permission to reveal either client's raw neighborhood.
+Each canonical edge `{u,v}` is stored by exactly one client under a fixed public
+ownership rule `o(u,v)`. The rule and client/node membership do not depend on
+whether any private edge exists. Duplicate storage is prohibited in the main
+contract; a deduplication protocol would otherwise become part of the private
+mechanism.
 
-## Neighboring federated datasets
+A candidate pair is **intra-client** when `h(u)=h(v)` and **cross-client** when
+`h(u)!=h(v)`. Cross-client status is public metadata, not evidence that the
+edge exists. Raw edges, degrees, neighborhoods, edge-derived partitions, and
+edge-derived normalizers are private.
 
-Two federated datasets are add/remove edge neighbors when they differ by one
-canonical edge record in exactly one client's edge set, while `V`, `X`, client
-membership, public randomness, and every other record remain fixed.
+## Add/remove-edge adjacency
 
-Any negative sampler, partitioner, scheduler, normalization, or denominator
-whose output changes for additional records after one edge is removed must be
-included in the sensitivity analysis. Calling an edge a record is insufficient
-if preprocessing creates graph-wide dependencies.
+Federated datasets `D=(E_1,...,E_K)` and `D'` are neighbors, written `D~eD'`,
+when they differ by one canonical edge record in exactly one client and all
+public objects remain fixed. This is unbounded add/remove adjacency.
 
-## Adversary draft
+The protected individual is one relationship, not one node or one client. A
+mechanism must account for every consequence of adding or removing that edge,
+including negative sampling, minibatch membership, normalization, scheduling,
+candidate construction, and repeated appearances in overlapping subgraphs.
 
-The minimum adversary is an honest-but-curious coordinating server that sees
-the complete protocol-defined transcript and final released object. The final
-paper must separately state guarantees under:
+## Threat model and transcript
 
-- no secure aggregation, where each client message is server-visible;
-- ideal secure aggregation, where only an aggregate is server-visible; and
-- optional client collusion assumptions.
+The primary adversary is an honest-but-curious coordinating server that obeys
+the protocol but records its complete view. In the primary, stronger visibility
+model, the server observes every client message in every round, public control
+flow, stopping metadata, final released state, and prediction interface.
 
-Secure aggregation is a trusted protocol assumption, not a DP mechanism.
+Ideal secure aggregation is a separately reported secondary model in which the
+server sees only the prescribed aggregate. It may tighten sensitivity or enable
+central noise, but it is an explicit trusted functionality and is not itself a
+DP guarantee. Client collusion is outside the primary theorem unless a later
+mechanism states a threshold and includes colluders' views.
 
-## Output contract
+## Frozen output contract: inference-closed release
 
-The formal mechanism output must include every object visible outside a client:
+The main mechanism outputs a randomized release `R`, which may contain model
+parameters, cached structural summaries, or both. The complete server-visible
+training transcript together with `R` must satisfy `(epsilon,delta)` edge-DP
+under `D~eD'`.
 
-- messages observed in every training round;
-- public metadata derived from private edges;
-- final parameters, cached representations, or released statistics; and
-- the deployed prediction interface.
+The deployed score has the form
 
-Raw embeddings computed from `E`, unrestricted pair-score dumps, and inference
-that rereads `E` are not covered by training DP through post-processing. The
-preferred deployment target is either:
+`score_R(u,v) = F(R, X, u, v; public randomness)`.
 
-1. a scorer that consumes only public inputs and a DP release; or
-2. a bounded score service whose query mechanism has an independently composed
-   privacy budget.
+It may not read `E`, a raw neighborhood, an unprotected edge-derived embedding,
+or any other private state. Consequently, any finite or unlimited collection of
+scores computed only this way is post-processing of `R`. Public release of raw
+embeddings is permitted only when those embeddings are themselves contained in
+or deterministically computed from `R` and public inputs.
 
-The choice remains unresolved until the feasibility analysis.
+A separately budgeted interactive score service is an optional future
+extension, not part of the minimum contribution. Rate limits and logging alone
+do not constitute DP.
 
-## Utility target
+## Privacy statement required of every mechanism
 
-The primary scientific question is not whether a private method attains high
-absolute AUC. It is whether private structural information creates measurable
-utility beyond the strongest matched public-input-only predictor.
+For both server-visibility models, a valid claim must state:
 
-Required metric families are global, intra-client, and cross-client ranking
-quality. A composite metric may be reported only alongside its fixed weights
-and all components; it cannot hide a failed cross-client result.
+1. adjacency and protected edge owner;
+2. every randomized message and released object;
+3. clipping/sensitivity unit and sampling law;
+4. per-step privacy mechanism;
+5. adaptive composition over local steps and rounds;
+6. conversion to `(epsilon,delta)` at a declared `delta` and optimized RDP
+   order; and
+7. why deployed inference is post-processing.
 
-## Feasibility question
+Privacy parameters may not be inferred from a nominal noise multiplier alone.
 
-Before architecture design, P1 must derive a condition of the form
+## Utility estimand and evaluation discipline
 
-`private structural signal > release noise + approximation error + public-baseline gap`.
+The primary estimand is the paired improvement attributable to private
+structure over the strongest matched public-input-only predictor. Global,
+intra-client, and cross-client ranking metrics must be reported separately.
 
-The derivation must expose dependence on release dimension, clipping unit,
-client count, secure-aggregation visibility, number of compositions, graph
-degree or workload bounds, and query budget. A method is admissible only if a
-non-private oracle and the derived DP scale predict a nontrivial feasible
-region.
+The minimum causal controls are public-input-only, zero-private-signal or
+noise-only, a tuned non-private oracle, and a matched non-private federated
+method. Splits, candidate sets, client assignment, tuning budget, and seeds must
+be shared. Test edges are sealed until the mechanism and hyperparameters are
+frozen. A composite score is secondary and must expose fixed weights.
 
-## Explicit non-goals
+## P1 feasibility gate
 
-- Protecting private node attributes under node-level DP.
-- Claiming cryptographic security from simulation-only secure aggregation.
-- Treating knowledge-graph triple completion as identical to ordinary graph LP.
-- Releasing arbitrary embeddings under a training-only guarantee.
-- Proving that a named loss is universally superior under DP.
+Before real-data experiments, P1 must derive and test on synthetic graphs a
+condition of the form
+
+`private structural signal > release noise + approximation error + public gap`.
+
+The derivation must expose release dimension, edge sensitivity, clipping unit,
+client count, visibility model, compositions, degree/workload bounds, and any
+query budget. P1 stops if no nontrivial regime is predicted or if a clean oracle
+cannot beat the public-only control.
+
+## Non-goals
+
+- Node-attribute or node-level privacy.
+- Knowledge-graph triple privacy presented as ordinary edge privacy.
+- Cryptographic confidentiality presented as DP.
+- Inference that rereads the private graph.
+- Universal superiority of a named architecture or loss.
+- A "first" claim based only on combining keywords.

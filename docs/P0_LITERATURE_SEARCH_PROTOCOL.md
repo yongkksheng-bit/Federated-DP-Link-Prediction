@@ -73,11 +73,10 @@ For every candidate, record:
 ## P0 outputs
 
 1. A literature matrix with exact, near, and adjacent predecessors.
-2. A problem-definition draft with unresolved choices marked explicitly.
+2. A frozen problem definition and output contract.
 3. A novelty audit containing admissible, risky, and prohibited claims.
 4. A reviewer-objection list.
 5. A P0 decision: proceed, narrow, or stop before method design.
 
 No model implementation, dataset download, or experiment is permitted during
 P0.
-

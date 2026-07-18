@@ -2,7 +2,8 @@
 
 ## Decision
 
-**Proceed with narrowing. Do not design a model yet.**
+**P0 closed: proceed to synthetic P1 mechanism feasibility under the frozen
+output contract. Do not select a model or access real data yet.**
 
 The broad intersection `federated + differential privacy + link prediction` is
 not novel: CIKM 2021 FKGE already combines all three for knowledge graphs, and
@@ -100,6 +101,7 @@ P1 may begin only with the following constraints:
 The mandatory TrustCom papers, LGA-PGNN, PP-HGRL, and CF-DPGNN have now been
 inspected in full. PP-HGRL narrows the gap substantially but does not implement
 federated optimization over distributed interaction edges or cross-client LP;
-CF-DPGNN is centralized. P0 remains open pending final problem-definition
-freeze, privacy-accountant re-derivation, and the scheduled independent
-citation pass. No "first" claim is admissible during P0 or in the manuscript.
+CF-DPGNN is centralized. The problem definition and accountant audit are now
+frozen in `P0_PROBLEM_DEFINITION.md` and `P0_ACCOUNTANT_REDERIVATION.md`; P0 is
+closed with the residual pre-submission search obligations recorded in
+`P0_CLOSEOUT.md`. No "first" claim is admissible in the manuscript.
