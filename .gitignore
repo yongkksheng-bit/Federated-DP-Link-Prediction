@@ -30,6 +30,9 @@ results/**
 !results/p1_synthetic/
 !results/p1_synthetic/records.jsonl
 !results/p1_synthetic/summary.json
+!results/p1_stress/
+!results/p1_stress/records.jsonl
+!results/p1_stress/summary.json
 artifacts/
 logs/
 tmp/
