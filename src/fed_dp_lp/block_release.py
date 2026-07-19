@@ -101,8 +101,12 @@ def score_pairs(
 ) -> np.ndarray:
     """Score public candidate pairs using only a DP release and public groups."""
     pairs = np.asarray(pairs, dtype=np.int64)
-    scores = np.empty(len(pairs), dtype=np.float64)
-    for idx, (u, v) in enumerate(pairs):
-        block = tuple(sorted((int(groups[u]), int(groups[v]))))
-        scores[idx] = densities[layout.pair_to_index[block]]
-    return scores
+    block_count = int(np.max(groups)) + 1
+    lookup = np.empty((block_count, block_count), dtype=np.int64)
+    for block, idx in layout.pair_to_index.items():
+        left, right = block
+        lookup[left, right] = idx
+        lookup[right, left] = idx
+    left = groups[pairs[:, 0]]
+    right = groups[pairs[:, 1]]
+    return densities[lookup[left, right]]
