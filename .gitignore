@@ -65,6 +65,9 @@ results/**
 !results/p2_2_confirmatory_test/access.json
 !results/p2_2_confirmatory_test/records.jsonl
 !results/p2_2_confirmatory_test/summary.json
+!results/p3_internal_validation/
+!results/p3_internal_validation/records.jsonl
+!results/p3_internal_validation/summary.json
 artifacts/
 logs/
 tmp/

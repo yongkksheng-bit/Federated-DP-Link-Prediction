@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_p3_internal_validation",
+  "master_config": "configs/p3_master_benchmark.json",
+  "data_access": "P3 train and validation arrays only; no sealed test decrypt",
+  "binning": {
+    "b1": [0.0, 1.0000001],
+    "b4": [0.0, 1e-12, 0.1, 0.4, 1.0000001],
+    "b8": [0.0, 1e-12, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0000001]
+  },
+  "residual_weight": 0.1,
+  "random_streams": {
+    "random_score": 7001,
+    "b1_visible": 7101,
+    "b4_visible": 7201,
+    "b8_visible_and_matched_zero": 7301,
+    "b8_ideal_secagg": 7401
+  },
+  "methods_per_epsilon": [
+    "public_cosine",
+    "random_score",
+    "matched_zero_private_signal_b8_visible",
+    "nonprivate_conditioned_b8_reference",
+    "dp_unconditioned_b1_visible_messages",
+    "dp_conditioned_b4_visible_messages",
+    "dp_conditioned_b8_visible_messages",
+    "dp_conditioned_b8_ideal_secagg"
+  ],
+  "selection": "none; selected P2.2 method and all controls are fixed",
+  "operational_pass": {
+    "records": 150,
+    "datasets": 6,
+    "seeds": 5,
+    "epsilons": 5,
+    "missing_or_failed_cell": "STOP_BEFORE_EXTERNAL_BASELINES"
+  },
+  "systems_boundary": {
+    "payload_scalar": "float64",
+    "ideal_secagg_cryptographic_overhead": "excluded; logical vector payload lower bound only",
+    "peak_memory": "process peak working set, not per-method resettable memory"
+  }
+}

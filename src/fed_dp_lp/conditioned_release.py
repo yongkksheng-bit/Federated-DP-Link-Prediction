@@ -30,7 +30,7 @@ def validate_bin_edges(bin_edges: np.ndarray) -> np.ndarray:
     edges = np.asarray(bin_edges, dtype=np.float64)
     if (
         edges.ndim != 1
-        or edges.size < 3
+        or edges.size < 2
         or not np.all(np.isfinite(edges))
         or np.any(np.diff(edges) <= 0)
         or edges[0] > 0.0
