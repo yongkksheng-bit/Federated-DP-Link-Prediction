@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_confirmatory_validation_access",
+  "candidate": "public_cosine_plus_dp_residual_visible_messages",
+  "datasets": ["polblogs-newman", "lastfm-asia-snap"],
+  "metrics": ["global", "cross"],
+  "advance_rule": {
+    "minimum_mean_gain_over_public_cosine": 0.0,
+    "require_all_four_cells": true
+  },
+  "on_failure": "do_not_unseal_confirmatory_test"
+}
