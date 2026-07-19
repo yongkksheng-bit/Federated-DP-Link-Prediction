@@ -68,6 +68,7 @@ results/**
 !results/p3_internal_validation/
 !results/p3_internal_validation/records.jsonl
 !results/p3_internal_validation/summary.json
+!results/p3_internal_validation/audit.json
 artifacts/
 logs/
 tmp/
