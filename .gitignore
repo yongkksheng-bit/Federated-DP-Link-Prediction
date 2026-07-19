@@ -54,6 +54,9 @@ results/**
 !results/p2_1_confirmatory_test/access.json
 !results/p2_1_confirmatory_test/records.jsonl
 !results/p2_1_confirmatory_test/summary.json
+!results/p2_2_conditioned_development/
+!results/p2_2_conditioned_development/records.jsonl
+!results/p2_2_conditioned_development/summary.json
 artifacts/
 logs/
 tmp/
