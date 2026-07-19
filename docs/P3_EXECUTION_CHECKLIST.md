@@ -5,7 +5,8 @@
 - [x] P2.2 one-time confirmatory GO recorded and test retired.
 - [x] Six-domain benchmark, descriptor contract, privacy grid, controls, and
   metrics frozen before P3 split generation.
-- [ ] Implement target-excluding P3 loaders and parser regression tests.
+- [x] Implement target-excluding P3 loaders and parser regression tests.
+- [x] Freeze six-domain source hashes and aggregate public-view audit.
 - [ ] Generate five new encrypted benchmark splits per domain.
 - [ ] Run non-decrypting source/split/commitment audit.
 

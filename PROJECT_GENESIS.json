@@ -111,6 +111,8 @@
   "p3_master_seeds_per_dataset": 5,
   "p3_epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
   "p3_prior_test_payloads_reused": false,
+  "p3_source_contract_status": "PASS",
+  "p3_source_contract_datasets": 6,
   "dataset_accessed": true,
   "experiment_run": true,
   "experiment_scope": "synthetic_real_validation_and_one_time_confirmatory_test"

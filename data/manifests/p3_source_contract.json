@@ -1,0 +1,139 @@
+{
+  "all_sources_pass": true,
+  "config_sha256": "09d98d0ee76e8a780209ca9407a1a0373ae5618e794ca7c89e4f02947bb5371d",
+  "contains_private_identities": false,
+  "datasets": [
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 333983,
+      "classification_target_excluded": false,
+      "dataset": "blogcatalog-v3",
+      "empty_public_feature_nodes": 0,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 10312,
+      "pass": true,
+      "public_feature_dimension": 39,
+      "public_feature_nnz": 14476,
+      "source_files": [
+        {
+          "bytes": 976987,
+          "relative_path": "blogcatalog-v3/blogcatalog-v3.zip",
+          "sha256": "173c519328c29f5f37f78d6efeebfd30c5f8d33e121d20b314d81b04fb1b2815"
+        }
+      ]
+    },
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 170823,
+      "classification_target_excluded": true,
+      "dataset": "facebook-musae",
+      "empty_public_feature_nodes": 0,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 22470,
+      "pass": true,
+      "public_feature_dimension": 4714,
+      "public_feature_nnz": 314583,
+      "source_files": [
+        {
+          "bytes": 1882610,
+          "relative_path": "facebook-musae/facebook_edges.csv",
+          "sha256": "7c50d8f02a75cc0829577814a1fc14535164daa38d79c3612340c9e9cdbd4022"
+        },
+        {
+          "bytes": 2088766,
+          "relative_path": "facebook-musae/facebook.json",
+          "sha256": "ea870537646a93642a0008d38aa9bfeff02018070ba97b1f3f469d9622626436"
+        },
+        {
+          "bytes": 1177912,
+          "relative_path": "facebook-musae/facebook_target.csv",
+          "sha256": "7bd96eafea3c2ca40f44bfa9e73642194696c21e38c7b29ed409c32ad14075cd"
+        }
+      ]
+    },
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 16715,
+      "classification_target_excluded": false,
+      "dataset": "polblogs-newman",
+      "empty_public_feature_nodes": 0,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 1490,
+      "pass": true,
+      "public_feature_dimension": 2,
+      "public_feature_nnz": 1490,
+      "source_files": [
+        {
+          "bytes": 94090,
+          "relative_path": "polblogs-newman/polblogs-newman.zip",
+          "sha256": "e047df21736fef9037f0450f7d3756ecb16a8e347417723181c0f7e493021ddb"
+        }
+      ]
+    },
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 27806,
+      "classification_target_excluded": true,
+      "dataset": "lastfm-asia-snap",
+      "empty_public_feature_nodes": 173,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 7624,
+      "pass": true,
+      "public_feature_dimension": 7842,
+      "public_feature_nnz": 3014361,
+      "source_files": [
+        {
+          "bytes": 6527202,
+          "relative_path": "lastfm-asia-snap/lastfm-asia-snap.zip",
+          "sha256": "51acb78a923bb223ed6e61be88f91122fb29adca3f07beff7289cafd98601d47"
+        }
+      ]
+    },
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 289003,
+      "classification_target_excluded": true,
+      "dataset": "github-social-snap",
+      "empty_public_feature_nodes": 0,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 37700,
+      "pass": true,
+      "public_feature_dimension": 4005,
+      "public_feature_nnz": 690358,
+      "source_files": [
+        {
+          "bytes": 2396031,
+          "relative_path": "github-social-snap/github-social-snap.zip",
+          "sha256": "56c0c1c2c460dc4c7bf89357b1fec020f45e2ecebab81d131d073b10e28ec031"
+        }
+      ]
+    },
+    {
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 92752,
+      "classification_target_excluded": true,
+      "dataset": "deezer-europe-snap",
+      "empty_public_feature_nodes": 6159,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "nodes": 28281,
+      "pass": true,
+      "public_feature_dimension": 31241,
+      "public_feature_nnz": 958475,
+      "source_files": [
+        {
+          "bytes": 2622306,
+          "relative_path": "deezer-europe-snap/deezer-europe-snap.zip",
+          "sha256": "dd66a73f8d8690b5bc300ba378883fb2c2f6316aec8917b6a2428e352fc9e498"
+        }
+      ]
+    }
+  ],
+  "note": "aggregate source and public-view audit only",
+  "schema_version": 1
+}
