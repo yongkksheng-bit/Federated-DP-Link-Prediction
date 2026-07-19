@@ -3,6 +3,7 @@ from scipy import sparse
 
 from fed_dp_lp.p2_data import (
     balanced_sha256_homes,
+    label_hash_subcells,
     public_coarsening,
     stratified_link_split,
 )
@@ -23,6 +24,16 @@ def test_public_coarsening_is_deterministic():
     right = public_coarsening(features, cells=4, components=3, random_state=7)
     np.testing.assert_array_equal(left, right)
     assert len(np.unique(left)) == 4
+
+
+def test_label_hash_subcells_are_public_deterministic_and_balanced():
+    ids = tuple(str(index) for index in range(32))
+    labels = np.repeat([0, 1], 16)
+    left = label_hash_subcells("fixture", ids, labels, subcells_per_label=4, seed=9)
+    right = label_hash_subcells("fixture", ids, labels, subcells_per_label=4, seed=9)
+    np.testing.assert_array_equal(left, right)
+    assert len(np.unique(left)) == 8
+    assert np.bincount(left).tolist() == [4] * 8
 
 
 def test_stratified_split_is_disjoint_balanced_and_deterministic():

@@ -10,6 +10,7 @@ import zipfile
 from dataclasses import dataclass
 
 import numpy as np
+import networkx as nx
 from scipy import sparse
 from sklearn.cluster import KMeans
 from sklearn.decomposition import TruncatedSVD
@@ -23,6 +24,7 @@ class PilotGraph:
     external_ids: tuple[str, ...]
     public_features: sparse.csr_matrix
     edges: np.ndarray
+    public_labels: np.ndarray | None = None
 
 
 @dataclass(frozen=True)
@@ -115,6 +117,107 @@ def load_facebook(directory: pathlib.Path) -> PilotGraph:
         public_features=features,
         edges=_canonicalize_edges(external_edges, external_ids),
     )
+
+
+def load_polblogs(archive: pathlib.Path) -> PilotGraph:
+    with zipfile.ZipFile(archive) as handle:
+        content = handle.read("polblogs.gml").decode("ascii")
+    content = content.replace("graph [", "graph [\n  multigraph 1", 1)
+    graph = nx.parse_gml(content.splitlines(), label="id")
+    external_ids = tuple(sorted(str(node) for node in graph.nodes()))
+    labels_by_id = {str(node): int(attributes["value"]) for node, attributes in graph.nodes(data=True)}
+    labels = np.asarray([labels_by_id[node] for node in external_ids], dtype=np.int64)
+    features = sparse.csr_matrix(
+        (
+            np.ones(len(external_ids)),
+            (np.arange(len(external_ids), dtype=np.int64), labels),
+        ),
+        shape=(len(external_ids), int(labels.max()) + 1),
+        dtype=np.float64,
+    )
+    external_edges = [(str(left), str(right)) for left, right in graph.edges()]
+    return PilotGraph(
+        dataset_id="polblogs-newman",
+        external_ids=external_ids,
+        public_features=features,
+        edges=_canonicalize_edges(external_edges, external_ids),
+        public_labels=labels,
+    )
+
+
+def load_lastfm(archive: pathlib.Path) -> PilotGraph:
+    with zipfile.ZipFile(archive) as handle:
+        def dictionary_rows(name: str) -> list[dict[str, str]]:
+            with handle.open(f"lasftm_asia/{name}") as stream:
+                return list(
+                    csv.DictReader(line.decode("utf-8").strip() for line in stream)
+                )
+
+        targets = dictionary_rows("lastfm_asia_target.csv")
+        external_edges = [
+            (row["node_1"], row["node_2"])
+            for row in dictionary_rows("lastfm_asia_edges.csv")
+        ]
+        raw_features = json.loads(
+            handle.read("lasftm_asia/lastfm_asia_features.json").decode("utf-8")
+        )
+    external_ids = tuple(sorted(row["id"] for row in targets))
+    node_lookup = {node: index for index, node in enumerate(external_ids)}
+    feature_dimension = max(
+        index for values in raw_features.values() for index in values
+    ) + 1
+    rows: list[int] = []
+    columns: list[int] = []
+    for node, indices in raw_features.items():
+        rows.extend([node_lookup[node]] * len(indices))
+        columns.extend(indices)
+    label_values = sorted({int(row["target"]) for row in targets})
+    label_lookup = {label: index for index, label in enumerate(label_values)}
+    labels_by_id = {row["id"]: label_lookup[int(row["target"])] for row in targets}
+    labels = np.asarray([labels_by_id[node] for node in external_ids], dtype=np.int64)
+    rows.extend(range(len(external_ids)))
+    columns.extend(feature_dimension + labels)
+    features = sparse.csr_matrix(
+        (np.ones(len(rows)), (rows, columns)),
+        shape=(len(external_ids), feature_dimension + len(label_values)),
+        dtype=np.float64,
+    )
+    return PilotGraph(
+        dataset_id="lastfm-asia-snap",
+        external_ids=external_ids,
+        public_features=features,
+        edges=_canonicalize_edges(external_edges, external_ids),
+        public_labels=labels,
+    )
+
+
+def label_hash_subcells(
+    dataset_id: str,
+    external_ids: tuple[str, ...],
+    labels: np.ndarray,
+    *,
+    subcells_per_label: int,
+    seed: int,
+) -> np.ndarray:
+    labels = np.asarray(labels, dtype=np.int64)
+    if labels.shape != (len(external_ids),) or np.any(labels < 0):
+        raise ValueError("labels must be one nonnegative value per public node")
+    if subcells_per_label < 1:
+        raise ValueError("subcells_per_label must be positive")
+    result = np.empty(len(external_ids), dtype=np.int64)
+    for label in np.unique(labels):
+        indices = np.flatnonzero(labels == label)
+        ranked = sorted(
+            indices,
+            key=lambda index: hashlib.sha256(
+                f"{dataset_id}|{seed}|cell|{external_ids[index]}".encode()
+            ).digest(),
+        )
+        result[np.asarray(ranked)] = (
+            int(label) * subcells_per_label
+            + np.arange(len(ranked), dtype=np.int64) % subcells_per_label
+        )
+    return result
 
 
 def balanced_sha256_homes(
