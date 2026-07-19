@@ -184,7 +184,7 @@ def main() -> None:
         "source_registry_sha256": source_manifest["registry_sha256"],
         "test_status": "encrypted_never_accessed",
         "test_access_count": 0,
-        "contains_private_identities": false,
+        "contains_private_identities": False,
         "datasets": dataset_records,
     }
     OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
