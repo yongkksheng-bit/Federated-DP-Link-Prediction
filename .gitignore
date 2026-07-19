@@ -36,6 +36,7 @@ results/**
 !results/p1_pair_feature/
 !results/p1_pair_feature/records.jsonl
 !results/p1_pair_feature/summary.json
+!results/p1_pair_feature/hard_release_audit.json
 artifacts/
 logs/
 tmp/

@@ -6,10 +6,10 @@ Clean-room research repository for the paper:
 
 ## Status
 
-Phase 1: synthetic mechanism feasibility. Phase 0 closed on 2026-07-18 with a
-narrowed ordinary-graph, cross-client, inference-closed edge-DP output
-contract. No method, real dataset, result, or manuscript claim has been
-admitted yet.
+Phase 2: source and pilot protocol. Phase 1 closed on 2026-07-19 with a
+provisional public-coarsened affinity-release family and explicit synthetic
+failure boundaries. No final method, real dataset, real result, or manuscript
+claim has been admitted yet.
 
 ## Clean-Room Boundary
 
@@ -24,11 +24,10 @@ sensitivity and accounting checks.
 
 ## Current Priorities
 
-1. Derive a privacy-utility feasibility condition before selecting an
-   architecture.
-2. Implement accountant and neighboring-dataset unit tests.
-3. Validate candidate releases on synthetic graphs only.
-4. Stop if no mechanism clears the public-only and clean-oracle gates.
+1. Freeze dataset provenance and public/private field classifications.
+2. Freeze client ownership, candidates, splits, and sealed-test controls.
+3. Preregister an untouched pilot for the provisional mechanism family.
+4. Re-audit matched baselines and privacy accountants before execution.
 5. Preserve development, validation, and one-time sealed-test boundaries.
 
 See `docs/RESEARCH_CHARTER.md` and `docs/EVIDENCE_POLICY.md`.
