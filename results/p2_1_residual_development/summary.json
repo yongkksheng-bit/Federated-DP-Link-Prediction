@@ -1,0 +1,347 @@
+{
+  "all_candidates": {
+    "centered_block_rank_lambda_0.0025": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971478304906979,
+        "ci95_low": 0.04674929527707486,
+        "mean_difference": 0.048232039163072324,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050298173595591474,
+        "ci95_low": 0.046130800460972156,
+        "mean_difference": 0.048214487028281815,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.00176003621615,
+        "ci95_low": 0.0012932045515692454,
+        "mean_difference": 0.0015266203838596227,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.001745116203454006,
+        "ci95_low": 0.0013770855536962942,
+        "mean_difference": 0.00156110087857515,
+        "n": 5
+      }
+    },
+    "centered_block_rank_lambda_0.005": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971480269410304,
+        "ci95_low": 0.04674930385525054,
+        "mean_difference": 0.04823205327467679,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05029819458209781,
+        "ci95_low": 0.04613080457847691,
+        "mean_difference": 0.04821449958028736,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.001993940272018511,
+        "ci95_low": 0.0015284054944256127,
+        "mean_difference": 0.001761172883222062,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0019708098272180384,
+        "ci95_low": 0.0016125277522509873,
+        "mean_difference": 0.001791668789734513,
+        "n": 5
+      }
+    },
+    "centered_block_rank_lambda_0.01": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971490503038429,
+        "ci95_low": 0.04674935576858628,
+        "mean_difference": 0.04823213039948528,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05029828028576335,
+        "ci95_low": 0.046130838656807165,
+        "mean_difference": 0.04821455947128526,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0023416025249725675,
+        "ci95_low": 0.0018790666534082088,
+        "mean_difference": 0.002110334589190388,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0022994557377618375,
+        "ci95_low": 0.0019784859017860958,
+        "mean_difference": 0.0021389708197739666,
+        "n": 5
+      }
+    },
+    "centered_block_rank_lambda_0.02": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971535738391589,
+        "ci95_low": 0.04674940109361962,
+        "mean_difference": 0.048232379238767754,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05029851365323228,
+        "ci95_low": 0.046131013408832924,
+        "mean_difference": 0.0482147635310326,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0028225690235253093,
+        "ci95_low": 0.002303760389924994,
+        "mean_difference": 0.0025631647067251516,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0027539658658048134,
+        "ci95_low": 0.002436944302947891,
+        "mean_difference": 0.0025954550843763522,
+        "n": 5
+      }
+    },
+    "centered_block_rank_lambda_0.05": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971858094356194,
+        "ci95_low": 0.04675480768826832,
+        "mean_difference": 0.04823669431591513,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050300898494388235,
+        "ci95_low": 0.046137918665611635,
+        "mean_difference": 0.048219408579999935,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.003665874526351481,
+        "ci95_low": 0.002969554037878481,
+        "mean_difference": 0.003317714282114981,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0035203603273245066,
+        "ci95_low": 0.0031534039316892747,
+        "mean_difference": 0.0033368821295068907,
+        "n": 5
+      }
+    },
+    "centered_block_rank_lambda_0.1": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04973418005993835,
+        "ci95_low": 0.04676556373969121,
+        "mean_difference": 0.04824987189981478,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050314127752621854,
+        "ci95_low": 0.046155937445874984,
+        "mean_difference": 0.04823503259924842,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.003280217165209276,
+        "ci95_low": 0.0022113249526791723,
+        "mean_difference": 0.002745771058944224,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.003018255988805216,
+        "ci95_low": 0.0024905386116070316,
+        "mean_difference": 0.002754397300206124,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.0025": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971478304906979,
+        "ci95_low": 0.04674929527707486,
+        "mean_difference": 0.048232039163072324,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050298173595591474,
+        "ci95_low": 0.046130800460972156,
+        "mean_difference": 0.048214487028281815,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0016635438461778714,
+        "ci95_low": 0.0011883599410692852,
+        "mean_difference": 0.0014259518936235783,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.001650987733968916,
+        "ci95_low": 0.0012763900756448464,
+        "mean_difference": 0.0014636889048068812,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.005": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971478395824186,
+        "ci95_low": 0.046749299956657095,
+        "mean_difference": 0.04823204195744948,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050298175255881164,
+        "ci95_low": 0.04613080238696973,
+        "mean_difference": 0.04821448882142545,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0018160023692092371,
+        "ci95_low": 0.0013382073629232363,
+        "mean_difference": 0.0015771048660662367,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0018002452898588026,
+        "ci95_low": 0.0014239535136808547,
+        "mean_difference": 0.0016120994017698286,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.01": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971481695018862,
+        "ci95_low": 0.04674931558687223,
+        "mean_difference": 0.048232066268530424,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05029820069191481,
+        "ci95_low": 0.04613081711735393,
+        "mean_difference": 0.04821450890463437,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0020873105867894736,
+        "ci95_low": 0.0015994122295204772,
+        "mean_difference": 0.0018433614081549755,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0020611406376732488,
+        "ci95_low": 0.0016910265879411515,
+        "mean_difference": 0.0018760836128072001,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.02": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971497190107914,
+        "ci95_low": 0.04674937356751817,
+        "mean_difference": 0.04823217273429865,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05029831089217315,
+        "ci95_low": 0.04613082849223497,
+        "mean_difference": 0.04821456969220406,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0024870057516023763,
+        "ci95_low": 0.0019576157756230686,
+        "mean_difference": 0.0022223107636127224,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0024372253058943367,
+        "ci95_low": 0.0020731729013056467,
+        "mean_difference": 0.0022551991035999917,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.05": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.04971587713617823,
+        "ci95_low": 0.0467495223714684,
+        "mean_difference": 0.04823269975382331,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.050299232987603915,
+        "ci95_low": 0.0461311870599988,
+        "mean_difference": 0.04821521002380136,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.003189723348131293,
+        "ci95_low": 0.002518615441227409,
+        "mean_difference": 0.002854169394679351,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0031001815815033845,
+        "ci95_low": 0.0026867551281542132,
+        "mean_difference": 0.002893468354828799,
+        "n": 5
+      }
+    },
+    "clipped_log_density_zscore_lambda_0.1": {
+      "blogcatalog-v3/cross": {
+        "ci95_high": 0.049721886686038476,
+        "ci95_low": 0.04675787955269078,
+        "mean_difference": 0.04823988311936463,
+        "n": 5
+      },
+      "blogcatalog-v3/global": {
+        "ci95_high": 0.05030490960699773,
+        "ci95_low": 0.046140766865405324,
+        "mean_difference": 0.04822283823620153,
+        "n": 5
+      },
+      "facebook-musae/cross": {
+        "ci95_high": 0.0037045835966173974,
+        "ci95_low": 0.002816860811567698,
+        "mean_difference": 0.0032607222040925477,
+        "n": 5
+      },
+      "facebook-musae/global": {
+        "ci95_high": 0.0035377157477667785,
+        "ci95_low": 0.0030476157951023547,
+        "mean_difference": 0.0032926657714345666,
+        "n": 5
+      }
+    }
+  },
+  "decision": "ADVANCE_TO_NEW_CONFIRMATORY_PROTOCOL",
+  "protocol": "P2_1_RESIDUAL_DEVELOPMENT_v1",
+  "selected_candidate": "centered_block_rank_lambda_0.05",
+  "selected_cells": {
+    "blogcatalog-v3/cross": {
+      "ci95_high": 0.04971858094356194,
+      "ci95_low": 0.04675480768826832,
+      "mean_difference": 0.04823669431591513,
+      "n": 5
+    },
+    "blogcatalog-v3/global": {
+      "ci95_high": 0.050300898494388235,
+      "ci95_low": 0.046137918665611635,
+      "mean_difference": 0.048219408579999935,
+      "n": 5
+    },
+    "facebook-musae/cross": {
+      "ci95_high": 0.003665874526351481,
+      "ci95_low": 0.002969554037878481,
+      "mean_difference": 0.003317714282114981,
+      "n": 5
+    },
+    "facebook-musae/global": {
+      "ci95_high": 0.0035203603273245066,
+      "ci95_low": 0.0031534039316892747,
+      "mean_difference": 0.0033368821295068907,
+      "n": 5
+    }
+  },
+  "selection_criterion": "maximize_minimum_mean_gain_over_public_cosine",
+  "test_accessed": false
+}
