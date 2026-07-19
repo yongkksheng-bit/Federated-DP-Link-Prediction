@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_p3_2_validation",
+  "master_config": "configs/p3_master_benchmark.json",
+  "data_access": "P3 train and validation arrays only; sealed P3 test prohibited",
+  "gap_style_lp": {
+    "label": "GAP-style inference-closed LP adaptation",
+    "provenance": "mechanism adaptation from the official GAP paper and repository; not an official GAP reproduction",
+    "public_encoder": "row-normalized randomized TruncatedSVD of registered public descriptors",
+    "projection_dimensions": [8, 16, 32],
+    "hops": [1, 2],
+    "selection_epsilon": 4.0,
+    "selection_metric": "mean global ROC-AUC across five frozen validation seeds",
+    "score": "equal-weight mean cosine over public and cached noisy aggregation channels",
+    "visibility": "individually visible client messages",
+    "adjacency": "add/remove one canonical undirected edge",
+    "l2_sensitivity_per_hop": "sqrt(2)",
+    "composition": "adaptive sequential composition across hops; parallel composition across disjoint client-owned edges",
+    "inference": "post-processing of public descriptors and cached DP aggregation matrices; no private graph reread"
+  },
+  "dplp_icde_2024": {
+    "label": "ICDE 2024 DPLP path-subgraph baseline",
+    "status": "audit_pending_implementation",
+    "provenance": "paper available; no verified official implementation located",
+    "admission_blockers": [
+      "reproduce degree projection and path-subgraph extraction",
+      "verify edge-influence multiplicity under the implemented negative sampler",
+      "rederive the sampled Gaussian RDP accountant under the P3 edge unit",
+      "declare centralized trusted-curator scope as different from visible federated messages"
+    ],
+    "forbidden_label_until_cleared": "privacy-matched DPLP reproduction"
+  },
+  "closest_centralized_edge_dp_lp": {
+    "label": "centralized edge-DP public-pair classifier",
+    "provenance": "conservative closest formal baseline; not DPLP and not an official reproduction",
+    "public_encoder": "row-normalized randomized TruncatedSVD",
+    "projection_dimensions": [4, 8],
+    "learning_rates": [0.3, 1.0],
+    "steps": 20,
+    "clip_norm": 1.0,
+    "l2_penalty": 0.001,
+    "negative_ratio": 1.0,
+    "selection_epsilon": 4.0,
+    "selection_metric": "mean global ROC-AUC across five frozen validation seeds",
+    "adjacency": "add/remove one canonical undirected edge",
+    "per_step_l2_sensitivity": "3C",
+    "sensitivity_reason": "one positive insertion plus at most one stable-negative deletion and one replacement insertion",
+    "composition": "20 adaptive full-batch Gaussian releases composed in RDP",
+    "adversary": "centralized trusted curator; privacy-scope mismatch to visible federated messages",
+    "inference": "DP model and public pair features only; no graph reread"
+  },
+  "selection": {
+    "tie_break": ["lower hops", "lower projection dimension"],
+    "test_tuning": false,
+    "missing_cells": "report failure; never impute"
+  }
+}
