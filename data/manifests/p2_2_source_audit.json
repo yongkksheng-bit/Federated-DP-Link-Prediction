@@ -1,0 +1,79 @@
+{
+  "all_sources_pass": true,
+  "datasets": [
+    {
+      "archive_bytes": 2396031,
+      "archive_members": [
+        "git_web_ml/",
+        "git_web_ml/README.txt",
+        "git_web_ml/citing.txt",
+        "git_web_ml/musae_git_edges.csv",
+        "git_web_ml/musae_git_features.json",
+        "git_web_ml/musae_git_target.csv"
+      ],
+      "archive_sha256": "56c0c1c2c460dc4c7bf89357b1fec020f45e2ecebab81d131d073b10e28ec031",
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 289003,
+      "dataset": "github-social-snap",
+      "duplicate_feature_entries": 16,
+      "empty_feature_nodes": 0,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "feature_dimension": 4005,
+      "feature_nodes": 37700,
+      "node_universes_match": true,
+      "parser_feature_nnz": 690358,
+      "parser_feature_shape": [
+        37700,
+        4005
+      ],
+      "parser_nnz_matches_unique_features": true,
+      "parser_nodes": 37700,
+      "pass": true,
+      "raw_duplicate_canonical_rows": 0,
+      "raw_edge_rows": 289003,
+      "raw_feature_entries": 690374,
+      "raw_self_loops": 0,
+      "target_nodes": 37700,
+      "unique_feature_nnz": 690358
+    },
+    {
+      "archive_bytes": 2622306,
+      "archive_members": [
+        "deezer_europe/",
+        "deezer_europe/README.txt",
+        "deezer_europe/deezer_europe_edges.csv",
+        "deezer_europe/deezer_europe_features.json",
+        "deezer_europe/deezer_europe_target.csv"
+      ],
+      "archive_sha256": "dd66a73f8d8690b5bc300ba378883fb2c2f6316aec8917b6a2428e352fc9e498",
+      "canonical_edges_strict": true,
+      "canonical_undirected_edges": 92752,
+      "dataset": "deezer-europe-snap",
+      "duplicate_feature_entries": 0,
+      "empty_feature_nodes": 6159,
+      "expected_edges_match": true,
+      "expected_nodes_match": true,
+      "feature_dimension": 31241,
+      "feature_nodes": 28281,
+      "node_universes_match": true,
+      "parser_feature_nnz": 958475,
+      "parser_feature_shape": [
+        28281,
+        31241
+      ],
+      "parser_nnz_matches_unique_features": true,
+      "parser_nodes": 28281,
+      "pass": true,
+      "raw_duplicate_canonical_rows": 0,
+      "raw_edge_rows": 92752,
+      "raw_feature_entries": 958475,
+      "raw_self_loops": 0,
+      "target_nodes": 28281,
+      "unique_feature_nnz": 958475
+    }
+  ],
+  "privacy_note": "aggregate source audit; contains no edges or node identifiers",
+  "registry_sha256": "51be0b565e872c1214ab861a0d90b6e72b475109f81136b80901a790214d5e89",
+  "schema_version": 1
+}

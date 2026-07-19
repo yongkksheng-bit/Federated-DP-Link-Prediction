@@ -65,7 +65,8 @@ def audit(dataset: str, expected: dict) -> dict:
     self_loops = sum(left == right for left, right in raw_pairs)
     canonical = [(min(int(left), int(right)), max(int(left), int(right))) for left, right in raw_pairs if left != right]
     unique = set(canonical)
-    feature_nnz = sum(len(values) for values in features.values())
+    feature_entries = sum(len(values) for values in features.values())
+    feature_unique_nnz = sum(len(set(values)) for values in features.values())
     feature_dimension = max(
         (index for values in features.values() for index in values), default=-1
     ) + 1
@@ -82,7 +83,9 @@ def audit(dataset: str, expected: dict) -> dict:
         "target_nodes": len(targets),
         "feature_nodes": len(features),
         "feature_dimension": feature_dimension,
-        "feature_nnz": feature_nnz,
+        "raw_feature_entries": feature_entries,
+        "duplicate_feature_entries": feature_entries - feature_unique_nnz,
+        "unique_feature_nnz": feature_unique_nnz,
         "empty_feature_nodes": empty_feature_nodes,
         "parser_nodes": len(graph.external_ids),
         "parser_feature_shape": list(graph.public_features.shape),
@@ -91,6 +94,8 @@ def audit(dataset: str, expected: dict) -> dict:
         "expected_nodes_match": len(graph.external_ids) == expected["expected_nodes"],
         "expected_edges_match": len(graph.edges) == expected["expected_undirected_edges"],
         "node_universes_match": set(features) == {row["id"] for row in targets},
+        "parser_nnz_matches_unique_features": int(graph.public_features.nnz)
+        == feature_unique_nnz,
     }
     result["pass"] = all(
         result[key]
@@ -99,6 +104,7 @@ def audit(dataset: str, expected: dict) -> dict:
             "expected_nodes_match",
             "expected_edges_match",
             "node_universes_match",
+            "parser_nnz_matches_unique_features",
         )
     )
     return result
