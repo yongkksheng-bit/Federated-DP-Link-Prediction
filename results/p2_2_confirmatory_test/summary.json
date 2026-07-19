@@ -1,0 +1,134 @@
+{
+  "candidate": "conditioned_b8_lambda_0.1",
+  "cells": {
+    "deezer-europe-snap/cross": {
+      "candidate_mean": 0.6354784387502267,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.03664651435437674,
+          "ci95_low": 0.03031894909919761,
+          "mean_difference": 0.033482731726787174,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.14015765362411445,
+          "ci95_low": 0.12937573913585684,
+          "mean_difference": 0.13476669637998565,
+          "n": 5
+        },
+        "zero_private_signal": {
+          "ci95_high": 0.05580547646120749,
+          "ci95_low": 0.04383361655695291,
+          "mean_difference": 0.0498195465090802,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    },
+    "deezer-europe-snap/global": {
+      "candidate_mean": 0.637378383401568,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.03590488826213333,
+          "ci95_low": 0.03138622682739927,
+          "mean_difference": 0.0336455575447663,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.14222003472954464,
+          "ci95_low": 0.13320219721791454,
+          "mean_difference": 0.1377111159737296,
+          "n": 5
+        },
+        "zero_private_signal": {
+          "ci95_high": 0.055838548839803125,
+          "ci95_low": 0.044213900962261306,
+          "mean_difference": 0.050026224901032215,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    },
+    "github-social-snap/cross": {
+      "candidate_mean": 0.6590125134654167,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.051392663889322114,
+          "ci95_low": 0.05003463098892582,
+          "mean_difference": 0.05071364743912397,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.16229042552468478,
+          "ci95_low": 0.15646271659492791,
+          "mean_difference": 0.15937657105980635,
+          "n": 5
+        },
+        "zero_private_signal": {
+          "ci95_high": 0.05067365731650306,
+          "ci95_low": 0.044604848051401955,
+          "mean_difference": 0.047639252683952506,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    },
+    "github-social-snap/global": {
+      "candidate_mean": 0.6591609100887632,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.05151729914239097,
+          "ci95_low": 0.05006195693382886,
+          "mean_difference": 0.050789628038109914,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.1615159300438185,
+          "ci95_low": 0.1562213759223192,
+          "mean_difference": 0.15886865298306885,
+          "n": 5
+        },
+        "zero_private_signal": {
+          "ci95_high": 0.05070890464681792,
+          "ci95_low": 0.044763150309123076,
+          "mean_difference": 0.0477360274779705,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    }
+  },
+  "decision": "GO_TO_P3",
+  "protocol": "P2_2_CONFIRMATORY_TEST_v1",
+  "provenance_checks": {
+    "all_test_records": true,
+    "dimension_1088": true,
+    "sensitivity_one": true,
+    "ten_records": true
+  },
+  "test_accessed": true
+}
