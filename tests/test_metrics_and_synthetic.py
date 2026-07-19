@@ -1,6 +1,6 @@
 import numpy as np
 
-from fed_dp_lp.metrics import roc_auc
+from fed_dp_lp.metrics import average_precision, roc_auc
 from fed_dp_lp.synthetic import generate_sbm
 
 
@@ -17,6 +17,12 @@ CONFIG = {
 def test_auc_handles_ties_and_perfect_ranking():
     assert roc_auc(np.asarray([1, 1, 0, 0]), np.asarray([1.0, 1.0, 0.0, 0.0])) == 1.0
     assert roc_auc(np.asarray([1, 0]), np.asarray([0.0, 0.0])) == 0.5
+
+
+def test_average_precision_handles_perfect_ranking():
+    labels = np.asarray([0, 1, 0, 1])
+    scores = np.asarray([0.1, 0.8, 0.2, 0.9])
+    assert average_precision(labels, scores) == 1.0
 
 
 def test_synthetic_generation_is_deterministic_and_edges_are_unique():

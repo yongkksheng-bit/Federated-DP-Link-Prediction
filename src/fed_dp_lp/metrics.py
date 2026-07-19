@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 from scipy.stats import rankdata, t
+from sklearn.metrics import average_precision_score
 
 
 def roc_auc(labels: np.ndarray, scores: np.ndarray) -> float:
@@ -19,6 +20,16 @@ def roc_auc(labels: np.ndarray, scores: np.ndarray) -> float:
         raise ValueError("ROC-AUC requires both positive and negative examples")
     ranks = rankdata(scores, method="average")
     return float((np.sum(ranks[positive]) - n_pos * (n_pos + 1) / 2) / (n_pos * n_neg))
+
+
+def average_precision(labels: np.ndarray, scores: np.ndarray) -> float:
+    labels = np.asarray(labels, dtype=np.int64)
+    scores = np.asarray(scores, dtype=np.float64)
+    if labels.shape != scores.shape or labels.ndim != 1:
+        raise ValueError("labels and scores must be matching one-dimensional vectors")
+    if not np.any(labels == 1) or np.any((labels != 0) & (labels != 1)):
+        raise ValueError("average precision requires binary labels with positives")
+    return float(average_precision_score(labels, scores))
 
 
 def paired_summary(values: np.ndarray, reference: np.ndarray) -> dict[str, float]:

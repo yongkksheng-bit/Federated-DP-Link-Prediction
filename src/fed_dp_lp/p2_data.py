@@ -80,7 +80,9 @@ def load_blogcatalog(archive: pathlib.Path) -> PilotGraph:
     )
 
 
-def load_facebook(directory: pathlib.Path) -> PilotGraph:
+def load_facebook(
+    directory: pathlib.Path, *, include_target_features: bool = True
+) -> PilotGraph:
     with (directory / "facebook_target.csv").open(
         newline="", encoding="utf-8", errors="replace"
     ) as handle:
@@ -97,13 +99,19 @@ def load_facebook(directory: pathlib.Path) -> PilotGraph:
         feature_columns.extend(indices)
 
     categories = sorted({row["page_type"] for row in target_rows})
-    category_lookup = {category: index for index, category in enumerate(categories)}
-    for row in target_rows:
-        feature_rows.append(node_lookup[row["id"]])
-        feature_columns.append(dimension + category_lookup[row["page_type"]])
+    if include_target_features:
+        category_lookup = {
+            category: index for index, category in enumerate(categories)
+        }
+        for row in target_rows:
+            feature_rows.append(node_lookup[row["id"]])
+            feature_columns.append(dimension + category_lookup[row["page_type"]])
     features = sparse.csr_matrix(
         (np.ones(len(feature_rows)), (feature_rows, feature_columns)),
-        shape=(len(external_ids), dimension + len(categories)),
+        shape=(
+            len(external_ids),
+            dimension + len(categories) if include_target_features else dimension,
+        ),
         dtype=np.float64,
     )
 
@@ -145,7 +153,9 @@ def load_polblogs(archive: pathlib.Path) -> PilotGraph:
     )
 
 
-def load_lastfm(archive: pathlib.Path) -> PilotGraph:
+def load_lastfm(
+    archive: pathlib.Path, *, include_target_features: bool = True
+) -> PilotGraph:
     with zipfile.ZipFile(archive) as handle:
         def dictionary_rows(name: str) -> list[dict[str, str]]:
             with handle.open(f"lasftm_asia/{name}") as stream:
@@ -175,11 +185,17 @@ def load_lastfm(archive: pathlib.Path) -> PilotGraph:
     label_lookup = {label: index for index, label in enumerate(label_values)}
     labels_by_id = {row["id"]: label_lookup[int(row["target"])] for row in targets}
     labels = np.asarray([labels_by_id[node] for node in external_ids], dtype=np.int64)
-    rows.extend(range(len(external_ids)))
-    columns.extend(feature_dimension + labels)
+    if include_target_features:
+        rows.extend(range(len(external_ids)))
+        columns.extend(feature_dimension + labels)
     features = sparse.csr_matrix(
         (np.ones(len(rows)), (rows, columns)),
-        shape=(len(external_ids), feature_dimension + len(label_values)),
+        shape=(
+            len(external_ids),
+            feature_dimension + len(label_values)
+            if include_target_features
+            else feature_dimension,
+        ),
         dtype=np.float64,
     )
     return PilotGraph(
