@@ -6,13 +6,14 @@ Clean-room research repository for the paper:
 
 ## Status
 
-Phase 2: redesign after a validation-only NO-GO. The source/pilot
+Phase 2.1: confirmatory NO-GO under a strict cross-domain +0.02 gate. The source/pilot
 protocol was frozen at commit `990df58` before acquisition. BlogCatalog v3 and
 Facebook MUSAE passed aggregate byte/schema audits; raw data remain local-only
 pending dataset-specific rights clarification. No sealed split, real result,
 final method, or manuscript claim has been admitted yet. The provisional hard
-coarsened release passed BlogCatalog validation but failed against the strong
-public-feature baseline on Facebook; the sealed tests remain unopened.
+coarsened release failed P2; the public-preserving residual then produced
+positive one-time gains on PolBlogs and LastFM, but LastFM's approximately
++0.004 gain did not meet the frozen materiality threshold. No test may be rerun.
 
 ## Clean-Room Boundary
 

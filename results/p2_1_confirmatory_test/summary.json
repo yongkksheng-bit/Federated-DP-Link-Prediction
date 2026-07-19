@@ -1,0 +1,127 @@
+{
+  "cells": {
+    "lastfm-asia-snap/cross": {
+      "candidate_mean": 0.8458010884499387,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.005454753693205861,
+          "ci95_low": 0.003320280137484542,
+          "mean_difference": 0.004387516915345202,
+          "n": 5
+        },
+        "public_cosine_plus_zero_private_noise": {
+          "ci95_high": 0.01102596538713216,
+          "ci95_low": 0.006599884245252289,
+          "mean_difference": 0.008812924816192225,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.3589000067956079,
+          "ci95_low": 0.3356879858847885,
+          "mean_difference": 0.3472939963401982,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": false,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": false
+    },
+    "lastfm-asia-snap/global": {
+      "candidate_mean": 0.8452832499776471,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.005111851582299246,
+          "ci95_low": 0.0030237779473720836,
+          "mean_difference": 0.004067814764835665,
+          "n": 5
+        },
+        "public_cosine_plus_zero_private_noise": {
+          "ci95_high": 0.010211975929560423,
+          "ci95_low": 0.006683817661880066,
+          "mean_difference": 0.008447896795720245,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.35547087237116465,
+          "ci95_low": 0.3384828384772028,
+          "mean_difference": 0.3469768554241837,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": false,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": false
+    },
+    "polblogs-newman/cross": {
+      "candidate_mean": 0.7400816459770128,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.037161721865169944,
+          "ci95_low": 0.030214808148276536,
+          "mean_difference": 0.03368826500672324,
+          "n": 5
+        },
+        "public_cosine_plus_zero_private_noise": {
+          "ci95_high": 0.04194468801809401,
+          "ci95_low": 0.022473091133823765,
+          "mean_difference": 0.03220888957595889,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.2595077477505324,
+          "ci95_low": 0.22923599524921537,
+          "mean_difference": 0.24437187149987388,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    },
+    "polblogs-newman/global": {
+      "candidate_mean": 0.7412919268389002,
+      "comparisons": {
+        "public_cosine": {
+          "ci95_high": 0.03878168785910864,
+          "ci95_low": 0.03016580218232813,
+          "mean_difference": 0.034473745020718385,
+          "n": 5
+        },
+        "public_cosine_plus_zero_private_noise": {
+          "ci95_high": 0.041418709248552205,
+          "ci95_low": 0.02459527924186697,
+          "mean_difference": 0.03300699424520959,
+          "n": 5
+        },
+        "random_score": {
+          "ci95_high": 0.2562391659078946,
+          "ci95_low": 0.23383181747160678,
+          "mean_difference": 0.24503549168975067,
+          "n": 5
+        }
+      },
+      "gates": {
+        "mean_public_gain_ge_0p02": true,
+        "public_ci_low_gt_zero": true,
+        "random_ci_low_gt_zero": true,
+        "zero_signal_ci_low_gt_zero": true
+      },
+      "pass": true
+    }
+  },
+  "decision": "NO_GO",
+  "protocol": "P2_1_CONFIRMATORY_TEST_v1",
+  "test_accessed": true
+}
