@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_confirmatory_source_acquisition",
+  "datasets": ["github-social-snap", "deezer-europe-snap"],
+  "candidate": {
+    "public_score": "sparse_public_feature_cosine",
+    "dp_query": "canonical edge count by public cell-pair and public cosine bin",
+    "public_cells": 16,
+    "bin_edges": [0.0, 1e-12, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0000001],
+    "release_dimension": 1088,
+    "public_capacity_sample_maximum": 1000000,
+    "public_capacity_seed": 20260721,
+    "dirichlet_alpha": 1.0,
+    "log_enrichment_clip": 4.0,
+    "residual_weight": 0.1
+  },
+  "clients": 5,
+  "home_assignment": {
+    "algorithm": "balanced_sha256_rank",
+    "seed": 20260722,
+    "edge_independent": true
+  },
+  "public_coarsening": {
+    "algorithm": "l2_normalize_then_truncated_svd_then_kmeans",
+    "components": 16,
+    "cells": 16,
+    "random_state": 20260722,
+    "fit_inputs": "registered public node descriptors only"
+  },
+  "split": {
+    "positive_ratios": {"train": 0.7, "validation": 0.1, "test": 0.2},
+    "negative_ratio": 1.0,
+    "strata": ["intra_client", "cross_client"],
+    "seeds": [12011, 13007, 14009, 15013, 16001],
+    "validation_role": "parser and operational sanity only; no candidate tuning",
+    "test_access": "single batched decrypt after parser, split, runner, and validation freeze"
+  },
+  "privacy": {
+    "adjacency": "add_remove_one_canonical_undirected_edge",
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "accountant": "exact_fixed_sensitivity_gaussian_rdp",
+    "l2_sensitivity": 1.0,
+    "releases": 1,
+    "primary_visibility": "individually_visible_client_messages"
+  },
+  "primary_metrics": ["global_auc", "cross_auc"],
+  "go_no_go": {
+    "required_datasets": 2,
+    "required_seeds": 5,
+    "minimum_mean_gain_over_public_auc": 0.02,
+    "paired_95pct_ci_lower_bound_over_public": 0.0,
+    "must_beat_random_and_zero_private_signal": true,
+    "missing_or_failed_cell": "NO_GO",
+    "failure_action": "reject candidate without retuning or test reuse"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_source_acquisition",
+  "registered_at": "2026-07-19T10:08:16+08:00",
+  "sources": [
+    {
+      "dataset": "github-social-snap",
+      "landing_page": "https://snap.stanford.edu/data/github-social.html",
+      "archive_url": "https://snap.stanford.edu/data/git_web_ml.zip",
+      "expected_nodes": 37700,
+      "expected_undirected_edges": 289003,
+      "public_descriptors": "binary location, starred-repository, employer, and email-derived features",
+      "private_relation": "mutual follower edges",
+      "source_family": "MUSAE"
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "landing_page": "https://snap.stanford.edu/data/feather-deezer-social.html",
+      "archive_url": "https://snap.stanford.edu/data/deezer_europe.zip",
+      "expected_nodes": 28281,
+      "expected_undirected_edges": 92752,
+      "public_descriptors": "binary artist-like features",
+      "private_relation": "mutual follower edges",
+      "source_family": "FEATHER"
+    }
+  ],
+  "redistribution": "raw archives remain local; repository records checksums and aggregate audits only",
+  "license_boundary": "source availability does not itself grant redistribution; retain local-only pending dataset-specific terms"
+}
