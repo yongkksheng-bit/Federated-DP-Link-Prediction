@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T01:41:40.975494+00:00",
+  "registry_sha256": "0d09df217921765a3db104d6d775ecebe420c6335813eabf68ad2fb8c555ae02",
+  "rights_boundary": "local_scholarly_evaluation_no_redistribution",
+  "files": [
+    {
+      "dataset": "polblogs-newman",
+      "source": "https://public.websites.umich.edu/~mejn/netdata/polblogs.zip",
+      "bytes": 94090,
+      "sha256": "e047df21736fef9037f0450f7d3756ecb16a8e347417723181c0f7e493021ddb"
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "source": "https://snap.stanford.edu/data/lastfm_asia.zip",
+      "bytes": 6527202,
+      "sha256": "51acb78a923bb223ed6e61be88f91122fb29adca3f07beff7289cafd98601d47"
+    }
+  ]
+}

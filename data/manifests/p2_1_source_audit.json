@@ -1,0 +1,40 @@
+{
+  "all_source_rows_match": true,
+  "created_utc": "2026-07-19T01:43:15.357960+00:00",
+  "datasets": [
+    {
+      "canonical_simple_undirected_edges": 16715,
+      "dataset": "polblogs-newman",
+      "duplicate_directed_edge_blocks": 65,
+      "nodes": 1490,
+      "public_label_count": 2,
+      "public_label_sizes": {
+        "0": 758,
+        "1": 732
+      },
+      "raw_directed_edge_blocks": 19090,
+      "reciprocal_collapse_count": 2307,
+      "self_loop_rows": 3,
+      "source_statistics_match": true,
+      "unique_directed_links": 19025
+    },
+    {
+      "canonical_simple_undirected_edges": 27806,
+      "dataset": "lastfm-asia-snap",
+      "duplicate_or_reversed_edge_rows": 0,
+      "edge_endpoints_outside_target": 0,
+      "feature_dimension": 7842,
+      "feature_nodes": 7624,
+      "feature_nodes_outside_target": 0,
+      "public_label_count": 18,
+      "raw_edge_rows": 27806,
+      "raw_node_rows": 7624,
+      "self_loop_rows": 0,
+      "source_statistics_match": true,
+      "target_nodes_without_features": 0,
+      "unique_node_ids": 7624
+    }
+  ],
+  "privacy_note": "aggregate audit without node identities or edges",
+  "schema_version": 1
+}
