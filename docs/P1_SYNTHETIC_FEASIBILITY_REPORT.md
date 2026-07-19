@@ -46,3 +46,8 @@ structural release can preserve link-ranking signal in two controlled regimes.
 It does not validate a final method or real-data performance. The next gate
 must stress block misspecification, higher release dimension, client scaling,
 and stricter epsilon before any real dataset is accessed.
+
+Subsequent P1 work also established that the constant public-only comparator is
+insufficient for a causal private-signal claim. The reference result is retained
+only as a sensitivity/noise existence test; generalized-affinity experiments
+must use nontrivial public-feature controls.
