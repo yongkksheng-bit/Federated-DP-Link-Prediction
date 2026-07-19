@@ -12,10 +12,10 @@
 
 ## P3.1 Internal mechanism benchmark
 
-- [ ] Implement one/four/eight-bin matched releases.
-- [ ] Implement matched-noise zero-private-signal and nonprivate references.
-- [ ] Run epsilon grid on validation with no selected-method tuning.
-- [ ] Record RDP curve, transcript model, bytes, runtime, and peak memory.
+- [x] Implement one/four/eight-bin matched releases.
+- [x] Implement matched-noise zero-private-signal and nonprivate references.
+- [x] Run epsilon grid on validation with no selected-method tuning.
+- [x] Record RDP curve, transcript model, bytes, runtime, and peak memory.
 
 ## P3.2 External baseline audit
 

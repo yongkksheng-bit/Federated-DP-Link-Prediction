@@ -1,0 +1,10 @@
+{
+  "audited_records": 150,
+  "expected_cells": 150,
+  "failures": [],
+  "records_sha256": "175309d6ab068056ca66d008e07ba19f087b5adde2536b96011bcc67157cd29f",
+  "schema_version": 1,
+  "status": "PASS",
+  "summary_sha256": "4b820712709267b030c2438ebed53b51a970f42c49ed085fd974c8f34e624745",
+  "test_decrypted": false
+}
