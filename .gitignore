@@ -26,6 +26,7 @@ Thumbs.db
 data/**
 !data/README.md
 !data/source_registry.json
+!data/p2_1_source_registry.json
 !data/manifests/
 !data/manifests/*.json
 results/**

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-07-19T10:00:00+08:00",
+  "development_candidate": "public_cosine_plus_0.05_centered_rank_dp_block_residual",
+  "datasets": [
+    {
+      "id": "polblogs-newman",
+      "role": "untouched_blog_confirmatory",
+      "landing_page": "https://public.websites.umich.edu/~mejn/netdata/",
+      "source": "https://public.websites.umich.edu/~mejn/netdata/polblogs.zip",
+      "expected_container": "zip_gml",
+      "canonical_claimed_statistics": {
+        "nodes": 1490,
+        "directed_links": 19025,
+        "public_labels": 2
+      },
+      "public_fields": ["stable_node_id", "political_leaning"],
+      "private_fields": ["links", "symmetrized_edges", "degrees", "neighborhoods"],
+      "normalization": "drop_self_loops_then_canonicalize_direction_to_one_simple_undirected_edge",
+      "license_status": "source_page_states_free_for_scientific_use",
+      "redistribution": "raw_and_processed_bytes_not_redistributed_by_this_project",
+      "citation_note": "Cite Adamic and Glance (2005) and the source repository."
+    },
+    {
+      "id": "lastfm-asia-snap",
+      "role": "untouched_social_confirmatory",
+      "landing_page": "https://snap.stanford.edu/data/feather-lastfm-social.html",
+      "source": "https://snap.stanford.edu/data/lastfm_asia.zip",
+      "expected_container": "zip_csv_json",
+      "canonical_claimed_statistics": {
+        "nodes": 7624,
+        "undirected_edges": 27806,
+        "node_features": true,
+        "node_labels": "multiclass"
+      },
+      "public_fields": ["stable_node_id", "artist_preference_features", "country_label"],
+      "private_fields": ["edges", "degrees", "neighborhoods"],
+      "normalization": "drop_self_loops_and_duplicate_or_reversed_rows",
+      "license_status": "dataset_specific_license_not_displayed_on_snap_landing_page",
+      "redistribution": "prohibited_pending_dataset_specific_clarification",
+      "citation_note": "Cite Rozemberczki and Sarkar (CIKM 2020) and the SNAP landing page."
+    }
+  ]
+}
