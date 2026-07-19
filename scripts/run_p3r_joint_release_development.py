@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import pathlib
 import subprocess
@@ -156,10 +157,17 @@ def write_jsonl(path, records):
 
 
 def main():
-    if OUTPUT.exists():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=pathlib.Path, default=CONFIG_PATH)
+    parser.add_argument("--output", type=pathlib.Path, default=OUTPUT)
+    args = parser.parse_args()
+    config_path = args.config if args.config.is_absolute() else ROOT / args.config
+    output = args.output if args.output.is_absolute() else ROOT / args.output
+    if output.exists():
         raise SystemExit("P3R-v2 output exists; refusing overwrite")
     master = json.loads(MASTER_PATH.read_text(encoding="utf-8"))
-    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    protocol = config.get("protocol", "P3R_JOINT_RELEASE_DEVELOPMENT_v2")
     split_audit = json.loads(SPLIT_AUDIT_PATH.read_text(encoding="utf-8"))
     if split_audit["status"] != "PASS" or split_audit["test_decrypted"]:
         raise SystemExit("P3 split audit is not clean")
@@ -265,7 +273,7 @@ def main():
             release_dimension = hops * len(homes) * encoded.shape[1] + layout.dimension
             baseline = gap[(dataset, seed)]
             held_out_records.append({
-                "protocol": "P3R_JOINT_RELEASE_DEVELOPMENT_v2",
+                "protocol": protocol,
                 "role": "leave_one_seed_out_held_out_development",
                 "code_commit": commit,
                 "dataset": dataset,
@@ -274,7 +282,7 @@ def main():
                 "split": "validation",
                 "test_accessed": False,
                 "master_config_sha256": sha256(MASTER_PATH),
-                "p3r_config_sha256": sha256(CONFIG_PATH),
+                "p3r_config_sha256": sha256(config_path),
                 "split_manifest_sha256": sha256(SPLIT_MANIFEST_PATH),
                 "privacy": asdict(calibration),
                 "adjacency": "add_remove_one_canonical_undirected_edge",
@@ -345,15 +353,17 @@ def main():
         ),
         "test_never_accessed": all(not r["test_accessed"] for r in held_out_records),
     }
+    labels = config.get("decision_labels", {})
     decision = (
-        "GO_TO_FRESH_CONFIRMATORY_PROTOCOL"
-        if all(checks.values()) else "NO_GO_REJECT_JOINT_RELEASE_CANDIDATE"
+        labels.get("pass", "GO_TO_FRESH_CONFIRMATORY_PROTOCOL")
+        if all(checks.values())
+        else labels.get("fail", "NO_GO_REJECT_JOINT_RELEASE_CANDIDATE")
     )
-    OUTPUT.mkdir(parents=True)
-    write_jsonl(OUTPUT / "grid_records.jsonl", grid_records)
-    write_jsonl(OUTPUT / "held_out_records.jsonl", held_out_records)
-    (OUTPUT / "summary.json").write_text(json.dumps({
-        "protocol": "P3R_JOINT_RELEASE_DEVELOPMENT_v2",
+    output.mkdir(parents=True)
+    write_jsonl(output / "grid_records.jsonl", grid_records)
+    write_jsonl(output / "held_out_records.jsonl", held_out_records)
+    (output / "summary.json").write_text(json.dumps({
+        "protocol": protocol,
         "role": config["role"],
         "grid_record_count": len(grid_records),
         "held_out_record_count": len(held_out_records),
@@ -364,7 +374,7 @@ def main():
         "decision": decision,
         "test_accessed": False,
     }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(OUTPUT / "summary.json")
+    print(output / "summary.json")
 
 
 if __name__ == "__main__":

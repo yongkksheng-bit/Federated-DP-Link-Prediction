@@ -1,5 +1,6 @@
 """Audit P3R-v2 completeness, privacy metadata, and frozen provenance."""
 
+import argparse
 import hashlib
 import json
 import pathlib
@@ -23,10 +24,17 @@ def read_jsonl(path):
 
 
 def main():
-    grid = read_jsonl(OUTPUT / "grid_records.jsonl")
-    held = read_jsonl(OUTPUT / "held_out_records.jsonl")
-    summary = json.loads((OUTPUT / "summary.json").read_text())
-    candidate = CONFIG["candidate"]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=pathlib.Path, default=CONFIG_PATH)
+    parser.add_argument("--output", type=pathlib.Path, default=OUTPUT)
+    args = parser.parse_args()
+    config_path = args.config if args.config.is_absolute() else ROOT / args.config
+    output = args.output if args.output.is_absolute() else ROOT / args.output
+    config = json.loads(config_path.read_text())
+    grid = read_jsonl(output / "grid_records.jsonl")
+    held = read_jsonl(output / "held_out_records.jsonl")
+    summary = json.loads((output / "summary.json").read_text())
+    candidate = config["candidate"]
     expected_grid = (
         len(MASTER["datasets"]) * len(MASTER["split"]["seeds"])
         * len(candidate["histogram_energy_fractions"])
@@ -34,6 +42,7 @@ def main():
     )
     expected_held = len(MASTER["datasets"]) * len(MASTER["split"]["seeds"])
     expected_backbones = candidate["frozen_gap_backbones"]
+    labels = config.get("decision_labels", {})
     checks = {
         "grid_complete": len(grid) == expected_grid,
         "held_out_complete": len(held) == expected_held,
@@ -42,7 +51,7 @@ def main():
         "test_never_accessed": not summary["test_accessed"]
         and all(not record["test_accessed"] for record in held),
         "config_hash_current": all(
-            record["p3r_config_sha256"] == sha256(CONFIG_PATH) for record in held
+            record["p3r_config_sha256"] == sha256(config_path) for record in held
         ),
         "sensitivity_sqrt_two": all(
             np.isclose(record["l2_sensitivity_per_release"], np.sqrt(2.0))
@@ -77,8 +86,8 @@ def main():
             for scope in method.values() for value in scope.values()
         ),
         "decision_preserved": summary["decision"] in {
-            "GO_TO_FRESH_CONFIRMATORY_PROTOCOL",
-            "NO_GO_REJECT_JOINT_RELEASE_CANDIDATE",
+            labels.get("pass", "GO_TO_FRESH_CONFIRMATORY_PROTOCOL"),
+            labels.get("fail", "NO_GO_REJECT_JOINT_RELEASE_CANDIDATE"),
         },
     }
     audit = {
@@ -90,7 +99,7 @@ def main():
         "method_decision": summary["decision"],
         "test_accessed": False,
     }
-    (OUTPUT / "audit.json").write_text(
+    (output / "audit.json").write_text(
         json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(json.dumps(audit, indent=2, sort_keys=True))
