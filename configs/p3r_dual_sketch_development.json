@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_p3r_development_execution",
+  "role": "new-method development after P3.2 no-go; not confirmatory evidence",
+  "data_access": "P3 train and validation arrays only; encrypted P3 test permanently prohibited",
+  "candidate": {
+    "name": "dual_sketch_lp_candidate",
+    "release": "one-hop joint semantic and topological aggregation",
+    "dimension_pairs": [[8, 8], [8, 24], [16, 16]],
+    "maximum_joint_dimension": 32,
+    "semantic_energy_fractions": [0.25, 0.5, 0.75],
+    "topology_signature": "public nested Rademacher signatures keyed only by public node index",
+    "topology_signature_seed": 20260801,
+    "semantic_encoder_seed": 20260802,
+    "gaussian_stream": 20260803,
+    "hops": 1,
+    "decoder_modes": ["topology_cosine", "noise_standardized_dot"],
+    "public_weights": [0.5, 1.0, 2.0],
+    "semantic_weight": 1.0,
+    "topology_weights": [0.5, 1.0, 2.0]
+  },
+  "privacy": {
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "adjacency": "add_remove_one_canonical_undirected_edge",
+    "l2_sensitivity": "sqrt(2)",
+    "releases": 1,
+    "visibility": "individually_visible_client_messages",
+    "accountant": "exact_fixed_sensitivity_gaussian_rdp",
+    "inference": "public inputs and one cached DP matrix only; no graph reread"
+  },
+  "selection": {
+    "procedure": "leave_one_seed_out_nested_selection independently per dataset",
+    "training_folds": 4,
+    "held_out_folds": 1,
+    "objective": "mean global ROC-AUC on the four selection seeds",
+    "tie_break": [
+      "smaller joint release dimension",
+      "larger semantic energy fraction",
+      "smaller topology weight",
+      "smaller public weight"
+    ],
+    "baseline": "previously frozen P3.2 GAP-style selected validation scores",
+    "test_tuning": false
+  },
+  "go_no_go": {
+    "minimum_datasets_with_positive_global_95pct_ci": 3,
+    "minimum_datasets_with_positive_cross_95pct_ci": 3,
+    "minimum_macro_mean_global_gain": 0.02,
+    "minimum_macro_mean_cross_gain": 0.02,
+    "maximum_allowed_dataset_mean_global_drop": -0.01,
+    "maximum_allowed_dataset_mean_cross_drop": -0.01,
+    "all_metrics_finite": true,
+    "missing_cells": "NO_GO",
+    "decision_if_pass": "authorize fresh-source confirmatory protocol",
+    "decision_if_fail": "reject candidate without P3 test access"
+  }
+}
