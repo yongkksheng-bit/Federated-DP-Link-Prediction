@@ -1,0 +1,47 @@
+{
+  "all_source_rows_match": true,
+  "created_utc": "2026-07-19T01:10:59.125059+00:00",
+  "datasets": [
+    {
+      "canonical_undirected_edges": 333983,
+      "dataset": "blogcatalog-v3",
+      "duplicate_or_reversed_edge_rows": 0,
+      "edge_endpoints_outside_node_dictionary": 0,
+      "group_count": 39,
+      "membership_groups_outside_dictionary": 0,
+      "membership_nodes_outside_dictionary": 0,
+      "membership_rows": 14476,
+      "nodes_without_membership": 0,
+      "raw_edge_rows": 333983,
+      "raw_node_rows": 10312,
+      "self_loop_rows": 0,
+      "source_statistics_match": true
+    },
+    {
+      "canonical_undirected_edges": 170823,
+      "category_count": 4,
+      "category_sizes": {
+        "company": 6495,
+        "government": 6880,
+        "politician": 5768,
+        "tvshow": 3327
+      },
+      "dataset": "facebook-musae",
+      "duplicate_or_reversed_edge_rows": 0,
+      "edge_endpoints_outside_target": 0,
+      "feature_dimension": 4714,
+      "feature_nodes": 22470,
+      "feature_nodes_outside_target": 0,
+      "raw_edge_rows": 171002,
+      "raw_node_rows": 22470,
+      "self_loop_rows": 179,
+      "snap_count_interpretation": "matches raw repository rows",
+      "snap_reported_edge_rows": 171002,
+      "source_statistics_match": true,
+      "target_nodes_without_features": 0,
+      "unique_node_ids": 22470
+    }
+  ],
+  "privacy_note": "aggregate source audit; contains no edges or node identifiers",
+  "schema_version": 1
+}

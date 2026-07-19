@@ -6,10 +6,11 @@ Clean-room research repository for the paper:
 
 ## Status
 
-Phase 2: source and pilot protocol. Phase 1 closed on 2026-07-19 with a
-provisional public-coarsened affinity-release family and explicit synthetic
-failure boundaries. No final method, real dataset, real result, or manuscript
-claim has been admitted yet.
+Phase 2: source integrity and sealed-pilot preparation. The source/pilot
+protocol was frozen at commit `990df58` before acquisition. BlogCatalog v3 and
+Facebook MUSAE passed aggregate byte/schema audits; raw data remain local-only
+pending dataset-specific rights clarification. No sealed split, real result,
+final method, or manuscript claim has been admitted yet.
 
 ## Clean-Room Boundary
 

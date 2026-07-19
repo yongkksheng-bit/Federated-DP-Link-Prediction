@@ -9,7 +9,7 @@ P2 uses one blog network and one social network:
 | ID | Canonical source | Claimed source statistics | Pilot role |
 |---|---|---:|---|
 | `blogcatalog-v3` | Syracuse University Data Lab | 10,312 nodes; 333,983 undirected edges; 39 groups | blog |
-| `facebook-musae` | SNAP metadata plus MUSAE commit `5f90123` | 22,470 nodes; SNAP reports 171,002 undirected edges; four categories | social |
+| `facebook-musae` | SNAP metadata plus MUSAE commit `5f90123` | 22,470 nodes; 171,002 raw edge rows; four categories | social |
 
 `blogcatalog-v3` is the original 10,312-node source. It is not the PyG
 `AttributedGraphDataset` derivative with 5,196 nodes, 8,189 features, and six
@@ -46,3 +46,16 @@ files are pinned to an immutable Git commit and expected Git blob IDs. The
 BlogCatalog server exposes a versioned upload URL but no content hash; its first
 acquisition SHA-256 becomes the project-local immutable identity and any later
 byte change must fail closed.
+
+## First-source audit
+
+The post-freeze audit found that BlogCatalog matches all advertised counts:
+10,312 nodes, 333,983 unique simple undirected edges, and 39 groups. The MUSAE
+Facebook edge CSV contains exactly the 171,002 rows shown by SNAP, but 179 are
+self-loops. Removing those loops yields 170,823 canonical simple undirected
+edges; there are no duplicate or reversed duplicate rows. The graph has 22,470
+feature-complete nodes, 4,714 feature dimensions, and four page categories.
+
+Accordingly, `171,002` is retained as a raw source-row statistic and `170,823`
+is the link-prediction graph statistic. This is a documented normalization, not
+a silent disagreement with the source.

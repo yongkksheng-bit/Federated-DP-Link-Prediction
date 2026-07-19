@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T01:09:47.720542+00:00",
+  "registry_sha256": "b4f74ab406ad5f067948cf980fa9b1d82b3d8f3ed4a63ac65158cc8cecee3733",
+  "rights_boundary": "local_scholarly_evaluation_no_redistribution",
+  "files": [
+    {
+      "dataset": "blogcatalog-v3",
+      "registry_path": "blogcatalog-v3.zip",
+      "source": "https://datasets.syr.edu/uploads/1283153973/BlogCatalog-dataset.zip",
+      "bytes": 976987,
+      "sha256": "173c519328c29f5f37f78d6efeebfd30c5f8d33e121d20b314d81b04fb1b2815"
+    },
+    {
+      "dataset": "facebook-musae",
+      "registry_path": "input/edges/facebook_edges.csv",
+      "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/edges/facebook_edges.csv",
+      "bytes": 1882610,
+      "sha256": "7c50d8f02a75cc0829577814a1fc14535164daa38d79c3612340c9e9cdbd4022"
+    },
+    {
+      "dataset": "facebook-musae",
+      "registry_path": "input/features/facebook.json",
+      "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/features/facebook.json",
+      "bytes": 2088766,
+      "sha256": "ea870537646a93642a0008d38aa9bfeff02018070ba97b1f3f469d9622626436"
+    },
+    {
+      "dataset": "facebook-musae",
+      "registry_path": "input/target/facebook_target.csv",
+      "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/target/facebook_target.csv",
+      "bytes": 1177912,
+      "sha256": "7bd96eafea3c2ca40f44bfa9e73642194696c21e38c7b29ed409c32ad14075cd"
+    }
+  ]
+}

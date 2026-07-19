@@ -40,8 +40,14 @@
   "p1_provisional_mechanism_family": "public_coarsened_affinity_release",
   "p1_closed": true,
   "p1_real_data_authorized": false,
+  "p2_protocol_frozen_commit": "990df5845163e82cfc99fd3853819fa3f1a5f08e",
+  "p2_source_acquired_after_protocol": true,
+  "p2_source_integrity_audit": "PASS",
+  "p2_source_rights_status": "local_only_pending_dataset_specific_clarification",
+  "p2_split_generated": false,
+  "p2_test_accessed": false,
   "method_selected": false,
-  "dataset_accessed": false,
+  "dataset_accessed": true,
   "experiment_run": true,
   "experiment_scope": "synthetic_only"
 }
