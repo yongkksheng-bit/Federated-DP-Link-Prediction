@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_p3r_v2_execution",
+  "role": "P3R-v2 method development; not confirmatory evidence",
+  "data_access": "P3 train and validation arrays only; encrypted P3 test permanently prohibited",
+  "candidate": {
+    "name": "budget_coupled_aggregation_histogram_candidate",
+    "semantic_encoder_seed_base": 20260724,
+    "gaussian_stream": 20260812,
+    "cells": 16,
+    "bin_edges": [0.0, 1e-12, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0000001],
+    "capacity_sample_maximum": 1000000,
+    "capacity_seed": 20260721,
+    "dirichlet_alpha": 1.0,
+    "log_enrichment_clip": 4.0,
+    "histogram_energy_fractions": [0.025, 0.05, 0.1, 0.2, 0.4],
+    "residual_weights": [0.025, 0.05, 0.1, 0.2, 0.4],
+    "frozen_gap_backbones": {
+      "blogcatalog-v3": {"projection_dimension": 16, "hops": 2},
+      "facebook-musae": {"projection_dimension": 32, "hops": 1},
+      "polblogs-newman": {"projection_dimension": 8, "hops": 2},
+      "lastfm-asia-snap": {"projection_dimension": 32, "hops": 1},
+      "github-social-snap": {"projection_dimension": 32, "hops": 1},
+      "deezer-europe-snap": {"projection_dimension": 8, "hops": 1}
+    }
+  },
+  "privacy": {
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "adjacency": "add_remove_one_canonical_undirected_edge",
+    "joint_l2_sensitivity": "sqrt(2)",
+    "aggregation_scale": "sqrt(1-gamma)",
+    "histogram_scale": "sqrt(2gamma)",
+    "releases": "equal to frozen GAP hop count; first release is joint, later release is aggregation only",
+    "visibility": "individually_visible_client_messages",
+    "accountant": "exact fixed-sensitivity Gaussian RDP with adaptive composition across hops",
+    "inference": "public inputs and cached DP releases only; no graph reread"
+  },
+  "selection": {
+    "procedure": "leave_one_seed_out_nested_selection independently per dataset",
+    "objective": "mean global ROC-AUC on four selection seeds",
+    "tie_break": ["smaller histogram energy", "smaller residual weight"],
+    "baseline": "frozen P3.2 GAP-style held-out seed score",
+    "test_tuning": false
+  },
+  "go_no_go": {
+    "minimum_datasets_with_positive_global_95pct_ci": 3,
+    "minimum_datasets_with_positive_cross_95pct_ci": 3,
+    "minimum_macro_mean_global_gain": 0.02,
+    "minimum_macro_mean_cross_gain": 0.02,
+    "maximum_allowed_dataset_mean_global_drop": -0.01,
+    "maximum_allowed_dataset_mean_cross_drop": -0.01,
+    "all_metrics_finite": true,
+    "missing_cells": "NO_GO",
+    "decision_if_pass": "authorize fresh-source confirmatory protocol",
+    "decision_if_fail": "reject candidate without P3 test access"
+  }
+}
