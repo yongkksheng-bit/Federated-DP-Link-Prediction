@@ -1,0 +1,112 @@
+{
+  "candidate": "conditioned_b8_lambda_0.1",
+  "checks": {
+    "all_ten_records_present": true,
+    "fixed_candidate_only": true,
+    "release_dimension_1088": true,
+    "sensitivity_one": true,
+    "test_never_accessed": true
+  },
+  "paired_diagnostics": {
+    "deezer-europe-snap/cross/vs_public_cosine": {
+      "candidate_mean": 0.6386912226028654,
+      "ci95_high": 0.038516989901269894,
+      "ci95_low": 0.03164768549999594,
+      "mean_difference": 0.03508233770063292,
+      "n": 5,
+      "reference_mean": 0.6036088849022325
+    },
+    "deezer-europe-snap/cross/vs_random_score": {
+      "candidate_mean": 0.6386912226028654,
+      "ci95_high": 0.14774387585952392,
+      "ci95_low": 0.12933282435571064,
+      "mean_difference": 0.13853835010761728,
+      "n": 5,
+      "reference_mean": 0.5001528724952482
+    },
+    "deezer-europe-snap/cross/vs_zero_private_signal": {
+      "candidate_mean": 0.6386912226028654,
+      "ci95_high": 0.06579177929445437,
+      "ci95_low": 0.04151720662768326,
+      "mean_difference": 0.05365449296106881,
+      "n": 5,
+      "reference_mean": 0.5850367296417965
+    },
+    "deezer-europe-snap/global/vs_public_cosine": {
+      "candidate_mean": 0.6389561947384863,
+      "ci95_high": 0.037582809821236546,
+      "ci95_low": 0.03239861024981787,
+      "mean_difference": 0.03499071003552721,
+      "n": 5,
+      "reference_mean": 0.6039654847029592
+    },
+    "deezer-europe-snap/global/vs_random_score": {
+      "candidate_mean": 0.6389561947384863,
+      "ci95_high": 0.14325419512122797,
+      "ci95_low": 0.13316657601527934,
+      "mean_difference": 0.13821038556825366,
+      "n": 5,
+      "reference_mean": 0.5007458091702327
+    },
+    "deezer-europe-snap/global/vs_zero_private_signal": {
+      "candidate_mean": 0.6389561947384863,
+      "ci95_high": 0.062486290741776994,
+      "ci95_low": 0.042795773759352736,
+      "mean_difference": 0.052641032250564865,
+      "n": 5,
+      "reference_mean": 0.5863151624879215
+    },
+    "github-social-snap/cross/vs_public_cosine": {
+      "candidate_mean": 0.6589720720969364,
+      "ci95_high": 0.05100757201531669,
+      "ci95_low": 0.04940863137961751,
+      "mean_difference": 0.0502081016974671,
+      "n": 5,
+      "reference_mean": 0.6087639703994693
+    },
+    "github-social-snap/cross/vs_random_score": {
+      "candidate_mean": 0.6589720720969364,
+      "ci95_high": 0.16437454731835388,
+      "ci95_low": 0.15526212587344657,
+      "mean_difference": 0.15981833659590022,
+      "n": 5,
+      "reference_mean": 0.49915373550103614
+    },
+    "github-social-snap/cross/vs_zero_private_signal": {
+      "candidate_mean": 0.6589720720969364,
+      "ci95_high": 0.051935541852038455,
+      "ci95_low": 0.04267910239147081,
+      "mean_difference": 0.04730732212175463,
+      "n": 5,
+      "reference_mean": 0.6116647499751817
+    },
+    "github-social-snap/global/vs_public_cosine": {
+      "candidate_mean": 0.6589791770931861,
+      "ci95_high": 0.05110336518389933,
+      "ci95_low": 0.04963630962842331,
+      "mean_difference": 0.05036983740616132,
+      "n": 5,
+      "reference_mean": 0.6086093396870248
+    },
+    "github-social-snap/global/vs_random_score": {
+      "candidate_mean": 0.6589791770931861,
+      "ci95_high": 0.16334521683531858,
+      "ci95_low": 0.15635584589142085,
+      "mean_difference": 0.1598505313633697,
+      "n": 5,
+      "reference_mean": 0.4991286457298164
+    },
+    "github-social-snap/global/vs_zero_private_signal": {
+      "candidate_mean": 0.6589791770931861,
+      "ci95_high": 0.05224985931469444,
+      "ci95_low": 0.042733488346372826,
+      "mean_difference": 0.04749167383053363,
+      "n": 5,
+      "reference_mean": 0.6114875032626526
+    }
+  },
+  "protocol": "P2_2_CONFIRMATORY_VALIDATION_v1",
+  "role": "operational validation only; no tuning or utility gate",
+  "status": "READY_FOR_TEST_RUNNER_FREEZE",
+  "test_accessed": false
+}
