@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T01:47:37.969372+00:00",
+  "manifest_sha256": "53cbdfade3dae9f512119294a7b52acaab6b33a8cd9a55ac11a7ef89fc9cc6dc",
+  "test_decrypted": false,
+  "audited_cells": 10,
+  "failures": [],
+  "status": "PASS",
+  "cells": [
+    {
+      "dataset": "polblogs-newman",
+      "seed": 6101,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 7207,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 8303,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 9403,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 10501,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 6101,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 7207,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 8303,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 9403,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 10501,
+      "sealed_hash_match": true
+    }
+  ]
+}
