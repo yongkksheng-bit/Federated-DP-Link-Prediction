@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_p3_split_generation",
+  "datasets": [
+    "blogcatalog-v3",
+    "facebook-musae",
+    "polblogs-newman",
+    "lastfm-asia-snap",
+    "github-social-snap",
+    "deezer-europe-snap"
+  ],
+  "evidence_role": {
+    "p2_confirmatory_tests": "historical single-access selection evidence; never read in P3",
+    "p3_splits": "new benchmark evidence generated after method selection"
+  },
+  "public_descriptor_contract": {
+    "exclude_node_classification_targets_when_independent_feature_files_exist": true,
+    "blogcatalog-v3": "public group-membership attributes",
+    "facebook-musae": "facebook.json attributes only; page_type excluded",
+    "polblogs-newman": "public political leaning is the only registered node descriptor",
+    "lastfm-asia-snap": "artist features only; target label excluded",
+    "github-social-snap": "profile and starred-repository features only; ml_target excluded",
+    "deezer-europe-snap": "artist-like features only; gender target excluded"
+  },
+  "clients": 5,
+  "home_assignment": {
+    "algorithm": "balanced_sha256_rank",
+    "seed": 20260723,
+    "edge_independent": true
+  },
+  "public_coarsening": {
+    "default": {
+      "algorithm": "l2_normalize_then_truncated_svd_then_kmeans",
+      "components": 16,
+      "cells": 16,
+      "random_state": 20260723
+    },
+    "polblogs-newman": {
+      "algorithm": "public_label_then_balanced_sha256_subdivision",
+      "subcells_per_label": 8,
+      "cells": 16
+    }
+  },
+  "split": {
+    "positive_ratios": {"train": 0.7, "validation": 0.1, "test": 0.2},
+    "negative_ratio": 1.0,
+    "strata": ["intra_client", "cross_client"],
+    "seeds": [23003, 24001, 25013, 26003, 27011],
+    "validation_role": "baseline implementation audit and preregistered baseline-grid selection only",
+    "test_access": "one batched decrypt after all methods, accountants, tables, and analysis code freeze"
+  },
+  "selected_method": {
+    "name": "conditioned_b8_lambda_0.1_visible_messages",
+    "public_score": "sparse_public_feature_cosine",
+    "bin_edges": [0.0, 1e-12, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 1.0000001],
+    "cells": 16,
+    "release_dimension": 1088,
+    "public_capacity_sample_maximum": 1000000,
+    "public_capacity_seed": 20260721,
+    "dirichlet_alpha": 1.0,
+    "log_enrichment_clip": 4.0,
+    "residual_weight": 0.1
+  },
+  "privacy": {
+    "adjacency": "add_remove_one_canonical_undirected_edge",
+    "delta": 1e-6,
+    "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "primary_epsilon": 4.0,
+    "accountant": "exact_fixed_sensitivity_gaussian_rdp",
+    "l2_sensitivity": 1.0,
+    "releases_per_run": 1,
+    "primary_visibility": "individually_visible_client_messages",
+    "secondary_visibility": "ideal_secure_aggregation"
+  },
+  "minimum_internal_controls": [
+    "random_score",
+    "public_cosine",
+    "matched_zero_private_signal",
+    "nonprivate_conditioned_b8_reference",
+    "dp_unconditioned_b1_visible_messages",
+    "dp_conditioned_b4_visible_messages",
+    "dp_conditioned_b8_visible_messages",
+    "dp_conditioned_b8_ideal_secagg"
+  ],
+  "mandatory_external_baseline_tracks": [
+    "DPLP_or_closest_formal_centralized_edge_DP_LP",
+    "GAP_style_inference_closed_edge_DP_aggregation_adapted_to_LP"
+  ],
+  "external_baseline_admission": {
+    "required": [
+      "same candidate splits and public descriptors",
+      "explicit released output and adversary",
+      "rederived add_remove_edge accountant",
+      "matched epsilon_delta or clearly marked privacy_scope_mismatch",
+      "validation-only hyperparameter grid frozen before P3 test"
+    ],
+    "forbidden": "labeling an unverified nominal epsilon as privacy matched"
+  },
+  "metrics": {
+    "primary": ["global_roc_auc", "cross_roc_auc"],
+    "secondary": [
+      "intra_roc_auc",
+      "global_average_precision",
+      "cross_average_precision",
+      "paired_gain_over_public_cosine"
+    ],
+    "systems": [
+      "release_dimension",
+      "client_message_bytes",
+      "server_release_bytes",
+      "wall_time_seconds",
+      "peak_resident_memory_bytes"
+    ]
+  },
+  "predeclared_analyses": [
+    "epsilon_utility_curve",
+    "visible_messages_vs_ideal_secagg",
+    "one_vs_four_vs_eight_public_score_bins",
+    "public_only_and_zero_private_signal_separation",
+    "global_intra_cross_breakdown",
+    "descriptor_sparsity_failure_boundary",
+    "client_count_and_release_communication_scaling"
+  ],
+  "reporting": {
+    "seeds": 5,
+    "uncertainty": "paired_95pct_t_interval_across_frozen_seeds",
+    "test_tuning": false,
+    "missing_cell": "report_failure_without_imputation",
+    "multiple_comparisons": "Holm correction for confirmatory primary comparisons"
+  }
+}
