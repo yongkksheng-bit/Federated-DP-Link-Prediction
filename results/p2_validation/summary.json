@@ -1,0 +1,133 @@
+{
+  "datasets": {
+    "blogcatalog-v3": {
+      "metrics": {
+        "cross": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.5827780385079111,
+            "dp_coarsened_affinity_visible_messages": 0.5827955737832091,
+            "nonprivate_coarsened_oracle": 0.5827718615372893,
+            "public_cosine": 0.5501579589430247,
+            "public_same_cell": 0.5272380667588681,
+            "random_score": 0.49982856454458346,
+            "zero_private_signal": 0.501796294214149
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": 0.03482341846660582,
+            "ci95_low": 0.030451811213763363,
+            "mean_difference": 0.03263761484018459,
+            "n": 5
+          },
+          "validation_advance": true
+        },
+        "global": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.5830345946300086,
+            "dp_coarsened_affinity_visible_messages": 0.5830436627367596,
+            "nonprivate_coarsened_oracle": 0.583044917758,
+            "public_cosine": 0.5502704642050562,
+            "public_same_cell": 0.5271281851663323,
+            "random_score": 0.4994153699894291,
+            "zero_private_signal": 0.5017602714713332
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": 0.035074188562197316,
+            "ci95_low": 0.0304722085012093,
+            "mean_difference": 0.03277319853170331,
+            "n": 5
+          },
+          "validation_advance": true
+        },
+        "intra": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.5840850848030806,
+            "dp_coarsened_affinity_visible_messages": 0.584054638117583,
+            "nonprivate_coarsened_oracle": 0.5841608526485536,
+            "public_cosine": 0.5507270142929065,
+            "public_same_cell": 0.5266857314870561,
+            "random_score": 0.4977802010278657,
+            "zero_private_signal": 0.5016106070090445
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": 0.03941262059487848,
+            "ci95_low": 0.02724262705447427,
+            "mean_difference": 0.033327623824676376,
+            "n": 5
+          }
+        }
+      },
+      "n": 5,
+      "selected_public": {
+        "cross": "public_cosine",
+        "global": "public_cosine",
+        "intra": "public_cosine"
+      }
+    },
+    "facebook-musae": {
+      "metrics": {
+        "cross": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.8677562520910003,
+            "dp_coarsened_affinity_visible_messages": 0.8677347593498567,
+            "nonprivate_coarsened_oracle": 0.8677577410717714,
+            "public_cosine": 0.9418546753053546,
+            "public_same_cell": 0.6829698477751757,
+            "random_score": 0.4994980838638533,
+            "zero_private_signal": 0.5027271491584238
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": -0.0722018488574644,
+            "ci95_low": -0.07603798305353175,
+            "mean_difference": -0.07411991595549808,
+            "n": 5
+          },
+          "validation_advance": false
+        },
+        "global": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.8680577034696487,
+            "dp_coarsened_affinity_visible_messages": 0.8680406702624273,
+            "nonprivate_coarsened_oracle": 0.8680591681979829,
+            "public_cosine": 0.9418302285684919,
+            "public_same_cell": 0.6837606837606837,
+            "random_score": 0.49971898875046145,
+            "zero_private_signal": 0.5016797311934948
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": -0.07276491279115258,
+            "ci95_low": -0.07481420382097645,
+            "mean_difference": -0.07378955830606451,
+            "n": 5
+          },
+          "validation_advance": false
+        },
+        "intra": {
+          "means": {
+            "dp_coarsened_affinity_ideal_secagg": 0.869292769391796,
+            "dp_coarsened_affinity_visible_messages": 0.8692927009146155,
+            "nonprivate_coarsened_oracle": 0.8692965698753132,
+            "public_cosine": 0.9417435437146336,
+            "public_same_cell": 0.6869221767115272,
+            "random_score": 0.5006636294754545,
+            "zero_private_signal": 0.4975084064298703
+          },
+          "paired_candidate_vs_selected_public": {
+            "ci95_high": -0.06862768182263262,
+            "ci95_low": -0.07627400377740379,
+            "mean_difference": -0.0724508428000182,
+            "n": 5
+          }
+        }
+      },
+      "n": 5,
+      "selected_public": {
+        "cross": "public_cosine",
+        "global": "public_cosine",
+        "intra": "public_cosine"
+      }
+    }
+  },
+  "decision": "NO_GO",
+  "protocol": "P2_VALIDATION_v1",
+  "test_accessed": false
+}

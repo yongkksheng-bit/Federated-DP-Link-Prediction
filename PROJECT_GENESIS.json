@@ -14,7 +14,7 @@
   "remote_attached": true,
   "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
   "remote_verified_empty_before_first_push": true,
-  "phase": "P2_source_and_pilot_protocol",
+  "phase": "P2_redesign_after_validation_no_go",
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
   "p0_high_risk_fulltexts_classified": true,
@@ -49,8 +49,14 @@
   "p2_split_seeds": 5,
   "p2_split_datasets": ["blogcatalog-v3", "facebook-musae"],
   "p2_test_accessed": false,
+  "p2_validation_protocol_commit": "9ed8fc32811fe4af5fee008d8b5a891816b80e9f",
+  "p2_validation_records": 10,
+  "p2_validation_decision": "NO_GO",
+  "p2_blogcatalog_global_gain_over_public": 0.03277319853170331,
+  "p2_facebook_global_gain_over_public": -0.07378955830606451,
+  "p2_provisional_mechanism_status": "rejected_as_cross_domain_primary_method",
   "method_selected": false,
   "dataset_accessed": true,
   "experiment_run": true,
-  "experiment_scope": "synthetic_only"
+  "experiment_scope": "synthetic_and_real_validation_only"
 }
