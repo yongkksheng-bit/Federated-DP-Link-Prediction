@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T02:17:23.874541+00:00",
+  "manifest_sha256": "3ac722b80644adbc9ddf22da1b2ecc7f99c57a79309eb547e81daba0d44f973c",
+  "test_decrypted": false,
+  "audited_cells": 10,
+  "failures": [],
+  "status": "PASS",
+  "cells": [
+    {
+      "dataset": "github-social-snap",
+      "seed": 12011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 13007,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 14009,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 15013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 16001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 12011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 13007,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 14009,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 15013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 16001,
+      "sealed_hash_match": true
+    }
+  ]
+}

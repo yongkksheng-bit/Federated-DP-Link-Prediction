@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T02:17:00.722127+00:00",
+  "confirmatory_protocol_commit": "08fa3e37838933092cc0cf6f318eef109cbd3386",
+  "preparation_code_commit": "686cafe5f3e4b73b720e9b59ae855c63cbd5cba7",
+  "config_sha256": "b49942bf22aa87ed7954e2b5654cf622b1d5a4ad6eb39243fdf1cfbed141ece1",
+  "source_audit_sha256": "5ccf13ec1298871808d0a771c9d458ec3c5ff9c48f45b20f96c1299d2bf2b0e0",
+  "test_status": "encrypted_never_accessed",
+  "test_access_count": 0,
+  "contains_private_identities": false,
+  "datasets": [
+    {
+      "dataset": "github-social-snap",
+      "nodes": 37700,
+      "canonical_edges": 289003,
+      "public_feature_dimension": 4005,
+      "public_feature_nnz": 690358,
+      "empty_public_feature_nodes": 0,
+      "client_node_counts": [
+        7540,
+        7540,
+        7540,
+        7540,
+        7540
+      ],
+      "client_owned_edge_counts": [
+        58928,
+        62459,
+        54614,
+        57976,
+        55026
+      ],
+      "public_cell_counts": [
+        2537,
+        1870,
+        2661,
+        1565,
+        2762,
+        2257,
+        1183,
+        2286,
+        1897,
+        2475,
+        3139,
+        2790,
+        2601,
+        2761,
+        2148,
+        2768
+      ],
+      "splits": [
+        {
+          "seed": 12011,
+          "counts": {
+            "train_positive": 202301,
+            "validation_positive": 28900,
+            "test_positive": 57802,
+            "test_negative": 57802,
+            "test_positive_strata": {
+              "intra": 11567,
+              "cross": 46235
+            },
+            "test_negative_strata": {
+              "intra": 11567,
+              "cross": 46235
+            }
+          },
+          "commitments": {
+            "train_positive": "978160d213e6b956617796affe9ec32c4acc86070af8b670c71e4240e795bd6c",
+            "validation_positive": "2f4eff1fc55a2c39d3ebda829a24887c67c5a29584a0ba1fd845ffdfb9f88006",
+            "test_positive": "90c91c35945cdf1a60cec516eab34272be170de98fb18637c458413b4620df54",
+            "test_negative": "1e15870eaa8dc25e65c99fab63f05601c39f09ddec8c849a0bf37ef5ea6b80b7",
+            "sealed_payload_sha256": "36859f3fc7c5e8f821de27b1e1c66c1605cb81e9c87a8883ea437f53a3d98257"
+          }
+        },
+        {
+          "seed": 13007,
+          "counts": {
+            "train_positive": 202301,
+            "validation_positive": 28900,
+            "test_positive": 57802,
+            "test_negative": 57802,
+            "test_positive_strata": {
+              "intra": 11567,
+              "cross": 46235
+            },
+            "test_negative_strata": {
+              "intra": 11567,
+              "cross": 46235
+            }
+          },
+          "commitments": {
+            "train_positive": "35138da0825af1b11a12e6290a9ca190196039c4a72863c201861716b6620157",
+            "validation_positive": "b3ca87328b02ee3713b2a742a0bced1b651637b8b7823d1eb4f8aedcedfd5e54",
+            "test_positive": "a76b127001a08a7e4c0911c7bd872cd14eaa90c0c2f0d8d6b2bb197bc7c24eb2",
+            "test_negative": "52ca573e467047bfda4c28d2ebcb9b90a2d347c6e2ad2369d72c5474971cad17",
+            "sealed_payload_sha256": "a59a81a7b648b13ce02c96a609ff9a7f8c3cb802bedd75f44d077c465073174c"
+          }
+        },
+        {
+          "seed": 14009,
+          "counts": {
+            "train_positive": 202301,
+            "validation_positive": 28900,
+            "test_positive": 57802,
+            "test_negative": 57802,
+            "test_positive_strata": {
+              "intra": 11567,
+              "cross": 46235
+            },
+            "test_negative_strata": {
+              "intra": 11567,
+              "cross": 46235
+            }
+          },
+          "commitments": {
+            "train_positive": "5f2225812fe3b3c67739e19326ac5bc7507a9fe4c14e21e012093e31b541e93c",
+            "validation_positive": "9614852683f359cee67c46b4b899b3952df99db0134bc611b24b8dc387655fe4",
+            "test_positive": "0faa801e2ceb99ebe7f60591e50bcc82d9b55ae7b049160d5023fe4e048bf592",
+            "test_negative": "24756081b95b87b76a0fd9f9c5d1f71024b482c1e34d817d04d5a671f81d5294",
+            "sealed_payload_sha256": "f2cd756f7bb6017ba7959042624803710f508ba6bb6e206fdf44c913f2f39a32"
+          }
+        },
+        {
+          "seed": 15013,
+          "counts": {
+            "train_positive": 202301,
+            "validation_positive": 28900,
+            "test_positive": 57802,
+            "test_negative": 57802,
+            "test_positive_strata": {
+              "intra": 11567,
+              "cross": 46235
+            },
+            "test_negative_strata": {
+              "intra": 11567,
+              "cross": 46235
+            }
+          },
+          "commitments": {
+            "train_positive": "694c58f57b6a78acc61c6bbdf390d3fdd11142166bdb03f048dcbe2ef392bebb",
+            "validation_positive": "b0499b48868506fc38fe7c08b8414d1e9ab204ec1ba8fda6557eb4596d52e34e",
+            "test_positive": "56132af8216a8fd8551167fdeecc4bf7b68417449fcb686ba4c7e8b75f698e59",
+            "test_negative": "6676bc54840899e7d901e98ff9b81064578dea329b8e8b2d839855c397576fe1",
+            "sealed_payload_sha256": "613ff2b29858ca3b0c8975334a84c45279c3d460675bccfc0c74df0821caf7cf"
+          }
+        },
+        {
+          "seed": 16001,
+          "counts": {
+            "train_positive": 202301,
+            "validation_positive": 28900,
+            "test_positive": 57802,
+            "test_negative": 57802,
+            "test_positive_strata": {
+              "intra": 11567,
+              "cross": 46235
+            },
+            "test_negative_strata": {
+              "intra": 11567,
+              "cross": 46235
+            }
+          },
+          "commitments": {
+            "train_positive": "004db7ac9a68e7068b55495fe4b493f155523e6e6578cf432006d86285eb56f1",
+            "validation_positive": "a37e0565a09d0b4f15d533d8c349e4ccad18e6239d2dd4c1f9d662dd6ee7bb87",
+            "test_positive": "f480367ad46531bf40d4a0baacfa907b86b2ac5aba2d2c5a52cbaab6bff13721",
+            "test_negative": "e96a9ca908b42c9e03d7e27a35d89986b858b033975c7410f401d9ac2bdb6683",
+            "sealed_payload_sha256": "25b95b3cdcc6e7839672e08d040ec5b383f577660f174be6429daf7d757ba4f3"
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "nodes": 28281,
+      "canonical_edges": 92752,
+      "public_feature_dimension": 31241,
+      "public_feature_nnz": 958475,
+      "empty_public_feature_nodes": 6159,
+      "client_node_counts": [
+        5657,
+        5656,
+        5656,
+        5656,
+        5656
+      ],
+      "client_owned_edge_counts": [
+        18901,
+        18732,
+        18396,
+        18231,
+        18492
+      ],
+      "public_cell_counts": [
+        758,
+        12563,
+        663,
+        1032,
+        927,
+        1050,
+        1072,
+        653,
+        755,
+        1063,
+        1080,
+        1154,
+        1083,
+        776,
+        2391,
+        1261
+      ],
+      "splits": [
+        {
+          "seed": 12011,
+          "counts": {
+            "train_positive": 64925,
+            "validation_positive": 9275,
+            "test_positive": 18552,
+            "test_negative": 18552,
+            "test_positive_strata": {
+              "intra": 3683,
+              "cross": 14869
+            },
+            "test_negative_strata": {
+              "intra": 3683,
+              "cross": 14869
+            }
+          },
+          "commitments": {
+            "train_positive": "437d90a04191f7467b94cece7fec98cf8c67b72f32e0fac17092d52e2b0a06d5",
+            "validation_positive": "0a897ef366e9b6307ad3c501ec0afba513cb6d0449c16e1b5ae7cb474119e5c0",
+            "test_positive": "b87cc8a63071844cf76042d72ad15c8ede84d6aa50c64c190fc2ffbb6ba885d6",
+            "test_negative": "1245831b03428ecc9392740c530c266e4eb157cf619e8ec62b212a8ed60c6db4",
+            "sealed_payload_sha256": "644eaeeb7ef7b2c8d487bb16aed2b8cde25168dfea98df12a6e8a0dec3837c2a"
+          }
+        },
+        {
+          "seed": 13007,
+          "counts": {
+            "train_positive": 64925,
+            "validation_positive": 9275,
+            "test_positive": 18552,
+            "test_negative": 18552,
+            "test_positive_strata": {
+              "intra": 3683,
+              "cross": 14869
+            },
+            "test_negative_strata": {
+              "intra": 3683,
+              "cross": 14869
+            }
+          },
+          "commitments": {
+            "train_positive": "eb9bee0bb43c00bdca8e7959b89e8ad915f3f19be206008bfdaabf20b43b55d0",
+            "validation_positive": "2ebb57b6f2fc4cd66da2e9b0e5cc34b575478a8c5befc6d36b395ff8392dcba5",
+            "test_positive": "aafaaeb3fb643397d119d0f14657c0824f01a4bf31cfc3b456b998015730b4b7",
+            "test_negative": "b221d738867ee811c4311843eda9b500f820febf0e38506ed740a16b115d1299",
+            "sealed_payload_sha256": "ab8b4d37ef163e7177b954157d0dac6c4b6cdc177e3f3846502ce3831772a093"
+          }
+        },
+        {
+          "seed": 14009,
+          "counts": {
+            "train_positive": 64925,
+            "validation_positive": 9275,
+            "test_positive": 18552,
+            "test_negative": 18552,
+            "test_positive_strata": {
+              "intra": 3683,
+              "cross": 14869
+            },
+            "test_negative_strata": {
+              "intra": 3683,
+              "cross": 14869
+            }
+          },
+          "commitments": {
+            "train_positive": "4cc1e6b9ae780b10c03b76f70392342c74ef71b9e64b8a52a24b1e4536658627",
+            "validation_positive": "9a942de3acfbc4ac11e798aaeaf3c4398db41efdc26a5cfe69343ad992b578fe",
+            "test_positive": "6094f92b73ee837a481cf4eaa4d0767684761efb6aa22e5d2985f631ad48b7b7",
+            "test_negative": "384d44f04d01a8da3a0a3482e9b865bfa6d42a8d6eaa71906793ca3ce9475981",
+            "sealed_payload_sha256": "b0d8d003d06ebb4f302688b089180dbf73d837a6b74c445cf6fde0096c0c234b"
+          }
+        },
+        {
+          "seed": 15013,
+          "counts": {
+            "train_positive": 64925,
+            "validation_positive": 9275,
+            "test_positive": 18552,
+            "test_negative": 18552,
+            "test_positive_strata": {
+              "intra": 3683,
+              "cross": 14869
+            },
+            "test_negative_strata": {
+              "intra": 3683,
+              "cross": 14869
+            }
+          },
+          "commitments": {
+            "train_positive": "61bb190b04c8c7a5f0104875138b4a1e91886517e754dafaba53fd9d74bfd9fd",
+            "validation_positive": "1938dab90815941cab1eee379f62b72cf4629a004d9642eb89129bebd9d61a26",
+            "test_positive": "8458102a09fc743d759310da71ef7185086014828d2917c91abefa5bd02c961b",
+            "test_negative": "fe990d3ca15699002548e3b011000dd79967a799ecd4ccdfdca5b08f16239332",
+            "sealed_payload_sha256": "39d095b3a922456b001f46e21e7c705f60b56e4f230020a5478e57714729356a"
+          }
+        },
+        {
+          "seed": 16001,
+          "counts": {
+            "train_positive": 64925,
+            "validation_positive": 9275,
+            "test_positive": 18552,
+            "test_negative": 18552,
+            "test_positive_strata": {
+              "intra": 3683,
+              "cross": 14869
+            },
+            "test_negative_strata": {
+              "intra": 3683,
+              "cross": 14869
+            }
+          },
+          "commitments": {
+            "train_positive": "feed08a6c235814f81b39fde04bb50673ad054b73400b63f8eb59552c90168cc",
+            "validation_positive": "d15e713ce3e6fba6b5665565dc4aa137c8a727e119baf7d15ecb48750ce701b5",
+            "test_positive": "bf93ee8cc02084e19a9af8b2e8370c322e3f101df28cc4df24ec7e9fa12c66fb",
+            "test_negative": "e676d6e052d1f25a6b75fcbb7b798a5812dac034e4f5f424ba4dc0b1f80e5edf",
+            "sealed_payload_sha256": "ab4b9aaf682bb6a927628601af1a0dcb81f79e0d020f2e3dd40d8adf5094d9c8"
+          }
+        }
+      ]
+    }
+  ]
+}
