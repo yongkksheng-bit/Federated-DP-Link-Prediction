@@ -43,6 +43,9 @@ results/**
 !results/p2_validation/
 !results/p2_validation/records.jsonl
 !results/p2_validation/summary.json
+!results/p2_1_residual_development/
+!results/p2_1_residual_development/records.jsonl
+!results/p2_1_residual_development/summary.json
 artifacts/
 logs/
 tmp/

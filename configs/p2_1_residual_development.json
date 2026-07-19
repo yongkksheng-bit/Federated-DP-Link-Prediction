@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_residual_development_run",
+  "inputs": "p2_validation_only",
+  "test_access": "prohibited",
+  "release": "same_136_dimensional_sensitivity_one_dp_block_counts",
+  "additional_privacy_cost": 0,
+  "public_score": "sparse_public_feature_cosine",
+  "residual_transforms": ["centered_block_rank", "clipped_log_density_zscore"],
+  "lambdas": [0.0025, 0.005, 0.01, 0.02, 0.05, 0.1],
+  "selection": {
+    "criterion": "maximize_minimum_mean_gain_over_public_cosine",
+    "cells": [
+      "blogcatalog-v3/global",
+      "blogcatalog-v3/cross",
+      "facebook-musae/global",
+      "facebook-musae/cross"
+    ],
+    "tie_break": "lower_lambda_then_centered_block_rank"
+  },
+  "advance_rule": {
+    "minimum_gain_each_cell": 0.0,
+    "minimum_facebook_gain_each_primary_metric": 0.002,
+    "require_nonzero_lambda": true
+  },
+  "on_failure": "reject_simple_residual_and_design_public_score_bin_release"
+}
