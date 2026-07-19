@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T02:45:49.057185+00:00",
+  "manifest_sha256": "fe2c366bb8f0e76407c85d7b7190fd8f62e3294da4955c30608ca17664c11691",
+  "test_decrypted": false,
+  "audited_cells": 30,
+  "failures": [],
+  "status": "PASS",
+  "cells": [
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 27011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 27011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "polblogs-newman",
+      "seed": 27011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "lastfm-asia-snap",
+      "seed": 27011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "github-social-snap",
+      "seed": 27011,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 23003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 24001,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 25013,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 26003,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "deezer-europe-snap",
+      "seed": 27011,
+      "sealed_hash_match": true
+    }
+  ]
+}

@@ -7,8 +7,8 @@
   metrics frozen before P3 split generation.
 - [x] Implement target-excluding P3 loaders and parser regression tests.
 - [x] Freeze six-domain source hashes and aggregate public-view audit.
-- [ ] Generate five new encrypted benchmark splits per domain.
-- [ ] Run non-decrypting source/split/commitment audit.
+- [x] Generate five new encrypted benchmark splits per domain.
+- [x] Run non-decrypting source/split/commitment audit.
 
 ## P3.1 Internal mechanism benchmark
 
