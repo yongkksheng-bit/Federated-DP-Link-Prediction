@@ -25,6 +25,9 @@ Thumbs.db
 # Data and generated evidence are admitted selectively by protocol
 data/**
 !data/README.md
+!data/source_registry.json
+!data/manifests/
+!data/manifests/*.json
 results/**
 !results/README.md
 !results/p1_synthetic/
@@ -40,6 +43,7 @@ results/**
 artifacts/
 logs/
 tmp/
+data/sealed/
 
 # Copyright-restricted papers used only for local scholarly review
 literature/restricted/**

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_source_acquisition",
+  "datasets": ["blogcatalog-v3", "facebook-musae"],
+  "clients": 5,
+  "home_assignment": {
+    "algorithm": "balanced_sha256_rank",
+    "seed": 20260719,
+    "edge_independent": true
+  },
+  "edge_ownership": "home_of_lower_canonical_endpoint",
+  "public_coarsening": {
+    "algorithm": "l2_normalize_then_truncated_svd_then_kmeans",
+    "components": 16,
+    "cells": 16,
+    "random_state": 20260719,
+    "fit_inputs": "public_node_descriptors_only",
+    "release_dimension": 136
+  },
+  "split": {
+    "positive_ratios": {"train": 0.7, "validation": 0.1, "test": 0.2},
+    "negative_ratio": 1.0,
+    "strata": ["intra_client", "cross_client"],
+    "seeds": [1103, 2203, 3301, 4409, 5501],
+    "test_access": "single_batched_unseal_after_freeze"
+  },
+  "privacy": {
+    "adjacency": "add_remove_one_canonical_edge",
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "accountant": "exact_fixed_sensitivity_gaussian_rdp",
+    "l2_sensitivity": 1.0,
+    "releases": 1,
+    "primary_visibility": "individually_visible_client_messages",
+    "secondary_visibility": "ideal_secure_aggregation"
+  },
+  "metrics": ["global_auc", "intra_auc", "cross_auc"],
+  "baselines": [
+    "random_score",
+    "strongest_fixed_public_similarity",
+    "zero_private_signal_with_matched_noise",
+    "nonprivate_coarsened_affinity_oracle",
+    "matched_dp_coarsened_affinity_release"
+  ],
+  "go_no_go": {
+    "primary_method": "matched_dp_coarsened_affinity_release",
+    "required_visibility": "individually_visible_client_messages",
+    "required_datasets": 2,
+    "required_seeds": 5,
+    "minimum_mean_gain_over_strongest_public_auc": 0.02,
+    "paired_95pct_ci_lower_bound_over_public": 0.0,
+    "required_metrics": ["global_auc", "cross_auc"],
+    "must_beat_random_and_zero_private_signal": true,
+    "test_failure_action": "stop_or_redesign_without_reusing_test"
+  }
+}

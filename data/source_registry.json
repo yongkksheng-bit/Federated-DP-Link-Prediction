@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-07-19T00:00:00+08:00",
+  "datasets": [
+    {
+      "id": "blogcatalog-v3",
+      "role": "blog_network_pilot",
+      "landing_page": "https://blogcatalog3.datasets.syr.edu/",
+      "source": "https://datasets.syr.edu/uploads/1283153973/BlogCatalog-dataset.zip",
+      "expected_container": "zip",
+      "canonical_claimed_statistics": {
+        "nodes": 10312,
+        "undirected_edges": 333983,
+        "public_groups": 39
+      },
+      "public_fields": ["stable_node_id", "group_memberships"],
+      "private_fields": ["edges", "degrees", "neighborhoods", "edge_derived_partitions"],
+      "license_status": "dataset_specific_license_not_displayed_on_landing_page",
+      "redistribution": "prohibited_pending_written_or_explicit_dataset_terms",
+      "citation_note": "Acknowledge the Syracuse University Data Lab repository as requested by the landing page."
+    },
+    {
+      "id": "facebook-musae",
+      "role": "social_network_pilot",
+      "landing_page": "https://snap.stanford.edu/data/facebook-large-page-page-network.html",
+      "source_repository": "https://github.com/benedekrozemberczki/MUSAE",
+      "source_commit": "5f901232957b6c9985d750aac48cda39a4b24285",
+      "files": [
+        {
+          "path": "input/edges/facebook_edges.csv",
+          "git_blob_sha1": "942806ae8b16d8b9bc819ede309d4990e3c2294b",
+          "bytes": 1882610,
+          "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/edges/facebook_edges.csv"
+        },
+        {
+          "path": "input/features/facebook.json",
+          "git_blob_sha1": "3ecc626d60130d78366ceb1f511dfbf37df58731",
+          "bytes": 2088766,
+          "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/features/facebook.json"
+        },
+        {
+          "path": "input/target/facebook_target.csv",
+          "git_blob_sha1": "2c84204dfac17ccaf16855c3c48f0357aa0efbee",
+          "bytes": 1177912,
+          "source": "https://raw.githubusercontent.com/benedekrozemberczki/MUSAE/5f901232957b6c9985d750aac48cda39a4b24285/input/target/facebook_target.csv"
+        }
+      ],
+      "canonical_claimed_statistics": {
+        "nodes": 22470,
+        "undirected_edges": 171002,
+        "public_categories": 4
+      },
+      "public_fields": ["stable_node_id", "description_features", "page_category"],
+      "private_fields": ["edges", "degrees", "neighborhoods", "edge_derived_partitions"],
+      "license_status": "repository_code_is_gpl_3_0_but_dataset_specific_rights_are_not_explicit",
+      "redistribution": "prohibited_pending_dataset_specific_clarification",
+      "citation_note": "Cite the SNAP landing page and the MUSAE source publication; do not represent the repository code license as a dataset license."
+    }
+  ]
+}
