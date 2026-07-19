@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_validation_access",
+  "candidate": "dp_coarsened_affinity_visible_messages",
+  "public_controls": ["public_cosine", "public_same_cell"],
+  "selection": "highest_mean_validation_auc_per_dataset_and_metric",
+  "advance_rule": {
+    "datasets": ["blogcatalog-v3", "facebook-musae"],
+    "metrics": ["global", "cross"],
+    "minimum_mean_paired_gain": 0.0,
+    "require_all_dataset_metric_cells": true
+  },
+  "on_failure": "do_not_unseal_test"
+}

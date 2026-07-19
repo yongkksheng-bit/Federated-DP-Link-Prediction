@@ -40,6 +40,9 @@ results/**
 !results/p1_pair_feature/records.jsonl
 !results/p1_pair_feature/summary.json
 !results/p1_pair_feature/hard_release_audit.json
+!results/p2_validation/
+!results/p2_validation/records.jsonl
+!results/p2_validation/summary.json
 artifacts/
 logs/
 tmp/
