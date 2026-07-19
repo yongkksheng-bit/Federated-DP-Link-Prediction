@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-19T01:21:07.122580+00:00",
+  "manifest_sha256": "803e8386ee1697a9e8ec1119acfee808332bc8ec40221b97e8bac9ca7cc9041f",
+  "test_decrypted": false,
+  "audited_cells": 10,
+  "failures": [],
+  "status": "PASS",
+  "cells": [
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 1103,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 2203,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 3301,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 4409,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "blogcatalog-v3",
+      "seed": 5501,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 1103,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 2203,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 3301,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 4409,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    },
+    {
+      "dataset": "facebook-musae",
+      "seed": 5501,
+      "development_counts_match": true,
+      "development_sets_disjoint": true,
+      "sealed_hash_match": true
+    }
+  ]
+}
