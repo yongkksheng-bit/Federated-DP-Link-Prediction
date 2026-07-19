@@ -191,6 +191,79 @@ def load_lastfm(archive: pathlib.Path) -> PilotGraph:
     )
 
 
+def _load_snap_attributed_archive(
+    archive: pathlib.Path,
+    *,
+    dataset_id: str,
+    prefix: str,
+    edge_file: str,
+    feature_file: str,
+    target_file: str,
+    edge_columns: tuple[str, str],
+) -> PilotGraph:
+    """Load a SNAP attributed social graph without adding target labels to x."""
+    with zipfile.ZipFile(archive) as handle:
+        def dictionary_rows(name: str) -> list[dict[str, str]]:
+            with handle.open(prefix + name) as stream:
+                return list(
+                    csv.DictReader(line.decode("utf-8").strip() for line in stream)
+                )
+
+        targets = dictionary_rows(target_file)
+        external_edges = [
+            (row[edge_columns[0]], row[edge_columns[1]])
+            for row in dictionary_rows(edge_file)
+        ]
+        raw_features = json.loads(handle.read(prefix + feature_file).decode("utf-8"))
+    external_ids = tuple(sorted((row["id"] for row in targets), key=int))
+    if set(raw_features) != set(external_ids):
+        raise ValueError("feature and target node universes differ")
+    node_lookup = {node: index for index, node in enumerate(external_ids)}
+    dimension = max(
+        (index for values in raw_features.values() for index in values), default=-1
+    ) + 1
+    rows: list[int] = []
+    columns: list[int] = []
+    for node, indices in raw_features.items():
+        rows.extend([node_lookup[node]] * len(indices))
+        columns.extend(indices)
+    features = sparse.csr_matrix(
+        (np.ones(len(rows)), (rows, columns)),
+        shape=(len(external_ids), dimension),
+        dtype=np.float64,
+    )
+    return PilotGraph(
+        dataset_id=dataset_id,
+        external_ids=external_ids,
+        public_features=features,
+        edges=_canonicalize_edges(external_edges, external_ids),
+    )
+
+
+def load_github_social(archive: pathlib.Path) -> PilotGraph:
+    return _load_snap_attributed_archive(
+        archive,
+        dataset_id="github-social-snap",
+        prefix="git_web_ml/",
+        edge_file="musae_git_edges.csv",
+        feature_file="musae_git_features.json",
+        target_file="musae_git_target.csv",
+        edge_columns=("id_1", "id_2"),
+    )
+
+
+def load_deezer_europe(archive: pathlib.Path) -> PilotGraph:
+    return _load_snap_attributed_archive(
+        archive,
+        dataset_id="deezer-europe-snap",
+        prefix="deezer_europe/",
+        edge_file="deezer_europe_edges.csv",
+        feature_file="deezer_europe_features.json",
+        target_file="deezer_europe_target.csv",
+        edge_columns=("node_1", "node_2"),
+    )
+
+
 def label_hash_subcells(
     dataset_id: str,
     external_ids: tuple[str, ...],
