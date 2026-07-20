@@ -91,7 +91,7 @@ def main():
         },
     }
     audit = {
-        "protocol": "P3R_JOINT_RELEASE_DEVELOPMENT_AUDIT_v2",
+        "protocol": summary["protocol"] + "_AUDIT",
         "expected_grid_records": expected_grid,
         "expected_held_out_records": expected_held,
         "checks": checks,
