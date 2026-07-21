@@ -1,0 +1,35 @@
+{
+  "cell_count": 60,
+  "checks": {
+    "all_cell_spearman": true,
+    "all_metrics_finite": true,
+    "noise_energy_ratio": true,
+    "test_never_accessed": true,
+    "visible_cell_spearman": true,
+    "visible_reproduction": true
+  },
+  "correlations": {
+    "all": {
+      "n": 60,
+      "pvalue": 6.889070228731417e-13,
+      "spearman": 0.7693803834398446
+    },
+    "ideal_secagg": {
+      "n": 30,
+      "pvalue": 2.002215023660987e-06,
+      "spearman": 0.7481646273637375
+    },
+    "visible_messages": {
+      "n": 30,
+      "pvalue": 1.2008528026354267e-06,
+      "spearman": 0.7583982202447163
+    }
+  },
+  "decision": "FRONTIER_INDEX_SUPPORTED_FOR_FRESH_VALIDATION",
+  "max_visible_reproduction_auc_error": 0.0,
+  "noise_energy_ratio_max": 5.000000000000002,
+  "noise_energy_ratio_min": 5.0,
+  "protocol": "P5F_PRIVACY_UTILITY_FRONTIER_VALIDATION_v1",
+  "record_count": 300,
+  "test_accessed": false
+}

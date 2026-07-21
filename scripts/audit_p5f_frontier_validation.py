@@ -80,6 +80,18 @@ def main() -> None:
             and np.allclose(actual["rdp"], expected.rdp)
         )
 
+    def backbone_matches(record: dict) -> bool:
+        frozen = config["frozen_gap_backbones"][record["dataset"]]
+        cache_path = ROOT / record["public_encoding_cache"]
+        with np.load(cache_path, allow_pickle=False) as cached:
+            requested = int(cached["requested_dimension"])
+            actual = int(cached["encoded"].shape[1])
+        return (
+            requested == frozen["projection_dimension"]
+            and actual == record["projection_dimension"]
+            and record["release_count"] == frozen["hops"]
+        )
+
     expected_ratio = config["analysis_gate"][
         "required_noise_energy_ratio_visible_over_ideal"
     ]
@@ -118,13 +130,7 @@ def main() -> None:
             and calibration_matches(r)
             for r in records
         ),
-        "frozen_backbones": all(
-            r["projection_dimension"]
-            == config["frozen_gap_backbones"][r["dataset"]]["projection_dimension"]
-            and r["release_count"]
-            == config["frozen_gap_backbones"][r["dataset"]]["hops"]
-            for r in records
-        ),
+        "frozen_backbones": all(backbone_matches(r) for r in records),
         "degree_bound_dominates_signal": all(
             r["frontier_signal_ratio"] <= r["frontier_degree_upper_ratio"] + 1e-12
             for r in records

@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "artifact_hashes_current": true,
+    "cells_complete": true,
+    "datasets_seeds_budgets_visibility_exact": true,
+    "degree_bound_dominates_signal": true,
+    "finite_frontier_and_metrics": true,
+    "frozen_backbones": true,
+    "noise_intervals_ordered": true,
+    "public_encoding_caches_current": true,
+    "records_complete_unique": true,
+    "runner_checks_pass": true,
+    "sensitivity_and_complete_rdp": true,
+    "test_never_accessed": true,
+    "visible_ideal_energy_ratio": true,
+    "visible_prior_exact_reproduction": true
+  },
+  "frontier_decision": "FRONTIER_INDEX_SUPPORTED_FOR_FRESH_VALIDATION",
+  "protocol": "P5F_PRIVACY_UTILITY_FRONTIER_VALIDATION_v1_AUDIT",
+  "status": "PASS",
+  "test_accessed": false
+}
