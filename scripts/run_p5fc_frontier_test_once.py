@@ -164,6 +164,7 @@ def main() -> None:
             normalized_cache_path=normalized_cache,
             encoding_cache_path=encoding_cache,
         )
+        encoding_hash = sha256(encoding_cache)
         with np.load(PROCESSED / dataset / "public_layout.npz") as source:
             homes = source["homes"]
         for seed in config["split"]["seeds"]:
@@ -242,7 +243,7 @@ def main() -> None:
                         "split_audit_sha256": sha256(SPLIT_AUDIT_PATH),
                         "development_file_sha256": development_hash,
                         "public_encoding_cache": str(encoding_cache.relative_to(ROOT)),
-                        "public_encoding_cache_sha256": sha256(encoding_cache),
+                        "public_encoding_cache_sha256": encoding_hash,
                         "privacy": asdict(calibration),
                         "l2_sensitivity_per_release": UNDIRECTED_EDGE_L2_SENSITIVITY,
                         "release_count": hops,

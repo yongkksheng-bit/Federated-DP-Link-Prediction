@@ -116,6 +116,10 @@ def main() -> None:
         for seed in config["split"]["seeds"]:
             path = PROCESSED / dataset / f"seed_{seed}_development.npz"
             development_hashes[(dataset, seed)] = sha256(path)
+    encoding_paths = {record["public_encoding_cache"] for record in records}
+    encoding_hashes = {
+        path: sha256(ROOT / path) for path in encoding_paths
+    }
 
     checks = {
         "single_access_record": access["test_access_count"] == 1
@@ -138,7 +142,7 @@ def main() -> None:
         "encoding_caches_current": all(
             (ROOT / record["public_encoding_cache"]).exists()
             and record["public_encoding_cache_sha256"]
-            == sha256(ROOT / record["public_encoding_cache"])
+            == encoding_hashes[record["public_encoding_cache"]]
             for record in records
         ),
         "sensitivity_and_complete_rdp": all(
