@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "protocol": "P4R_RAP_FIXED_REAL_STRESS_v1",
+  "status": "frozen_before_execution",
+  "role": "fixed-configuration stress test on legacy P3 validation; not confirmatory evidence",
+  "data_access": "P3 development arrays only; encrypted P3 test prohibited",
+  "candidate": {
+    "profile_energy_fraction": 0.5,
+    "profile_weight": 2.0,
+    "prior_strength": 1.0,
+    "source": "fresh-seed RAP-v2 synthetic confirmation",
+    "frozen_gap_backbones": {
+      "blogcatalog-v3": {"projection_dimension": 16, "hops": 2},
+      "facebook-musae": {"projection_dimension": 32, "hops": 1},
+      "polblogs-newman": {"projection_dimension": 8, "hops": 2},
+      "lastfm-asia-snap": {"projection_dimension": 32, "hops": 1},
+      "github-social-snap": {"projection_dimension": 32, "hops": 1},
+      "deezer-europe-snap": {"projection_dimension": 8, "hops": 1}
+    }
+  },
+  "privacy": {
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "l2_sensitivity_per_release": "sqrt(2)",
+    "release_count": "frozen GAP hop count",
+    "visibility": "individually_visible_client_messages",
+    "accountant": "exact fixed-sensitivity Gaussian RDP"
+  },
+  "go_no_go": {
+    "minimum_datasets_with_positive_global_95pct_ci": 3,
+    "minimum_datasets_with_positive_cross_95pct_ci": 3,
+    "minimum_macro_mean_global_gain": 0.02,
+    "minimum_macro_mean_cross_gain": 0.02,
+    "maximum_allowed_dataset_mean_global_drop": -0.01,
+    "maximum_allowed_dataset_mean_cross_drop": -0.01,
+    "decision_if_pass": "register fresh real-source confirmation",
+    "decision_if_fail": "reject RAP without P3 test access"
+  }
+}
