@@ -12,9 +12,9 @@ import numpy as np
 
 from fed_dp_lp.accounting import DEFAULT_ORDERS, calibrate_gaussian
 from fed_dp_lp.gap_adaptation import (
+    cached_public_svd_encoder,
     client_owned_edges,
     normalize_rows,
-    public_svd_encoder,
     release_private_aggregations,
     undirected_adjacency,
 )
@@ -40,6 +40,7 @@ GAP_RECORDS = ROOT / "results/p3_gap_validation/selected_curve_records.jsonl"
 RAW = ROOT / "data/raw"
 PROCESSED = ROOT / "data/processed/p3_benchmark"
 OUTPUT = ROOT / "results/p4r_rap_real_stress"
+CACHE = ROOT / "data/cache/public_svd"
 STREAM = 20260821
 
 
@@ -94,10 +95,14 @@ def main():
             f"cells={int(np.max(cells)) + 1} dim={requested_dimension} hops={hops}",
             flush=True,
         )
-        encoded = public_svd_encoder(
+        cache_path = CACHE / (
+            f"{dataset}_d{requested_dimension}_s{20260724 + requested_dimension}.npz"
+        )
+        encoded = cached_public_svd_encoder(
             graph.public_features,
             dimension=requested_dimension,
             random_state=20260724 + requested_dimension,
+            cache_path=cache_path,
         )
         print(f"[{dataset}] public encoding complete", flush=True)
         calibration = calibrate_gaussian(
@@ -181,6 +186,8 @@ def main():
                 "config_sha256": sha256(CONFIG_PATH),
                 "master_config_sha256": sha256(MASTER_PATH),
                 "split_manifest_sha256": sha256(SPLIT_MANIFEST_PATH),
+                "public_encoding_cache": str(cache_path.relative_to(ROOT)),
+                "public_encoding_cache_sha256": sha256(cache_path),
                 "privacy": asdict(calibration),
                 "l2_sensitivity_per_release": RAP_L2_SENSITIVITY,
                 "release_count": hops,

@@ -6,6 +6,8 @@ official reproduction of its node-classification architecture.
 
 from __future__ import annotations
 
+import pathlib
+
 import numpy as np
 from scipy import sparse
 from sklearn.decomposition import TruncatedSVD
@@ -42,6 +44,48 @@ def public_svd_encoder(
             random_state=random_state,
         ).fit_transform(matrix)
     return normalize_rows(encoded)
+
+
+def cached_public_svd_encoder(
+    features: sparse.csr_matrix,
+    *,
+    dimension: int,
+    random_state: int,
+    cache_path: pathlib.Path,
+) -> np.ndarray:
+    """Load or atomically cache a graph-independent public SVD encoding."""
+    matrix = sparse.csr_matrix(features)
+    cache_path = pathlib.Path(cache_path)
+    if cache_path.exists():
+        with np.load(cache_path, allow_pickle=False) as cached:
+            encoded = cached["encoded"]
+            shape = tuple(int(value) for value in cached["feature_shape"])
+            cached_dimension = int(cached["requested_dimension"])
+            cached_state = int(cached["random_state"])
+            cached_nnz = int(cached["feature_nnz"])
+        if (
+            shape != matrix.shape
+            or cached_dimension != dimension
+            or cached_state != random_state
+            or cached_nnz != matrix.nnz
+        ):
+            raise ValueError("public encoding cache metadata mismatch")
+        return normalize_rows(encoded)
+    encoded = public_svd_encoder(
+        matrix, dimension=dimension, random_state=random_state
+    )
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = cache_path.with_suffix(".tmp.npz")
+    np.savez(
+        temporary,
+        encoded=encoded,
+        feature_shape=np.asarray(matrix.shape, dtype=np.int64),
+        feature_nnz=np.asarray(matrix.nnz, dtype=np.int64),
+        requested_dimension=np.asarray(dimension, dtype=np.int64),
+        random_state=np.asarray(random_state, dtype=np.int64),
+    )
+    temporary.replace(cache_path)
+    return encoded
 
 
 def client_owned_edges(

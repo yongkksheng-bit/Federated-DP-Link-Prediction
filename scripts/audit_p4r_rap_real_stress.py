@@ -34,6 +34,12 @@ def main():
             and r["selected_config"]["profile_weight"] == 2.0
             and r["selected_config"]["prior_strength"] == 1.0 for r in records
         ),
+        "public_encoding_cache_current": all(
+            (ROOT / r["public_encoding_cache"]).exists()
+            and r["public_encoding_cache_sha256"]
+            == sha256(ROOT / r["public_encoding_cache"])
+            for r in records
+        ),
         "finite_metrics": all(np.isfinite(value) for r in records
             for method in r["metrics"].values() for scope in method.values()
             for value in scope.values()),

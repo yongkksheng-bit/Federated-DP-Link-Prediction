@@ -3,6 +3,7 @@ from scipy import sparse
 
 from fed_dp_lp.gap_adaptation import (
     UNDIRECTED_EDGE_L2_SENSITIVITY,
+    cached_public_svd_encoder,
     client_owned_edges,
     normalize_rows,
     public_svd_encoder,
@@ -25,6 +26,21 @@ def test_public_encoder_is_row_bounded_and_handles_zero_rows():
     assert encoded.shape == (3, 2)
     assert np.max(np.linalg.norm(encoded, axis=1)) <= 1.0 + 1e-12
     assert np.all(encoded[1] == 0)
+
+
+def test_public_svd_cache_round_trip(tmp_path):
+    features = sparse.csr_matrix(
+        np.asarray([[1.0, 0.0], [0.0, 1.0], [1.0, 1.0]])
+    )
+    path = tmp_path / "encoding.npz"
+    first = cached_public_svd_encoder(
+        features, dimension=1, random_state=3, cache_path=path
+    )
+    second = cached_public_svd_encoder(
+        features, dimension=1, random_state=3, cache_path=path
+    )
+    assert path.exists()
+    np.testing.assert_allclose(first, second)
 
 
 def test_visible_release_and_postprocessed_scores_are_finite():
