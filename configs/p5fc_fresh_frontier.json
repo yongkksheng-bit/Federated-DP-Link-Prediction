@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1",
+  "status": "frozen_before_source_acquisition",
+  "datasets": ["flickr-graphsaint", "reddit2-graphsaint"],
+  "evidence_role": "fresh-source confirmation of the P5F release-level frontier",
+  "clients": 5,
+  "public_encoder": {
+    "algorithm": "row_normalize_then_randomized_truncated_svd_then_row_normalize",
+    "requested_dimension": 32,
+    "random_state": 20260728,
+    "labels_and_source_roles_prohibited": true
+  },
+  "release": {
+    "family": "one_hop_gap_style_inference_closed_aggregation",
+    "hops": 1,
+    "decoder": "equal_weight_cosine_over_public_and_private_channels"
+  },
+  "home_assignment": {
+    "algorithm": "balanced_sha256_rank",
+    "seed": 20260728,
+    "edge_independent": true
+  },
+  "split": {
+    "algorithm": "stratified_sha256_rank_without_replacement",
+    "validation_positive_cap": 50000,
+    "test_positive_cap": 100000,
+    "negative_ratio": 1.0,
+    "strata": ["intra_client", "cross_client"],
+    "seeds": [31013, 32003, 33013, 34019, 35023],
+    "all_unselected_positive_edges": "training",
+    "validation_role": "parser and audit only; no tuning or gate changes",
+    "test_access": "single batched evaluation after source, split, runner, and audit freeze"
+  },
+  "privacy": {
+    "adjacency": "add_remove_one_canonical_undirected_training_edge",
+    "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "delta": 1e-6,
+    "l2_sensitivity_per_release": "sqrt(2)",
+    "release_count": 1,
+    "accountant": "exact_fixed_sensitivity_gaussian_rdp",
+    "visibility_models": ["visible_messages", "ideal_secagg"]
+  },
+  "frontier": {
+    "primary_index": "first_hop_signal_frobenius_squared_over_expected_noise_energy",
+    "secondary_bound": "degree_squared_sum_over_expected_noise_energy",
+    "not_a_claim": "the index is not a universal AUC threshold or downstream utility theorem"
+  },
+  "confirmatory_gate": {
+    "expected_records": 100,
+    "expected_aggregate_cells": 20,
+    "minimum_pooled_cell_spearman": 0.6,
+    "minimum_each_dataset_cell_spearman": 0.6,
+    "maximum_each_dataset_exact_permutation_pvalue": 0.05,
+    "required_noise_energy_ratio_visible_over_ideal": 5.0,
+    "all_metrics_finite": true,
+    "complete_rdp_required": true,
+    "missing_or_failed_cell": "REJECT_GENERAL_FRONTIER_CLAIM",
+    "failure_action": "report failure without retuning, replacement sources, or test reuse"
+  }
+}

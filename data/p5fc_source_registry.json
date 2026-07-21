@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "frozen_before_acquisition": "2026-07-22 Asia/Shanghai",
+  "rights_boundary": "local_scholarly_evaluation_no_raw_redistribution",
+  "upstream": {
+    "name": "GraphSAINT",
+    "repository": "https://github.com/GraphSAINT/GraphSAINT",
+    "loader_reference": "PyTorch Geometric Flickr and Reddit2 loaders inspected before acquisition"
+  },
+  "datasets": [
+    {
+      "id": "flickr-graphsaint",
+      "domain": "online_photo_sharing_network",
+      "expected_nodes": 89250,
+      "expected_adjacency_nnz": 899756,
+      "expected_feature_columns": 500,
+      "files": [
+        {
+          "path": "adj_full.npz",
+          "google_drive_id": "1crmsTbd1-2sEXsGwa2IKnIB7Zd3TmUsy",
+          "role": "private_edge_source"
+        },
+        {
+          "path": "feats.npy",
+          "google_drive_id": "1join-XdvX3anJU_MLVtick7MgeAQiWIZ",
+          "role": "registered_public_node_descriptors"
+        }
+      ],
+      "prohibited_google_drive_ids": [
+        "1uxIkbtg5drHTsKt-PAsZZ4_yJmgFmle9",
+        "1htXCtuktuCW8TR8KiKfrFDAxUgekQoV7"
+      ]
+    },
+    {
+      "id": "reddit2-graphsaint",
+      "domain": "online_discussion_network",
+      "expected_nodes": 232965,
+      "expected_adjacency_nnz": 23213838,
+      "expected_feature_columns": 602,
+      "files": [
+        {
+          "path": "adj_full.npz",
+          "google_drive_id": "1sncK996BM5lpuDf75lDFqCiDZyErc1c2",
+          "role": "private_edge_source"
+        },
+        {
+          "path": "feats.npy",
+          "google_drive_id": "1ZsHaJ0ussP1W722krmEIp_8pwKAoi5b3",
+          "role": "registered_public_node_descriptors"
+        }
+      ],
+      "prohibited_google_drive_ids": [
+        "1JF3Pjv9OboMNYs2aXRQGbJbc4t_nDd5u",
+        "1nJIKd77lcAGU4j-kVNx_AIGEkveIKz3A"
+      ]
+    }
+  ]
+}
