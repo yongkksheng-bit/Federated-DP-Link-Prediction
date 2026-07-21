@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "protocol": "P5F_PRIVACY_UTILITY_FRONTIER_VALIDATION_v1",
+  "status": "frozen_before_execution",
+  "role": "retrospective frontier development on P3 validation; not confirmatory evidence",
+  "data_access": "P3 development arrays only; encrypted P3 test prohibited",
+  "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "visibility_models": ["visible_messages", "ideal_secagg"],
+  "failure_probability": 0.05,
+  "rng_streams": {
+    "visible_messages": 32001,
+    "ideal_secagg": 52001
+  },
+  "frozen_gap_backbones": {
+    "blogcatalog-v3": {"projection_dimension": 16, "hops": 2},
+    "facebook-musae": {"projection_dimension": 32, "hops": 1},
+    "polblogs-newman": {"projection_dimension": 8, "hops": 2},
+    "lastfm-asia-snap": {"projection_dimension": 32, "hops": 1},
+    "github-social-snap": {"projection_dimension": 32, "hops": 1},
+    "deezer-europe-snap": {"projection_dimension": 8, "hops": 1}
+  },
+  "privacy": {
+    "delta": 1e-6,
+    "l2_sensitivity_per_release": "sqrt(2)",
+    "release_count": "frozen GAP hop count",
+    "accountant": "exact fixed-sensitivity Gaussian RDP"
+  },
+  "analysis_gate": {
+    "minimum_all_cell_spearman": 0.5,
+    "minimum_visible_cell_spearman": 0.5,
+    "maximum_visible_reproduction_auc_error": 1e-12,
+    "required_noise_energy_ratio_visible_over_ideal": 5.0,
+    "all_metrics_finite": true,
+    "test_access_prohibited": true
+  }
+}
