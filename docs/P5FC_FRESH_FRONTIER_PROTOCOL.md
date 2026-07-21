@@ -32,7 +32,8 @@ no dataset-specific hyperparameter selection. Labels and source roles never
 enter the encoder, split, decoder, or analysis.
 
 Canonical undirected edges are formed by removing self-loops, symmetrizing, and
-deduplicating the source adjacency. Per seed, deterministic stratified hash
+deduplicating the source adjacency. Per seed, deterministic keyed SplitMix64
+hash
 ranks reserve at most 50,000 validation positives and 100,000 test positives,
 balanced as closely as possible between intra- and cross-client strata. All
 other positive edges are training edges. Equal-count nonedges are sampled

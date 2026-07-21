@@ -22,7 +22,7 @@
     "edge_independent": true
   },
   "split": {
-    "algorithm": "stratified_sha256_rank_without_replacement",
+    "algorithm": "stratified_keyed_splitmix64_rank_without_replacement",
     "validation_positive_cap": 50000,
     "test_positive_cap": 100000,
     "negative_ratio": 1.0,
