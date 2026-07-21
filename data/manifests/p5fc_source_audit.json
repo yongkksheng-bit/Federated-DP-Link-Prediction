@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "protocol": "P5FC_SOURCE_INTEGRITY_AUDIT_v1",
+  "checks": {
+    "registry_hash_current": true,
+    "manifest_exact_allowlist": true,
+    "manifest_denies_labels_and_roles": true,
+    "source_hashes_current": true,
+    "no_prohibited_files": true,
+    "dataset_integrity": true
+  },
+  "datasets": [
+    {
+      "dataset": "flickr-graphsaint",
+      "adjacency_shape": [
+        89250,
+        89250
+      ],
+      "adjacency_nnz": 899756,
+      "adjacency_dtype": "int32",
+      "self_loop_count": 0,
+      "asymmetry_nnz": 0,
+      "canonical_undirected_edges": 449878,
+      "features": {
+        "shape": [
+          89250,
+          500
+        ],
+        "dtype": "float64",
+        "all_finite": true
+      },
+      "checks": {
+        "node_count": true,
+        "adjacency_nnz": true,
+        "symmetric": true,
+        "no_self_loops": true,
+        "feature_shape": true,
+        "features_finite": true
+      }
+    },
+    {
+      "dataset": "reddit2-graphsaint",
+      "adjacency_shape": [
+        232965,
+        232965
+      ],
+      "adjacency_nnz": 23213838,
+      "adjacency_dtype": "float32",
+      "self_loop_count": 0,
+      "asymmetry_nnz": 0,
+      "canonical_undirected_edges": 11606919,
+      "features": {
+        "shape": [
+          232965,
+          602
+        ],
+        "dtype": "float64",
+        "all_finite": true
+      },
+      "checks": {
+        "node_count": true,
+        "adjacency_nnz": true,
+        "symmetric": true,
+        "no_self_loops": true,
+        "feature_shape": true,
+        "features_finite": true
+      }
+    }
+  ],
+  "prohibited_files_present": [],
+  "status": "PASS"
+}

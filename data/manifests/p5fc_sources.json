@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-21T23:57:18.380509+00:00",
+  "registry_sha256": "2c6762d764a2e30c00064d11bf378d1283d5c47a5bb6455aeff49f4d496e32f2",
+  "rights_boundary": "local_scholarly_evaluation_no_raw_redistribution",
+  "labels_or_source_roles_acquired": false,
+  "files": [
+    {
+      "dataset": "flickr-graphsaint",
+      "path": "adj_full.npz",
+      "role": "private_edge_source",
+      "google_drive_id": "1crmsTbd1-2sEXsGwa2IKnIB7Zd3TmUsy",
+      "bytes": 2407852,
+      "sha256": "6740dc59750ef52a8fa18f73fc495332fa6f0ece8576c1db7196539b9adaca5f"
+    },
+    {
+      "dataset": "flickr-graphsaint",
+      "path": "feats.npy",
+      "role": "registered_public_node_descriptors",
+      "google_drive_id": "1join-XdvX3anJU_MLVtick7MgeAQiWIZ",
+      "bytes": 357000128,
+      "sha256": "6f9b6a19d0b9abc8afb82150e9e703149f19c9fb5687f4eb0abcec93b1172e1e"
+    },
+    {
+      "dataset": "reddit2-graphsaint",
+      "path": "adj_full.npz",
+      "role": "private_edge_source",
+      "google_drive_id": "1sncK996BM5lpuDf75lDFqCiDZyErc1c2",
+      "bytes": 64866285,
+      "sha256": "2e190c5216ead7018989fd26502c1455782abb39d3b316b714b0cbc8ced2a2dd"
+    },
+    {
+      "dataset": "reddit2-graphsaint",
+      "path": "feats.npy",
+      "role": "registered_public_node_descriptors",
+      "google_drive_id": "1ZsHaJ0ussP1W722krmEIp_8pwKAoi5b3",
+      "bytes": 1121959520,
+      "sha256": "5a8a381f5bf80b06d5555cbf0aa5521958fed191c00400e02f4a9ea7d4bb2f41"
+    }
+  ]
+}
