@@ -4,6 +4,7 @@ from fed_dp_lp.frontier import (
     degree_upper_energy_ratio,
     effective_noise_std,
     expected_noise_energy,
+    exact_spearman_permutation_pvalue,
     gaussian_norm_interval,
     signal_noise_energy_ratio,
 )
@@ -55,3 +56,11 @@ def test_gaussian_norm_interval_is_ordered_and_positive():
         failure_probability=0.05,
     )
     assert 0 < lower < upper
+
+
+def test_exact_spearman_permutation_pvalue_for_perfect_order():
+    rho, pvalue = exact_spearman_permutation_pvalue(
+        np.arange(4), np.arange(4)
+    )
+    assert np.isclose(rho, 1.0)
+    assert np.isclose(pvalue, 2 / 24)

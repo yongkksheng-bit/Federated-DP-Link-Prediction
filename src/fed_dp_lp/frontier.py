@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import itertools
+import math
+
 import numpy as np
+from scipy.stats import rankdata, spearmanr
 
 
 def effective_noise_std(
@@ -91,3 +95,34 @@ def gaussian_norm_interval(
             * np.sqrt(release_dimension + root_term + 2.0 * tail)
         ),
     )
+
+
+def exact_spearman_permutation_pvalue(
+    x: np.ndarray, y: np.ndarray, *, batch_size: int = 10000
+) -> tuple[float, float]:
+    """Return Spearman rho and its exact two-sided pairing permutation p-value."""
+    x = np.asarray(x, dtype=np.float64)
+    y = np.asarray(y, dtype=np.float64)
+    if x.ndim != 1 or y.shape != x.shape or not 2 <= len(x) <= 10:
+        raise ValueError("exact Spearman inputs must be equal vectors of length 2..10")
+    if len(np.unique(x)) != len(x) or len(np.unique(y)) != len(y):
+        raise ValueError("exact Spearman implementation requires untied observations")
+    rho = float(spearmanr(x, y).statistic)
+    x_rank = rankdata(x) - (len(x) + 1.0) / 2.0
+    y_rank = rankdata(y) - (len(y) + 1.0) / 2.0
+    denominator = float(np.linalg.norm(x_rank) * np.linalg.norm(y_rank))
+    permutations = itertools.permutations(y_rank.tolist())
+    extreme = 0
+    total = math.factorial(len(x))
+    processed = 0
+    while processed < total:
+        count = min(batch_size, total - processed)
+        batch = np.fromiter(
+            itertools.chain.from_iterable(itertools.islice(permutations, count)),
+            dtype=np.float64,
+            count=count * len(x),
+        ).reshape(count, len(x))
+        statistics = batch @ x_rank / denominator
+        extreme += int(np.sum(np.abs(statistics) >= abs(rho) - 1e-15))
+        processed += count
+    return rho, float(extreme / total)
