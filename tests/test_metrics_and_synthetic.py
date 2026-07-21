@@ -2,6 +2,7 @@ import numpy as np
 
 from fed_dp_lp.metrics import average_precision, roc_auc
 from fed_dp_lp.synthetic import generate_sbm
+from fed_dp_lp.generalized_synthetic import generate_reciprocal_preference_graph
 
 
 CONFIG = {
@@ -35,3 +36,22 @@ def test_synthetic_generation_is_deterministic_and_edges_are_unique():
     all_edges = np.concatenate(left.client_edges, axis=0)
     assert len(np.unique(all_edges, axis=0)) == len(all_edges)
     assert np.all(all_edges[:, 0] < all_edges[:, 1])
+
+
+def test_reciprocal_preference_generation_is_deterministic():
+    config = dict(
+        nodes=40,
+        cells_count=4,
+        clients=5,
+        base_probability=0.02,
+        one_sided_boost=0.08,
+        mutual_boost=0.12,
+        train_retention=0.7,
+        feature_corruption=0.2,
+    )
+    left = generate_reciprocal_preference_graph(seed=9, **config)
+    right = generate_reciprocal_preference_graph(seed=9, **config)
+    np.testing.assert_array_equal(left.public_cells, right.public_cells)
+    np.testing.assert_array_equal(left.latent_preferences, right.latent_preferences)
+    for first, second in zip(left.client_edges, right.client_edges):
+        np.testing.assert_array_equal(first, second)

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "protocol": "P4R_RAP_SYNTHETIC_FEASIBILITY_v1",
+  "status": "frozen_before_execution",
+  "role": "synthetic mechanism feasibility only; no real graph access",
+  "seeds": {
+    "selection": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "held_out": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+  },
+  "domains": {
+    "reciprocal_social": {
+      "nodes": 300,
+      "cells_count": 4,
+      "clients": 5,
+      "base_probability": 0.012,
+      "one_sided_boost": 0.065,
+      "mutual_boost": 0.09,
+      "train_retention": 0.72,
+      "feature_corruption": 0.2
+    },
+    "reciprocal_blog": {
+      "nodes": 360,
+      "cells_count": 6,
+      "clients": 5,
+      "base_probability": 0.01,
+      "one_sided_boost": 0.055,
+      "mutual_boost": 0.11,
+      "train_retention": 0.68,
+      "feature_corruption": 0.35
+    }
+  },
+  "privacy": {
+    "epsilon": 4.0,
+    "delta": 1e-6,
+    "l2_sensitivity": "sqrt(2)",
+    "releases": 1,
+    "visibility": "individually_visible_client_messages",
+    "accountant": "exact fixed-sensitivity Gaussian RDP"
+  },
+  "grid": {
+    "profile_energy_fractions": [0.01, 0.05, 0.1, 0.2],
+    "profile_weights": [0.25, 0.5, 1.0],
+    "prior_strengths": [1.0, 4.0, 16.0]
+  },
+  "selection": {
+    "criterion": "maximize the minimum domain mean Global AUC gain over matched GAP on selection seeds",
+    "tie_break": ["smaller profile energy", "smaller profile weight", "larger prior strength"]
+  },
+  "go_no_go": {
+    "minimum_global_gain_each_domain": 0.02,
+    "minimum_cross_gain_each_domain": 0.02,
+    "global_95pct_ci_excludes_zero_each_domain": true,
+    "cross_95pct_ci_excludes_zero_each_domain": true,
+    "all_metrics_finite": true,
+    "decision_if_pass": "authorize a new real-data development protocol",
+    "decision_if_fail": "reject RAP before real-data access"
+  }
+}
