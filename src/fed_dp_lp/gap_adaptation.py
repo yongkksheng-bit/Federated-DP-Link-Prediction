@@ -11,6 +11,7 @@ import pathlib
 import numpy as np
 from scipy import sparse
 from sklearn.decomposition import TruncatedSVD
+from threadpoolctl import threadpool_limits
 
 
 UNDIRECTED_EDGE_L2_SENSITIVITY = np.sqrt(2.0)
@@ -71,9 +72,13 @@ def cached_public_svd_encoder(
         ):
             raise ValueError("public encoding cache metadata mismatch")
         return normalize_rows(encoded)
-    encoded = public_svd_encoder(
-        matrix, dimension=dimension, random_state=random_state
-    )
+    # Sparse randomized SVD can become pathologically slow when multiple BLAS
+    # runtimes oversubscribe the same cores. Limiting only this public
+    # preprocessing block preserves the algorithm and deterministic seed.
+    with threadpool_limits(limits=1):
+        encoded = public_svd_encoder(
+            matrix, dimension=dimension, random_state=random_state
+        )
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     temporary = cache_path.with_suffix(".tmp.npz")
     np.savez(
