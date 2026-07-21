@@ -16,6 +16,10 @@
     "hops": 1,
     "decoder": "equal_weight_cosine_over_public_and_private_channels"
   },
+  "rng_streams": {
+    "visible_messages": 62001,
+    "ideal_secagg": 62002
+  },
   "home_assignment": {
     "algorithm": "balanced_sha256_rank",
     "seed": 20260728,

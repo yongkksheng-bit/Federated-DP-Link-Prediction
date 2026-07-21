@@ -31,10 +31,14 @@ balanced hash assignment, candidate construction, and cosine decoder. There is
 no dataset-specific hyperparameter selection. Labels and source roles never
 enter the encoder, split, decoder, or analysis.
 
+Gaussian random streams are independently frozen as 62001 for visible client
+messages and 62002 for ideal secure aggregation. Each run derives its generator
+from that stream together with dataset index, split seed, epsilon index,
+dimension, and hop count.
+
 Canonical undirected edges are formed by removing self-loops, symmetrizing, and
 deduplicating the source adjacency. Per seed, deterministic keyed SplitMix64
-hash
-ranks reserve at most 50,000 validation positives and 100,000 test positives,
+hash ranks reserve at most 50,000 validation positives and 100,000 test positives,
 balanced as closely as possible between intra- and cross-client strata. All
 other positive edges are training edges. Equal-count nonedges are sampled
 within the same strata. Validation is limited to parser and audit sanity; the

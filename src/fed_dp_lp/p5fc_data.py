@@ -6,6 +6,10 @@ import pathlib
 
 import numpy as np
 from scipy import sparse
+from sklearn.decomposition import TruncatedSVD
+from threadpoolctl import threadpool_limits
+
+from .gap_adaptation import normalize_rows
 
 
 UINT64_MASK = np.uint64(0xFFFFFFFFFFFFFFFF)
@@ -174,3 +178,99 @@ def sample_stratified_nonedges(
         validation_parts.append(values[:validation_count])
         test_parts.append(values[validation_count:])
     return np.concatenate(validation_parts), np.concatenate(test_parts)
+
+
+def cached_dense_public_svd_encoder(
+    feature_path: pathlib.Path,
+    *,
+    dimension: int,
+    random_state: int,
+    normalized_cache_path: pathlib.Path,
+    encoding_cache_path: pathlib.Path,
+    chunk_rows: int = 8192,
+) -> np.ndarray:
+    """Build a row-normalized SVD encoder without materializing dense copies."""
+    features = np.load(feature_path, mmap_mode="r", allow_pickle=False)
+    if features.ndim != 2 or dimension <= 0:
+        raise ValueError("invalid dense feature matrix or encoding dimension")
+    if encoding_cache_path.exists():
+        with np.load(encoding_cache_path, allow_pickle=False) as cached:
+            encoded = cached["encoded"]
+            shape = tuple(int(value) for value in cached["feature_shape"])
+            requested = int(cached["requested_dimension"])
+            state = int(cached["random_state"])
+        if shape != features.shape or requested != dimension or state != random_state:
+            raise ValueError("dense public encoding cache metadata mismatch")
+        return normalize_rows(encoded)
+
+    normalized_cache_path.parent.mkdir(parents=True, exist_ok=True)
+    if not normalized_cache_path.exists():
+        temporary = normalized_cache_path.with_suffix(".partial.npy")
+        normalized = np.lib.format.open_memmap(
+            temporary,
+            mode="w+",
+            dtype=np.float32,
+            shape=features.shape,
+        )
+        for start in range(0, features.shape[0], chunk_rows):
+            stop = min(start + chunk_rows, features.shape[0])
+            block = np.asarray(features[start:stop], dtype=np.float64)
+            norms = np.linalg.norm(block, axis=1, keepdims=True)
+            normalized[start:stop] = np.divide(
+                block,
+                norms,
+                out=np.zeros_like(block),
+                where=norms > 0,
+            ).astype(np.float32)
+        normalized.flush()
+        del normalized
+        temporary.replace(normalized_cache_path)
+    normalized = np.load(normalized_cache_path, mmap_mode="r", allow_pickle=False)
+    rank = min(dimension, features.shape[0] - 1, features.shape[1] - 1)
+    with threadpool_limits(limits=1):
+        encoded = TruncatedSVD(
+            n_components=rank,
+            algorithm="randomized",
+            n_iter=7,
+            random_state=random_state,
+        ).fit_transform(normalized)
+    encoded = normalize_rows(encoded)
+    encoding_cache_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = encoding_cache_path.with_suffix(".tmp.npz")
+    np.savez(
+        temporary,
+        encoded=encoded,
+        feature_shape=np.asarray(features.shape, dtype=np.int64),
+        requested_dimension=np.asarray(dimension, dtype=np.int64),
+        random_state=np.asarray(random_state, dtype=np.int64),
+    )
+    temporary.replace(encoding_cache_path)
+    return encoded
+
+
+def dense_cosine_scores(
+    feature_path: pathlib.Path,
+    pairs: np.ndarray,
+    *,
+    chunk_rows: int = 8192,
+) -> np.ndarray:
+    """Score pairs from memory-mapped dense public descriptors in chunks."""
+    features = np.load(feature_path, mmap_mode="r", allow_pickle=False)
+    pairs = np.asarray(pairs, dtype=np.int64)
+    if pairs.ndim != 2 or pairs.shape[1] != 2:
+        raise ValueError("pairs must have shape [m,2]")
+    scores = np.empty(len(pairs), dtype=np.float64)
+    for start in range(0, len(pairs), chunk_rows):
+        stop = min(start + chunk_rows, len(pairs))
+        block = pairs[start:stop]
+        left = np.asarray(features[block[:, 0]], dtype=np.float64)
+        right = np.asarray(features[block[:, 1]], dtype=np.float64)
+        numerator = np.einsum("ij,ij->i", left, right)
+        denominator = np.linalg.norm(left, axis=1) * np.linalg.norm(right, axis=1)
+        scores[start:stop] = np.divide(
+            numerator,
+            denominator,
+            out=np.zeros_like(numerator),
+            where=denominator > 0,
+        )
+    return scores

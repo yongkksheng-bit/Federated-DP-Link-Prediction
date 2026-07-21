@@ -2,8 +2,10 @@ import numpy as np
 from scipy import sparse
 
 from fed_dp_lp.p5fc_data import (
+    cached_dense_public_svd_encoder,
     capped_stratified_positive_split,
     canonical_undirected_edges,
+    dense_cosine_scores,
     feature_matrix_audit,
     load_graphsaint_adjacency,
     sample_stratified_nonedges,
@@ -73,3 +75,26 @@ def test_stratified_nonedges_match_counts_and_do_not_overlap_edges():
     for values in (validation, test):
         cross = homes[values[:, 0]] != homes[values[:, 1]]
         assert cross.tolist().count(False) == cross.tolist().count(True) == 1
+
+
+def test_dense_encoder_cache_and_chunked_cosine(tmp_path):
+    feature_path = tmp_path / "feats.npy"
+    features = np.asarray(
+        [[1.0, 0.0, 1.0], [0.0, 1.0, 1.0], [1.0, 1.0, 0.0], [0.0, 0.0, 0.0]],
+        dtype=np.float64,
+    )
+    np.save(feature_path, features)
+    kwargs = {
+        "dimension": 2,
+        "random_state": 7,
+        "normalized_cache_path": tmp_path / "normalized.npy",
+        "encoding_cache_path": tmp_path / "encoded.npz",
+        "chunk_rows": 2,
+    }
+    first = cached_dense_public_svd_encoder(feature_path, **kwargs)
+    second = cached_dense_public_svd_encoder(feature_path, **kwargs)
+    assert first.shape == (4, 2)
+    assert np.allclose(first, second)
+    pairs = np.asarray([[0, 1], [0, 0], [0, 3]])
+    scores = dense_cosine_scores(feature_path, pairs, chunk_rows=1)
+    assert np.allclose(scores, [0.5, 1.0, 0.0])
