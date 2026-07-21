@@ -81,6 +81,7 @@ def main():
     records = []
     candidate = config["candidate"]
     for dataset_index, dataset in enumerate(master["datasets"]):
+        print(f"[{dataset}] loading public graph", flush=True)
         graph = load_p3_graph(RAW, dataset)
         with np.load(PROCESSED / dataset / "public_layout.npz") as source:
             homes, cells = source["homes"], source["cells"]
@@ -88,11 +89,17 @@ def main():
         requested_dimension, hops = (
             backbone["projection_dimension"], backbone["hops"]
         )
+        print(
+            f"[{dataset}] encoding n={len(homes)} features={graph.public_features.shape[1]} "
+            f"cells={int(np.max(cells)) + 1} dim={requested_dimension} hops={hops}",
+            flush=True,
+        )
         encoded = public_svd_encoder(
             graph.public_features,
             dimension=requested_dimension,
             random_state=20260724 + requested_dimension,
         )
+        print(f"[{dataset}] public encoding complete", flush=True)
         calibration = calibrate_gaussian(
             target_epsilon=epsilon,
             delta=config["privacy"]["delta"],
@@ -101,6 +108,7 @@ def main():
             orders=DEFAULT_ORDERS,
         )
         for seed_index, seed in enumerate(master["split"]["seeds"]):
+            print(f"[{dataset}] seed={seed} start", flush=True)
             with np.load(
                 PROCESSED / dataset / f"seed_{seed}_development.npz",
                 allow_pickle=False,
@@ -196,6 +204,8 @@ def main():
                     "gap_style": baseline["metrics"]["gap_style_lp"],
                 },
             })
+            print(f"[{dataset}] seed={seed} complete", flush=True)
+        print(f"[{dataset}] complete", flush=True)
     comparisons = {}
     for dataset in master["datasets"]:
         rows = [r for r in records if r["dataset"] == dataset]
