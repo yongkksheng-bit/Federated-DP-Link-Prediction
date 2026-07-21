@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 import pathlib
 import subprocess
@@ -156,9 +157,15 @@ def write_jsonl(path, records):
 
 
 def main():
-    if OUTPUT.exists():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", type=pathlib.Path, default=CONFIG_PATH)
+    parser.add_argument("--output", type=pathlib.Path, default=OUTPUT)
+    args = parser.parse_args()
+    config_path = args.config if args.config.is_absolute() else ROOT / args.config
+    output = args.output if args.output.is_absolute() else ROOT / args.output
+    if output.exists():
         raise SystemExit("P4R synthetic output exists; refusing overwrite")
-    config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    config = json.loads(config_path.read_text(encoding="utf-8"))
     calibration = calibrate_gaussian(
         target_epsilon=config["privacy"]["epsilon"],
         delta=config["privacy"]["delta"],
@@ -207,7 +214,7 @@ def main():
                 "protocol": config["protocol"],
                 "role": "held_out_synthetic_feasibility",
                 "code_commit": commit,
-                "config_sha256": sha256(CONFIG_PATH),
+                "config_sha256": sha256(config_path),
                 "domain": domain,
                 "seed": seed,
                 "real_graph_accessed": False,
@@ -261,10 +268,10 @@ def main():
         not record["real_graph_accessed"] for record in held_records
     )
     decision = "GO_TO_NEW_REAL_DATA_DEVELOPMENT_PROTOCOL" if all(checks.values()) else "NO_GO_REJECT_RAP"
-    OUTPUT.mkdir(parents=True)
-    write_jsonl(OUTPUT / "selection_records.jsonl", selection_records)
-    write_jsonl(OUTPUT / "held_out_records.jsonl", held_records)
-    (OUTPUT / "summary.json").write_text(json.dumps({
+    output.mkdir(parents=True)
+    write_jsonl(output / "selection_records.jsonl", selection_records)
+    write_jsonl(output / "held_out_records.jsonl", held_records)
+    (output / "summary.json").write_text(json.dumps({
         "protocol": config["protocol"],
         "selection_record_count": len(selection_records),
         "held_out_record_count": len(held_records),
@@ -279,7 +286,7 @@ def main():
         "decision": decision,
         "real_graph_accessed": False,
     }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(OUTPUT / "summary.json")
+    print(output / "summary.json")
 
 
 if __name__ == "__main__":
