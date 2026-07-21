@@ -6,6 +6,8 @@ import argparse
 import hashlib
 import json
 import pathlib
+import shutil
+import subprocess
 import urllib.request
 from datetime import datetime, timezone
 
@@ -29,6 +31,27 @@ def download_google_file(file_id: str, destination: pathlib.Path) -> None:
     request = urllib.request.Request(url, headers={"User-Agent": "FedDPLP-P5FC/1"})
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix(destination.suffix + ".partial")
+    curl = shutil.which("curl")
+    if curl is not None:
+        print(f"downloading {destination.name} with resumable curl", flush=True)
+        subprocess.run(
+            [
+                curl,
+                "--location",
+                "--fail",
+                "--retry",
+                "5",
+                "--retry-all-errors",
+                "--continue-at",
+                "-",
+                "--output",
+                str(temporary),
+                url,
+            ],
+            check=True,
+        )
+        temporary.replace(destination)
+        return
     with urllib.request.urlopen(request, timeout=300) as response:
         with temporary.open("wb") as output:
             while chunk := response.read(8 * 1024 * 1024):
