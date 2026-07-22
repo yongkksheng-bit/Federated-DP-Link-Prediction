@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "protocol": "P5FC_SPLIT_AUDIT_v1",
+  "checks": {
+    "manifest_complete_unique": true,
+    "datasets_and_seeds_exact": true,
+    "config_and_source_audit_current": true,
+    "test_encrypted_never_accessed": true,
+    "sealing_keys_exist": true,
+    "development_hashes_current": true,
+    "sealed_hashes_current": true,
+    "frozen_counts": true,
+    "balanced_strata": true,
+    "balanced_clients": true
+  },
+  "status": "PASS",
+  "test_access_count": 0
+}

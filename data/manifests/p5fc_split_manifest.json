@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-07-21T23:59:46.360504+00:00",
+  "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1",
+  "preparation_code_commit": "75b6d5a5ded851398d4c467cdb294024202f797b",
+  "config_sha256": "476837f7909682280ff1415b88460fdc10a0d45f8fc6c27189ba6a07b02e8340",
+  "source_audit_sha256": "45b873dfb07218b822bbb0c3ed8ed9b400bfce53b65526d02c3723df66f2a14b",
+  "test_status": "encrypted_never_accessed",
+  "test_access_count": 0,
+  "test_identity_encryption": "operational accidental-access control",
+  "contains_private_identities": false,
+  "datasets": [
+    {
+      "dataset": "flickr-graphsaint",
+      "nodes": 89250,
+      "canonical_undirected_edges": 449878,
+      "client_node_counts": [
+        17850,
+        17850,
+        17850,
+        17850,
+        17850
+      ],
+      "splits": [
+        {
+          "seed": 31013,
+          "counts": {
+            "train_positive": 299878,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "f73a37945d8a5be7e582f6eb1c1a8693b58bc25dfe592d7a89e7f07446980737",
+            "validation_positive": "cf31d1ce03881fbf7855c99f0511eb8a7fd1aa229d1fbb878834bb242dfcf791",
+            "validation_negative": "2d62b156f5417f26e0b00ab0093d7208dc726add5a8a065a4c4bceb7d264a751",
+            "test_positive": "1c0c34b92f578396f9f1c48c6726b7d9c435d3f2fecad6a95d101ae630cdf17b",
+            "test_negative": "06114bd4ca84db779e4509558a181fb61a65faea5303a7664bae23686b5b229b",
+            "sealed_payload_sha256": "7914745c54149c2d232c0ceb8a0b03c7501878315a5d807dd5095fc587304616",
+            "development_file_sha256": "a85e18d065c159bc9d454c984768b01bed9049ad22059523d179fc1297ce3773"
+          }
+        },
+        {
+          "seed": 32003,
+          "counts": {
+            "train_positive": 299878,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "8f5d55655a2478e0e700097e6706a1df10cc7b09b64843a0827899b4838942ff",
+            "validation_positive": "ae78fc21ac055e50d89cf1e2bb6a26ff95549d7cc3446179eece7c9e53ab71ce",
+            "validation_negative": "065e4ad25e985b69eb67f05ca90e3295568c306c17448460c88ca3ca630562c5",
+            "test_positive": "47844533cdfacee32fb17583d8ca3598e2001ef7213c799bdfb201dd554fe04a",
+            "test_negative": "6e3427c631a849d27f280e86c265ff081b8b7282233b98c7829079db94601ae9",
+            "sealed_payload_sha256": "af484f02dd5e2c26dfa3c2a2a1ae3239ccd6631ea75a5c0283741819dda581e3",
+            "development_file_sha256": "af6124c51b04ec1874541d0818ded760384536b7be0b840e4ef0cf0674230660"
+          }
+        },
+        {
+          "seed": 33013,
+          "counts": {
+            "train_positive": 299878,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "2ecb06c12750d319664df564489ab231b5155841fc4062968750f3fb40c2fede",
+            "validation_positive": "3d91342d543c91231d60fa2da71b94d5eaac04fcaffa615f2dfdd0d579eceae8",
+            "validation_negative": "14de0359770317cc8a3f5b5099ba81b4c3bf4f87058e7064d09d2108dc74a473",
+            "test_positive": "4bbe5957aae664cd6aa158de8331339536262667c9bc982dc8245c1dec6f3a12",
+            "test_negative": "4d95e6af45a823d33763115644bfa6c59fd6f89bb5dfb46f64655be56ac06b15",
+            "sealed_payload_sha256": "85854356c8f6b0cccc275f26cfbf96d6d99163c888561f0a4934ac5124dd3af2",
+            "development_file_sha256": "36d377d95cd5759e03aee59bdf8ef6f2e03f458820304cc072789b831b698f56"
+          }
+        },
+        {
+          "seed": 34019,
+          "counts": {
+            "train_positive": 299878,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "575348c9bf1c0ed36a7c5cc85a84d54fdeddd8612804e5e7783ebcf9da08a58f",
+            "validation_positive": "ece012eb9426dbb27ba150929d51b0dbb8ee20c23bbca6d0ba338c5654a6b71c",
+            "validation_negative": "cbfc3f00386228d9853e8d140d54f887575f1ac994418d65f034434ec1ee7f70",
+            "test_positive": "2a6dbbe126504ed3946039658aaa11c161ba295061e70dac31cae69d7d06f75f",
+            "test_negative": "0831907bc4c0e7513ced5d8c12389651d63897ae3ba72b0b7e2ad1fc7c086da8",
+            "sealed_payload_sha256": "5c0b32b5f33b9b48f2c9de79bf34a466e772ab660f2907923a8c38a85ca76bc6",
+            "development_file_sha256": "eef9009831f343ab648df4d6644c86452c0a7c307df2c06887885d2302474266"
+          }
+        },
+        {
+          "seed": 35023,
+          "counts": {
+            "train_positive": 299878,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "f66a551ab349e94c3dc80656f57a6d9b41f1e5bba62940d18d2a95b667c640c4",
+            "validation_positive": "431d149df807c36f3ebb4461ba8126c63683a20283137fa2811aa150a4fd391e",
+            "validation_negative": "2713ed46a0cbf2c1cdc8e625821a6762e827fd8576661e824de1a87d9188811b",
+            "test_positive": "ea04df107c1eb694540f44c4d17e6d06714a8ef88d494bba695d7843ea24a8fc",
+            "test_negative": "487bd2fc9032775a08b4b0d66cb2cdf64a85c828d5dd8f455de0fc10d1d976db",
+            "sealed_payload_sha256": "7abc7ab9c5a120a5ccb82232120de4f402c3f21c2e12ce0d99921866a4dd8090",
+            "development_file_sha256": "edcc7fb4deb1e378da38e89c32cae3f0fd8309799e5feaf7ee8537fc4132b7b6"
+          }
+        }
+      ]
+    },
+    {
+      "dataset": "reddit2-graphsaint",
+      "nodes": 232965,
+      "canonical_undirected_edges": 11606919,
+      "client_node_counts": [
+        46593,
+        46593,
+        46593,
+        46593,
+        46593
+      ],
+      "splits": [
+        {
+          "seed": 31013,
+          "counts": {
+            "train_positive": 11456919,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "ba5add26a8d8921437a9b7032d465ea0b054171b1b3251d8bc5786be5eb1eac2",
+            "validation_positive": "26a1b0dae03a7442cd18d4ef0a87072dbddfcac873533c38a8d3ebdf2909fbf9",
+            "validation_negative": "8abfe39747add8457897ce956003c09a4a1df482adf63e323dede711428b42dc",
+            "test_positive": "d59ee199d92b2f25308574b18c53219f8f24b400c25a4e468e3d8fc0ea40d2f5",
+            "test_negative": "2d8173327ca491839eb9177632888d9b6c736dcc4c0289db81604115be0b4a2b",
+            "sealed_payload_sha256": "e4631d76729d8376cd4674f0de64f6ec5b5dc310c042f158009244b638c1cfab",
+            "development_file_sha256": "52ff9d49a57ebf0f699e4ce29fcb7b3e35c4bf2b6c9aca072583e85f18159301"
+          }
+        },
+        {
+          "seed": 32003,
+          "counts": {
+            "train_positive": 11456919,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "e3bf0aea9ff2892aaf0cb7be88b1e7832f4acd7e10f454c84ca3ec6d055e4284",
+            "validation_positive": "cf8a05f89aeb1cc70cf481364b9d07ec99ffc2b8fbc69c602ba11f50c61ed6c4",
+            "validation_negative": "070ffbdffb9120cf645cc8baab54fb83f818ce722a1232db1d897ee27ba8db3b",
+            "test_positive": "8b4572c72fe8be56ebcb79a9933db0c6fb22b68a6fb61d52ee444560a9821211",
+            "test_negative": "5f5a1048ddf895fda8e71f3939dbb7c01e147d70e0e59cadddd2724194fb34e7",
+            "sealed_payload_sha256": "0dd825a94c0649fbf0089826fc8c1df6fae2b51e4567e801d1dcfb23edf618f1",
+            "development_file_sha256": "feeccdb171b5f01e64e7f9785482c1b4917600a6005226cf7c3cacf01a7a8ff4"
+          }
+        },
+        {
+          "seed": 33013,
+          "counts": {
+            "train_positive": 11456919,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "62dd5f3fc79e93c35d5c11e43d313f8e5a125c3589547b03b3ec2f2c0e2b9028",
+            "validation_positive": "ad9a1db40618bb0d1eff19f09b910c0b43cecef92f72b97634260a5121dd00d2",
+            "validation_negative": "084a2a3a93d4203cb73b74a6b3f02f3762eb95c17ccef522c8150edba96c3890",
+            "test_positive": "04b575cfdd700be50fb7e8b513556b7d4e64a3d63a4e0e94df1e65f25cfa9cca",
+            "test_negative": "5ae9eed957e7af3783f6daf106d0ca077ce793d07e9a0f9a4ecb281a5152f006",
+            "sealed_payload_sha256": "5e25aa88c5bd69cea80df7921c02667e168abe9055a7c62222d363bfbd23b762",
+            "development_file_sha256": "e7a740ee831eae2635cffca4cc11b0078886be3b56c0d2f1a8b0fc5738ec7835"
+          }
+        },
+        {
+          "seed": 34019,
+          "counts": {
+            "train_positive": 11456919,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "4a0491c2c4b19b0ab8198c7631b44360f072180eb21bef6a53ef6dc3b4d2992b",
+            "validation_positive": "88259b64f0d54629a265e9e4ce541a1b18a674e7a67e51e252ff50eb1cb76481",
+            "validation_negative": "f2166b9e707acd5dfd0a362dbfe78e9c980c37173cc258898938b7f1cbafc5aa",
+            "test_positive": "362e4a3ac51bd68a820de7925b4cbad33697d98dc2ac5957eee976c3016e175d",
+            "test_negative": "69d9c664799df62de5aa1f82772d043fa821565d3b726b7e90162cd0be8e044e",
+            "sealed_payload_sha256": "651a01d3820770d87d213a929675013db22b169a170d4462ada89103ceba6356",
+            "development_file_sha256": "56aa378ec9e8a462fccc5500c989ef1741af663326185fbe6a901b71df3f7bf3"
+          }
+        },
+        {
+          "seed": 35023,
+          "counts": {
+            "train_positive": 11456919,
+            "validation_positive": 50000,
+            "validation_negative": 50000,
+            "test_positive": 100000,
+            "test_negative": 100000,
+            "validation_positive_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "validation_negative_strata": {
+              "intra": 25000,
+              "cross": 25000
+            },
+            "test_positive_strata": {
+              "intra": 50000,
+              "cross": 50000
+            },
+            "test_negative_strata": {
+              "intra": 50000,
+              "cross": 50000
+            }
+          },
+          "commitments": {
+            "train_positive": "03d98a8512b225e214900db93b5e83e68a31c65b7f1e7e989cc460cee428d593",
+            "validation_positive": "706f77b434e218323fad77a89c8b5a2a62821a43b12c956c00ddae86326afd33",
+            "validation_negative": "4c45f4eb2e823888a17b7ad40ce5af89df626b5b2d81b85fbadd143723530e0d",
+            "test_positive": "3e7f5b4377e2b806db3cfa7841cee90cdfd2b04cee360170207dee7bca0fcbc0",
+            "test_negative": "2cfb9ff09f7d07e802965805778e2751609129b34d36b7ace848335b5edaefe9",
+            "sealed_payload_sha256": "e45b16c8356559e8fd1ce828bd69d5c07ef8daf156c20059c7f64f9ac51997eb",
+            "development_file_sha256": "d1d2d19c87059f8517cae5803739b4e6653e17b967e00cd44a9e9222f0e1a648"
+          }
+        }
+      ]
+    }
+  ]
+}
