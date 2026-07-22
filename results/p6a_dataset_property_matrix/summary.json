@@ -1,0 +1,399 @@
+{
+  "protocol": "P6A_DATASET_PROPERTY_MATRIX_v1",
+  "record_count": 30,
+  "dataset_count": 6,
+  "seeds_per_dataset": 5,
+  "test_accessed": false,
+  "datasets": {
+    "blogcatalog-v3": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.5507766974373196,
+          "sample_std": 0.0010159810412581165
+        },
+        "common_neighbor_auc": {
+          "mean": 0.9386404056164814,
+          "sample_std": 0.0012272907861994977
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.9506287322441492,
+          "sample_std": 0.0010806186486093594
+        },
+        "edge_density": {
+          "mean": 0.004397508246068601,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 45.34270752521334,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 2.7443405485179007,
+          "sample_std": 0.003767861315348718
+        },
+        "degree_gini": {
+          "mean": 0.7142362659932576,
+          "sample_std": 0.00024367204642864227
+        },
+        "largest_component_fraction": {
+          "mean": 0.9877812257564003,
+          "sample_std": 0.0005177016219953132
+        },
+        "sampled_average_clustering": {
+          "mean": 0.31212721675834026,
+          "sample_std": 0.007527051196195141
+        },
+        "degree_assortativity": {
+          "mean": -0.2538671978256591,
+          "sample_std": 0.00047851642157893036
+        },
+        "louvain_modularity": {
+          "mean": 0.23619934825778915,
+          "sample_std": 0.002946382361873855
+        },
+        "louvain_communities": {
+          "mean": 134.0,
+          "sample_std": 6.2048368229954285
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.8005363856844049,
+          "sample_std": 1.2412670766236366e-16
+        },
+        "public_feature_coverage": {
+          "mean": 1.0,
+          "sample_std": 0.0
+        },
+        "public_feature_density": {
+          "mean": 0.03599490760080364,
+          "sample_std": 0.0
+        }
+      }
+    },
+    "deezer-europe-snap": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.6041792561346929,
+          "sample_std": 0.003968936952650827
+        },
+        "common_neighbor_auc": {
+          "mean": 0.6861375382648748,
+          "sample_std": 0.0023285568883790546
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.7541219480592504,
+          "sample_std": 0.0011642039514829755
+        },
+        "edge_density": {
+          "mean": 0.00016235579217198265,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 4.591421802623669,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 1.2349396738322944,
+          "sample_std": 0.0029971922319202387
+        },
+        "degree_gini": {
+          "mean": 0.5390099925854124,
+          "sample_std": 0.000604799913160379
+        },
+        "largest_component_fraction": {
+          "mean": 0.8897422297655669,
+          "sample_std": 0.00359149808434377
+        },
+        "sampled_average_clustering": {
+          "mean": 0.07818855076089508,
+          "sample_std": 0.0034748265993088685
+        },
+        "degree_assortativity": {
+          "mean": 0.10183672221474711,
+          "sample_std": 0.0019573901029834983
+        },
+        "louvain_modularity": {
+          "mean": 0.7036286409083445,
+          "sample_std": 0.00244999166615681
+        },
+        "louvain_communities": {
+          "mean": 2565.4,
+          "sample_std": 30.705048444840468
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.8005082787832114,
+          "sample_std": 0.0
+        },
+        "public_feature_coverage": {
+          "mean": 0.7822212793041264,
+          "sample_std": 0.0
+        },
+        "public_feature_density": {
+          "mean": 0.0010848285368383328,
+          "sample_std": 0.0
+        }
+      }
+    },
+    "facebook-musae": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.9211878613024739,
+          "sample_std": 0.0007877047625961239
+        },
+        "common_neighbor_auc": {
+          "mean": 0.9080763479201016,
+          "sample_std": 0.0012757311870066194
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.8473208577358061,
+          "sample_std": 0.001466548377837852
+        },
+        "edge_density": {
+          "mean": 0.0004736783862998465,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 10.643079661771251,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 1.7489487953345624,
+          "sample_std": 0.004447837010440176
+        },
+        "degree_gini": {
+          "mean": 0.6228223724042679,
+          "sample_std": 0.0006938548147805623
+        },
+        "largest_component_fraction": {
+          "mean": 0.9355763239875389,
+          "sample_std": 0.0015546414159626442
+        },
+        "sampled_average_clustering": {
+          "mean": 0.23185568214250024,
+          "sample_std": 0.002392667065346942
+        },
+        "degree_assortativity": {
+          "mean": 0.08448100871185528,
+          "sample_std": 0.0017011699442559514
+        },
+        "louvain_modularity": {
+          "mean": 0.8161489686943986,
+          "sample_std": 0.0015799507514682133
+        },
+        "louvain_communities": {
+          "mean": 1263.0,
+          "sample_std": 23.313086453749534
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.7999498222872674,
+          "sample_std": 0.0
+        },
+        "public_feature_coverage": {
+          "mean": 1.0,
+          "sample_std": 0.0
+        },
+        "public_feature_density": {
+          "mean": 0.0029699052845457074,
+          "sample_std": 0.0
+        }
+      }
+    },
+    "github-social-snap": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.6109444926194956,
+          "sample_std": 0.001915779847734283
+        },
+        "common_neighbor_auc": {
+          "mean": 0.7931310593528567,
+          "sample_std": 0.0020650092085786166
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.9033603345553537,
+          "sample_std": 0.001184125403951399
+        },
+        "edge_density": {
+          "mean": 0.0002846799262875423,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 10.732148541114059,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 5.273276376390255,
+          "sample_std": 0.01237776230792348
+        },
+        "degree_gini": {
+          "mean": 0.6940386696415826,
+          "sample_std": 0.00045701881732639467
+        },
+        "largest_component_fraction": {
+          "mean": 0.9420371352785144,
+          "sample_std": 0.0016448190096607807
+        },
+        "sampled_average_clustering": {
+          "mean": 0.10416177213618712,
+          "sample_std": 0.002297503303193242
+        },
+        "degree_assortativity": {
+          "mean": -0.07524074287844895,
+          "sample_std": 0.0003776984541842459
+        },
+        "louvain_modularity": {
+          "mean": 0.4604091654473623,
+          "sample_std": 0.0047244404905754074
+        },
+        "louvain_communities": {
+          "mean": 2147.2,
+          "sample_std": 52.9830161466861
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.7991458272574036,
+          "sample_std": 0.0
+        },
+        "public_feature_coverage": {
+          "mean": 1.0,
+          "sample_std": 0.0
+        },
+        "public_feature_density": {
+          "mean": 0.004572255502902539,
+          "sample_std": 0.0
+        }
+      }
+    },
+    "lastfm-asia-snap": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.8308737513586253,
+          "sample_std": 0.004688213845448196
+        },
+        "common_neighbor_auc": {
+          "mean": 0.8022774701102428,
+          "sample_std": 0.003713624795151737
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.7935612675327364,
+          "sample_std": 0.008095607038570806
+        },
+        "edge_density": {
+          "mean": 0.0006697781428297502,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 5.105718782791186,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 1.5970225160492304,
+          "sample_std": 0.008588139290279632
+        },
+        "degree_gini": {
+          "mean": 0.597988451895622,
+          "sample_std": 0.002350619220388722
+        },
+        "largest_component_fraction": {
+          "mean": 0.8919727177334732,
+          "sample_std": 0.005275693151935605
+        },
+        "sampled_average_clustering": {
+          "mean": 0.1294381913634749,
+          "sample_std": 0.0031956689327675993
+        },
+        "degree_assortativity": {
+          "mean": 0.016491235381435286,
+          "sample_std": 0.003485297738253236
+        },
+        "louvain_modularity": {
+          "mean": 0.8248113596983384,
+          "sample_std": 0.0021761239173488556
+        },
+        "louvain_communities": {
+          "mean": 760.0,
+          "sample_std": 42.59694824749773
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.8020346298104094,
+          "sample_std": 1.2412670766236366e-16
+        },
+        "public_feature_coverage": {
+          "mean": 0.9773084994753412,
+          "sample_std": 1.2412670766236366e-16
+        },
+        "public_feature_density": {
+          "mean": 0.05041799102580262,
+          "sample_std": 7.757919228897728e-18
+        }
+      }
+    },
+    "polblogs-newman": {
+      "seeds": 5,
+      "properties": {
+        "public_feature_auc": {
+          "mean": 0.7038300418910831,
+          "sample_std": 0.004671123169459149
+        },
+        "common_neighbor_auc": {
+          "mean": 0.9177316714424005,
+          "sample_std": 0.005170706985224261
+        },
+        "preferential_attachment_auc": {
+          "mean": 0.9301497972417139,
+          "sample_std": 0.00742005344559328
+        },
+        "edge_density": {
+          "mean": 0.010547144383194883,
+          "sample_std": 0.0
+        },
+        "mean_degree": {
+          "mean": 15.704697986577182,
+          "sample_std": 0.0
+        },
+        "degree_cv": {
+          "mean": 1.625348549573015,
+          "sample_std": 0.007611175152661031
+        },
+        "degree_gini": {
+          "mean": 0.6924484483450927,
+          "sample_std": 0.0016259922990466045
+        },
+        "largest_component_fraction": {
+          "mean": 0.7836241610738256,
+          "sample_std": 0.0020467047895270647
+        },
+        "sampled_average_clustering": {
+          "mean": 0.16692429141944368,
+          "sample_std": 0.004077827016106304
+        },
+        "degree_assortativity": {
+          "mean": -0.21808124456126862,
+          "sample_std": 0.0047614018325806045
+        },
+        "louvain_modularity": {
+          "mean": 0.4288549711447148,
+          "sample_std": 0.0008470187157725446
+        },
+        "louvain_communities": {
+          "mean": 334.4,
+          "sample_std": 3.286335345030997
+        },
+        "cross_client_edge_fraction": {
+          "mean": 0.7947863247863248,
+          "sample_std": 0.0
+        },
+        "public_feature_coverage": {
+          "mean": 1.0,
+          "sample_std": 0.0
+        },
+        "public_feature_density": {
+          "mean": 0.5,
+          "sample_std": 0.0
+        }
+      }
+    }
+  }
+}

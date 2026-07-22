@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "protocol": "P6A_DATASET_PROPERTY_MATRIX_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "records_complete_unique": true,
+    "properties_complete_finite": true,
+    "input_hashes_current": true,
+    "summaries_reproduced": true,
+    "summary_counts_correct": true,
+    "prohibited_tests_unaccessed": true
+  },
+  "test_accessed": false
+}
