@@ -1,0 +1,31 @@
+{
+  "cell_count": 20,
+  "checks": {
+    "cells_complete": true,
+    "degree_bound": true,
+    "each_dataset_exact_pvalue": false,
+    "each_dataset_spearman": false,
+    "finite": true,
+    "noise_energy_ratio": true,
+    "pooled_spearman": true,
+    "records_complete": true,
+    "single_test_access": true
+  },
+  "decision": "REJECT_GENERAL_FRONTIER_CLAIM",
+  "per_dataset": {
+    "flickr-graphsaint": {
+      "cells": 10,
+      "exact_two_sided_permutation_pvalue": 5.511463844797178e-07,
+      "spearman": 0.9999999999999999
+    },
+    "reddit2-graphsaint": {
+      "cells": 10,
+      "exact_two_sided_permutation_pvalue": 0.10488260582010582,
+      "spearman": -0.5515151515151515
+    }
+  },
+  "pooled_cell_spearman": 0.7578947368421052,
+  "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1",
+  "record_count": 100,
+  "test_access_count": 1
+}

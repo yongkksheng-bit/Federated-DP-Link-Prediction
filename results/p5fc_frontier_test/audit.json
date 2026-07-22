@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "artifact_hashes_current": true,
+    "cells_complete_unique": true,
+    "dataset_statistics_reproduced": true,
+    "degree_bound": true,
+    "encoding_caches_current": true,
+    "finite": true,
+    "noise_energy_ratio": true,
+    "pooled_statistic_reproduced": true,
+    "records_complete_unique": true,
+    "runner_decision_consistent": true,
+    "sensitivity_and_complete_rdp": true,
+    "single_access_record": true
+  },
+  "confirmatory_decision": "REJECT_GENERAL_FRONTIER_CLAIM",
+  "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1_AUDIT",
+  "schema_version": 1,
+  "status": "PASS",
+  "test_access_count": 1
+}

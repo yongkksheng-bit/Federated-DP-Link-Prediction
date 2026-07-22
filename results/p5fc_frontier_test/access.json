@@ -1,0 +1,10 @@
+{
+  "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1",
+  "accessed_utc": "2026-07-22T00:00:50.243421+00:00",
+  "test_access_count": 1,
+  "runner_commit": "80b03ec1bead02527297ca1b19d7591e5a2bb21f",
+  "config_sha256": "476837f7909682280ff1415b88460fdc10a0d45f8fc6c27189ba6a07b02e8340",
+  "source_audit_sha256": "45b873dfb07218b822bbb0c3ed8ed9b400bfce53b65526d02c3723df66f2a14b",
+  "split_manifest_sha256": "a6507b1db21ebef9809ec58ffba2dcf0e0132152058cec6dbc905910186cf270",
+  "split_audit_sha256": "331a74bd21a37230b982efecbfd56aaa8e0e9de9c185b31a80ce844e4b55c580"
+}

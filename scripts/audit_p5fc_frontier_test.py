@@ -189,8 +189,13 @@ def main() -> None:
             )
             for dataset, (rho, pvalue) in per_dataset.items()
         ),
-        "runner_checks_pass": all(summary["checks"].values()),
+        "runner_decision_consistent": summary["decision"] == (
+            "CONFIRM_GENERAL_FRONTIER_DIAGNOSTIC"
+            if all(summary["checks"].values())
+            else "REJECT_GENERAL_FRONTIER_CLAIM"
+        ),
     }
+    checks = {name: bool(value) for name, value in checks.items()}
     audit = {
         "schema_version": 1,
         "protocol": "P5FC_FRESH_SOURCE_FRONTIER_CONFIRMATION_v1_AUDIT",
