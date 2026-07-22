@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "decision_consistent": true,
+    "encoding_caches_current": true,
+    "finite_proxy_metrics": true,
+    "gate_reproduced": true,
+    "input_hashes_current": true,
+    "metrics_reproduced": true,
+    "phase_cells_complete_unique": true,
+    "predictions_reproduced": true,
+    "probe_counts_matched": true,
+    "prohibited_tests_unaccessed": true,
+    "proxy_records_complete_unique": true
+  },
+  "development_decision": "REJECT_TWO_AXIS_PHASE_PROXY",
+  "protocol": "P5C2_TWO_AXIS_PHASE_DIAGRAM_DEVELOPMENT_v1_AUDIT",
+  "schema_version": 1,
+  "status": "PASS",
+  "test_accessed": false
+}

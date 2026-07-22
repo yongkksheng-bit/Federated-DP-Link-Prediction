@@ -1,0 +1,62 @@
+{
+  "checks": {
+    "datasets_improved": false,
+    "finite": true,
+    "phase_cells_complete": true,
+    "prediction_spearman": true,
+    "proxy_records_complete": true,
+    "relative_mae_reduction": true,
+    "sign_accuracy": true,
+    "test_never_accessed": true,
+    "worst_dataset_degradation": false
+  },
+  "datasets_with_lower_mae": 3,
+  "decision": "REJECT_TWO_AXIS_PHASE_PROXY",
+  "one_axis_lodo": {
+    "mae": 0.07971510728303516,
+    "sign_accuracy": 0.7333333333333333,
+    "spearman": 0.6135037510419562
+  },
+  "per_dataset": {
+    "blogcatalog-v3": {
+      "mae_change": -0.1160853916187583,
+      "one_axis_mae": 0.17313031854596753,
+      "two_axis_mae": 0.057044926927209215
+    },
+    "deezer-europe-snap": {
+      "mae_change": -0.014322918789805232,
+      "one_axis_mae": 0.03679465122971389,
+      "two_axis_mae": 0.02247173243990866
+    },
+    "facebook-musae": {
+      "mae_change": -0.07518456461112626,
+      "one_axis_mae": 0.14954316398352652,
+      "two_axis_mae": 0.07435859937240026
+    },
+    "github-social-snap": {
+      "mae_change": 0.009756916042324128,
+      "one_axis_mae": 0.03119754967716013,
+      "two_axis_mae": 0.04095446571948426
+    },
+    "lastfm-asia-snap": {
+      "mae_change": 0.06820377927789226,
+      "one_axis_mae": 0.020157347457080622,
+      "two_axis_mae": 0.08836112673497289
+    },
+    "polblogs-newman": {
+      "mae_change": 0.014589276924664107,
+      "one_axis_mae": 0.06746761280476218,
+      "two_axis_mae": 0.08205688972942629
+    }
+  },
+  "phase_cell_count": 60,
+  "protocol": "P5C2_TWO_AXIS_PHASE_DIAGRAM_DEVELOPMENT_v1",
+  "proxy_record_count": 30,
+  "relative_mae_reduction": 0.23634771924607526,
+  "test_accessed": false,
+  "two_axis_lodo": {
+    "mae": 0.060874623487233596,
+    "sign_accuracy": 0.8166666666666667,
+    "spearman": 0.8561822728535706
+  }
+}
