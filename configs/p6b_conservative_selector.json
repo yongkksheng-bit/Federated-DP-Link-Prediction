@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "protocol": "P6B_CONSERVATIVE_FEASIBILITY_SELECTOR_v1",
+  "status": "frozen_before_selector_evaluation",
+  "role": "development-only decision policy for the frozen GAP-style DP structural channel",
+  "datasets": [
+    "blogcatalog-v3",
+    "facebook-musae",
+    "polblogs-newman",
+    "lastfm-asia-snap",
+    "github-social-snap",
+    "deezer-europe-snap"
+  ],
+  "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "visibility_models": ["visible_messages", "ideal_secagg"],
+  "outcome": "five-seed mean P5F Global-AUC gain of frozen GAP-style channel over public cosine",
+  "features": [
+    "privacy_recoverability",
+    "public_headroom",
+    "common_neighbor_advantage",
+    "hub_dominance",
+    "missing_feature_fraction",
+    "recoverability_times_headroom",
+    "recoverability_times_common_neighbor_advantage"
+  ],
+  "feature_definitions": {
+    "privacy_recoverability": "F_signal/(1+F_signal), averaged over P5F seeds within a cell",
+    "public_headroom": "1 minus five-seed P6A public-feature AUC",
+    "common_neighbor_advantage": "P6A common-neighbor AUC minus public-feature AUC",
+    "hub_dominance": "maximum of zero and P6A preferential-attachment AUC minus common-neighbor AUC",
+    "missing_feature_fraction": "1 minus P6A public-feature coverage"
+  },
+  "model": {
+    "type": "standardized ridge regression with unpenalized intercept",
+    "ridge": 1.0,
+    "outer_evaluation": "leave one dataset out",
+    "safety_calibration": "within each outer training fold, maximum positive overprediction from nested leave-one-training-dataset-out predictions",
+    "safety_quantile": 1.0,
+    "decision": "activate only when predicted gain minus safety margin is at least material_gain"
+  },
+  "material_gain": 0.02,
+  "no_harm_gate": {
+    "minimum_activation_fraction": 0.15,
+    "minimum_activated_datasets": 3,
+    "maximum_negative_mean_gain_activations": 0,
+    "minimum_material_precision": 0.8,
+    "minimum_positive_oracle_gain_capture": 0.4,
+    "minimum_worst_dataset_policy_gain": 0.0,
+    "require_macro_domain_gain_95ci_lower_above_zero": true,
+    "all_metrics_finite": true,
+    "test_access_prohibited": true
+  },
+  "comparators": ["always_public", "always_dp", "positive_mean_gain_oracle"],
+  "evidence_boundary": {
+    "allowed": [
+      "P6A audited development summary",
+      "P5F validation-only records",
+      "frozen P3 and P5F configurations"
+    ],
+    "prohibited": [
+      "P3 sealed tests",
+      "P5FC confirmatory records",
+      "fresh confirmatory source acquisition"
+    ]
+  },
+  "reporting": {
+    "cells": 60,
+    "seeds_per_cell": 5,
+    "decision_if_all_gates_pass": "ADVANCE_SELECTOR_TO_FRESH_PROTOCOL_DESIGN",
+    "decision_otherwise": "REJECT_CONSERVATIVE_SELECTOR"
+  }
+}
