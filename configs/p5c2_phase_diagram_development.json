@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "protocol": "P5C2_TWO_AXIS_PHASE_DIAGRAM_DEVELOPMENT_v1",
+  "status": "frozen_before_proxy_computation",
+  "role": "retrospective development on P3 training and validation only",
+  "datasets": [
+    "blogcatalog-v3",
+    "facebook-musae",
+    "polblogs-newman",
+    "lastfm-asia-snap",
+    "github-social-snap",
+    "deezer-europe-snap"
+  ],
+  "seeds": [23003, 24001, 25013, 26003, 27011],
+  "allowed_inputs": {
+    "p3_development_arrays": true,
+    "p5f_validation_records": true,
+    "p3_encrypted_test": false,
+    "p5fc_flickr_reddit_test_records": false
+  },
+  "cross_fitted_alignment_axis": {
+    "name": "clean_fusion_gain_cv",
+    "probe_positive_fraction": 0.1,
+    "probe_positive_cap": 20000,
+    "strata": ["intra_client", "cross_client"],
+    "rank": "keyed_splitmix64_without_replacement",
+    "rank_seed_offset": 71001,
+    "probe_negatives": "matched subset of pre-existing P3 training negatives",
+    "fit_graph": "training positives excluding probe positives",
+    "public_channel": "frozen P5F public SVD encoding",
+    "structural_channel": "one clean undirected sum-aggregation hop then row normalization",
+    "primary_proxy": "AUC(0.5 public_score + 0.5 clean_structural_score) - AUC(public_score)"
+  },
+  "secondary_diagnostics": [
+    "clean_structural_auc_gain_cv",
+    "clean_fusion_margin_gain_cv",
+    "normalized_structural_effective_rank",
+    "training_degree_coefficient_of_variation"
+  ],
+  "phase_model": {
+    "energy_transform": "r=F_signal/(1+F_signal)",
+    "one_axis_features": ["1", "r", "r_squared"],
+    "two_axis_features": ["1", "r", "r_squared", "alignment", "r_times_alignment"],
+    "estimator": "closed_form_ridge",
+    "ridge": 0.001,
+    "standardization": "training_fold_only_except_intercept",
+    "validation": "leave_one_dataset_out",
+    "outcome": "cell_mean_global_auc_gain_over_public"
+  },
+  "go_no_go": {
+    "expected_proxy_records": 30,
+    "expected_phase_cells": 60,
+    "minimum_relative_lodo_mae_reduction": 0.15,
+    "minimum_lodo_sign_accuracy": 0.8,
+    "minimum_lodo_prediction_spearman": 0.6,
+    "minimum_datasets_with_lower_mae": 4,
+    "maximum_any_dataset_mae_degradation": 0.02,
+    "all_metrics_finite": true,
+    "test_access_prohibited": true,
+    "failure_action": "reject_two_axis_proxy_without_consulting_P5FC_test"
+  }
+}
