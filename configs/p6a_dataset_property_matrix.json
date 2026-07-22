@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "protocol": "P6A_DATASET_PROPERTY_MATRIX_v1",
+  "status": "frozen_before_property_computation",
+  "purpose": "training-only characterization of graph domains for a conditional edge-DP link-prediction feasibility boundary",
+  "development_datasets": [
+    "blogcatalog-v3",
+    "facebook-musae",
+    "polblogs-newman",
+    "lastfm-asia-snap",
+    "github-social-snap",
+    "deezer-europe-snap"
+  ],
+  "development_seeds": [23003, 24001, 25013, 26003, 27011],
+  "existing_confirmatory_evidence": [
+    {
+      "dataset": "flickr-graphsaint",
+      "status": "P5FC_test_accessed_once_never_reuse_for_selection"
+    },
+    {
+      "dataset": "reddit2-graphsaint",
+      "status": "P5FC_test_accessed_once_never_reuse_for_selection"
+    }
+  ],
+  "future_confirmatory_candidates": [
+    {
+      "dataset": "soc-pokec",
+      "role": "large_scale_long_tail_social",
+      "status": "unacquired_pending_source_rights_and_protocol"
+    },
+    {
+      "dataset": "soc-livejournal1",
+      "role": "large_scale_community_social",
+      "status": "unacquired_pending_source_rights_and_protocol"
+    },
+    {
+      "dataset": "new_blog_or_interest_network",
+      "role": "independent_blog_domain_confirmation",
+      "status": "unselected_unacquired"
+    }
+  ],
+  "data_boundary": {
+    "allowed": [
+      "public node descriptors",
+      "P3 public client layout",
+      "P3 training positives",
+      "P3 validation positives and negatives"
+    ],
+    "prohibited": [
+      "P3 sealed test payloads",
+      "P3 test key",
+      "P5FC confirmatory records as model inputs",
+      "future confirmatory source acquisition"
+    ]
+  },
+  "properties": {
+    "public_feature_auc": "ROC-AUC of frozen sparse public-feature cosine on P3 validation candidates",
+    "common_neighbor_auc": "ROC-AUC of common-neighbor score from the training-positive graph on P3 validation candidates",
+    "preferential_attachment_auc": "ROC-AUC of training-degree product on P3 validation candidates",
+    "edge_density": "2m/(n(n-1)) on the training-positive graph",
+    "mean_degree": "mean training degree over all registered nodes",
+    "degree_cv": "standard deviation divided by mean training degree",
+    "degree_gini": "Gini coefficient of training degrees",
+    "largest_component_fraction": "fraction of registered nodes in the largest training component",
+    "sampled_average_clustering": "deterministic average local clustering over at most 2000 registered nodes",
+    "degree_assortativity": "training-graph degree assortativity; zero only for an undefined finite limit",
+    "louvain_modularity": "deterministic Louvain modularity on the training graph",
+    "louvain_communities": "number of deterministic Louvain communities",
+    "cross_client_edge_fraction": "fraction of training positives whose endpoints have different frozen homes",
+    "public_feature_coverage": "fraction of nodes with at least one registered public descriptor",
+    "public_feature_density": "nonzeros divided by node count times descriptor dimension"
+  },
+  "graph_diagnostics": {
+    "clustering_node_cap": 2000,
+    "clustering_seed_offset": 61000,
+    "louvain_resolution": 1.0,
+    "louvain_seed_offset": 62000
+  },
+  "reporting": {
+    "unit": "dataset_seed",
+    "required_records": 30,
+    "dataset_summary": "mean and sample standard deviation across five frozen seeds",
+    "categories_are_descriptive_only": true,
+    "no_method_selection_or_confirmatory_claim": true
+  }
+}
