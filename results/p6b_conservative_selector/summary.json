@@ -1,0 +1,41 @@
+{
+  "protocol": "P6B_CONSERVATIVE_FEASIBILITY_SELECTOR_v1",
+  "cell_count": 60,
+  "decision": "REJECT_CONSERVATIVE_SELECTOR",
+  "checks": {
+    "minimum_activation_fraction": true,
+    "minimum_activated_datasets": false,
+    "no_negative_mean_gain_activations": false,
+    "minimum_material_precision": false,
+    "minimum_positive_oracle_gain_capture": false,
+    "minimum_worst_dataset_policy_gain": true,
+    "macro_domain_gain_95ci_lower_above_zero": false,
+    "all_metrics_finite": true,
+    "test_never_accessed": true
+  },
+  "metrics": {
+    "activation_count": 10,
+    "activation_fraction": 0.16666666666666666,
+    "activated_datasets": 1,
+    "negative_mean_gain_activations": 2,
+    "material_precision": 0.5,
+    "positive_oracle_gain_capture": 0.06986095166361724,
+    "macro_dataset_policy_gain": 0.0073751391494036285,
+    "macro_dataset_policy_gain_95ci": [
+      -0.01158325959055962,
+      0.026333537889366876
+    ],
+    "worst_dataset_policy_gain": 0.0,
+    "per_dataset_policy_gain": {
+      "blogcatalog-v3": 0.0,
+      "deezer-europe-snap": 0.04425083489642177,
+      "facebook-musae": 0.0,
+      "github-social-snap": 0.0,
+      "lastfm-asia-snap": 0.0,
+      "polblogs-newman": 0.0
+    },
+    "always_dp_macro_dataset_gain": 0.09109577595913448,
+    "oracle_macro_dataset_gain": 0.10556883314322947
+  },
+  "test_accessed": false
+}

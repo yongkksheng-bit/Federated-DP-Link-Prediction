@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "protocol": "P6B_CONSERVATIVE_FEASIBILITY_SELECTOR_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "cells_complete_unique": true,
+    "input_hashes_current": true,
+    "features_and_outcomes_reproduced": true,
+    "predictions_and_actions_reproduced": true,
+    "metrics_reproduced": true,
+    "gate_and_decision_reproduced": true,
+    "prohibited_tests_unaccessed": true
+  },
+  "test_accessed": false
+}
