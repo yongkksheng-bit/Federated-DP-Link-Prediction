@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "protocol": "R4_CERTIFIABLE_UTILITY_LOWER_BOUND_v1",
+  "status": "frozen_before_implementation_and_execution",
+  "scope": "binary bounded-utility hypothesis testing; no graph, real data, or held-out test data",
+  "null_mean": 0.02,
+  "effect_gaps": [0.01, 0.03, 0.08, 0.18],
+  "maximum_testing_error": 0.05,
+  "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "delta": 1e-6,
+  "dependence_factors": [1, 5],
+  "adjacency": {
+    "project_model": "unbounded add-or-remove one edge record",
+    "testing_model": "fixed-size replacement of one bounded utility record",
+    "conversion_epsilon": "2 * epsilon",
+    "conversion_delta": "(1 + exp(epsilon)) * delta"
+  },
+  "hard_pair": {
+    "distribution": "block-replicated Rademacher",
+    "null_positive_probability": "(1 + null_mean) / 2",
+    "alternative_positive_probability": "(1 + null_mean + effect_gap) / 2",
+    "independent_blocks": "n / chi",
+    "expected_replacement_hamming_distance": "n * effect_gap / 2"
+  },
+  "lower_bounds": {
+    "nonprivate": "Le Cam plus Pinsker with exact Bernoulli KL on n/chi independent blocks",
+    "general_central_approximate_dp": "Theorem 1 of Acharya, Sun, and Zhang (ALT 2021) after adjacency conversion",
+    "ideal_secagg": "inherits the general central lower bound; no stronger information-theoretic claim preregistered",
+    "visible_messages": "inherits the general central lower bound; sqrt(K) is mechanism-specific unless an additional communication model is proved"
+  },
+  "numerics": {
+    "maximum_count": 1000000000,
+    "root_tolerance": 1e-12,
+    "integer_rounding": "ceiling of necessary real-valued sample count"
+  },
+  "registered_checks": {
+    "nonprivate_lower_bound_positive": true,
+    "dp_root_residual_at_most": 1e-10,
+    "lower_bound_nonincreasing_in_effect_gap": true,
+    "privacy_lower_bound_nonincreasing_in_epsilon": true,
+    "nonprivate_lower_bound_nondecreasing_in_dependence": true,
+    "r3_sufficient_count_not_below_r4_necessary_count": true,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "r4_go_requirements": {
+    "central_alpha_order_matches_r3": true,
+    "central_epsilon_order_matches_r3": true,
+    "dependence_order_matches_r3": true,
+    "visible_message_separation_proved_or_claim_removed": true
+  },
+  "decision_if_all_go_requirements_hold": "R4_GO_TIGHT_FEASIBILITY_THEORY",
+  "decision_otherwise": "R4_INCOMPLETE_OR_NO_GO_DO_NOT_CLAIM_MATCHING_MINIMAX_BOUND"
+}
