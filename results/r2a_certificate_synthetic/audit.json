@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "protocol": "R2A_PRIVATE_CERTIFICATE_SYNTHETIC_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "record_count_complete": true,
+    "records_exactly_replayed": true,
+    "summary_exactly_replayed": true,
+    "config_hash_current": true,
+    "single_frozen_code_commit": true,
+    "metrics_finite": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "PASS_TO_R2B_END_TO_END_SYNTHETIC_PROTOCOL",
+  "real_data_accessed": false,
+  "test_accessed": false
+}
