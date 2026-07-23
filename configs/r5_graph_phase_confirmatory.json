@@ -34,6 +34,7 @@
     "assignment": "edge-keyed SHA-256 Bernoulli threshold",
     "assignment_salt": "R5-CERT-20260723-v1",
     "evaluation_role": "complement of certification assignment",
+    "negative_evaluation_assignment_salt": "R5-NEG-EVAL-20260723-v1",
     "corruption": "one deterministic endpoint corruption without graph rejection",
     "corruption_salt": "R5-CORRUPT-20260723-v1",
     "estimand": "finite sealed-holdout mean candidate-minus-public pairwise ranking utility",
@@ -52,6 +53,19 @@
     "certification_l2_sensitivity": 1.4142135623730951,
     "composition": "conservative sequential RDP composition of training and certification; no parallel-composition credit",
     "counterfactual_cells": "each epsilon/visibility cell is an alternative deployment, not a jointly released mechanism"
+  },
+  "confirmatory_primary_cell": {
+    "training_epsilon": 4.0,
+    "certification_epsilon": 4.0,
+    "visibility": "visible_messages",
+    "records": 30,
+    "multiplicity": "one frozen cell per dataset and seed; the remaining privacy grid is diagnostic"
+  },
+  "rng_streams": {
+    "training_visible_messages": 51001,
+    "training_ideal_secagg": 51002,
+    "certification_visible_messages": 52001,
+    "certification_ideal_secagg": 52002
   },
   "certificate": {
     "material_gain_gamma": 0.02,
@@ -82,7 +96,7 @@
   },
   "decision_gates": {
     "maximum_false_material_activations": 0,
-    "minimum_activated_cells": 10,
+    "minimum_activated_primary_cells": 10,
     "minimum_activated_datasets": 3,
     "minimum_mean_Q5_policy_gain": 0.0,
     "require_all_privacy_accountants_reproduced": true,

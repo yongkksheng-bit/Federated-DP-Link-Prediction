@@ -48,6 +48,12 @@ Global, intra-client, and cross-client ROC-AUC on the original P3 negative
 payload are secondary benchmark metrics. They do not replace the theorem's
 registered pairwise estimand.
 
+The confirmatory primary cell is fixed at training epsilon 4, certification
+epsilon 4, and individually visible client messages, yielding 30
+dataset-by-seed records. All other epsilon-by-epsilon and ideal-secure-
+aggregation cells are a diagnostic phase diagram and do not enter the
+confirmatory decision gates.
+
 ## Privacy
 
 Training and certification are independently calibrated Gaussian mechanisms.
@@ -64,7 +70,7 @@ jointly released edge-DP transcript.
 `PASS_NONVACUOUS_CERTIFIED_POLICY` requires:
 
 - no activation whose full finite-holdout advantage is below `gamma=0.02`;
-- at least ten activated dataset/seed/privacy/visibility cells;
+- at least ten activated primary dataset/seed cells;
 - activation in at least three datasets;
 - nonnegative mean `Q5` policy gain;
 - exact accountant reproduction, commitment verification, one test access,
