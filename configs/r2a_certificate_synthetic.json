@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "protocol": "R2A_PRIVATE_CERTIFICATE_SYNTHETIC_v1",
+  "status": "frozen_before_execution",
+  "scope": "synthetic bounded utility records only; no graph or real data",
+  "candidate_training_branch": "GAP-style branch mathematically admitted but not executed in R2A",
+  "true_means": [-0.1, 0.0, 0.02, 0.05, 0.1, 0.2],
+  "certification_counts": [500, 2000, 10000],
+  "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "delta": 1e-6,
+  "clients": [1, 5, 20],
+  "visibility_models": ["ideal_secagg", "visible_messages"],
+  "dependence_factors": [1, 5],
+  "trials_per_cell": 5000,
+  "rng_seed": 20260731,
+  "utility_distribution": {
+    "type": "block-replicated Rademacher",
+    "support": [-1.0, 1.0],
+    "independent_blocks": "n/chi",
+    "block_size": "chi",
+    "mean": "true_mean"
+  },
+  "certificate": {
+    "query": ["bounded_utility_sum", "private_count"],
+    "l2_sensitivity": 1.4142135623730951,
+    "gaussian_releases": 1,
+    "material_gain_gamma": 0.02,
+    "minimum_noisy_count_lower": 50,
+    "failure_allocation": {
+      "sum_noise": 0.01,
+      "count_noise": 0.01,
+      "sampling": 0.03,
+      "total": 0.05
+    },
+    "noise_tail": "two-sided Gaussian quantile",
+    "sampling_bound": "sqrt(2*chi*log(1/beta_sampling)/n_lower)"
+  },
+  "accounting": {
+    "orders": "fed_dp_lp.accounting.DEFAULT_ORDERS",
+    "calibration": "exact fixed-sensitivity Gaussian RDP binary search",
+    "visible_messages": "each client query calibrated to sqrt(2); aggregate utility noise variance multiplied by K",
+    "ideal_secagg": "one aggregate query calibrated to sqrt(2)",
+    "joint_training_certificate_accounting": "not evaluated because R2A does not execute a trainer"
+  },
+  "primary_safety_cells": {
+    "true_mean_below_gamma": true,
+    "all_counts_epsilons_clients_visibilities_dependence_factors": true
+  },
+  "registered_power_cells": {
+    "true_mean_minimum": 0.1,
+    "certification_count_minimum": 10000,
+    "epsilon_minimum": 2.0,
+    "dependence_factor": 1,
+    "ideal_secagg_minimum_power": 0.8,
+    "visible_messages_max_clients": 5,
+    "visible_messages_minimum_power": 0.7
+  },
+  "go_no_go_gate": {
+    "maximum_safety_violation_rate": 0.05,
+    "maximum_false_activation_rate_below_gamma": 0.05,
+    "require_each_rate_one_sided_95pct_binomial_upper_at_most": 0.06,
+    "minimum_registered_ideal_power": 0.8,
+    "minimum_registered_visible_power": 0.7,
+    "minimum_positive_cell_activation_fraction": 0.2,
+    "accountant_reproduction_tolerance": 1e-10,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "decision_if_pass": "PASS_TO_R2B_END_TO_END_SYNTHETIC_PROTOCOL",
+  "decision_if_fail": "STOP_CERTFED_LP_CERTIFICATE_NOT_PRACTICALLY_FEASIBLE"
+}
