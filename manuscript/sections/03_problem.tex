@@ -10,11 +10,14 @@ Two federated databases are adjacent when one role-labelled canonical edge is
 added to or removed from one client. Features, labels, node existence, and the
 home map are outside this edge-DP guarantee.
 
-A public, edge-stable pseudorandom rule assigns records to training $E^T$,
-certification $E^C$, or research evaluation $E^Q$. The deployed mechanisms
-never read $E^Q$. Our historical benchmark split did not implement an
-edge-stable partition, so the R5 accountant deliberately uses sequential
-composition rather than claiming disjoint parallel composition.
+At the protocol level, an edge-stable pseudorandom rule can assign records to
+training $E^T$, certification $E^C$, or research evaluation $E^Q$. The
+deployed mechanisms never read $E^Q$. R5 takes the frozen role labels as part
+of its protected database and deliberately uses sequential composition rather
+than parallel-composition credit. Its historical raw-graph split was not
+designed to establish that adding an edge before partitioning leaves every
+other role unchanged; consequently, the reported guarantee is not silently
+upgraded to raw pre-partition graph adjacency.
 
 \subsection{Two inference-closed branches}
 

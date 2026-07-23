@@ -75,8 +75,8 @@ $\sigma$ has RDP \cite{mironov2017rdp}
  \rho(\lambda)=\frac{\lambda\Delta^2}{2\sigma^2}.
 \end{equation}
 When the edge-role partition is stable, training and conditional
-certification can use adaptive parallel composition. R5 takes the safer
-fallback:
+certification can use adaptive parallel composition. On its registered
+role-labelled database, R5 instead takes the conservative sequential sum:
 \begin{equation}
  \rho_{\rm total}(\lambda)
  =\rho_T(\lambda)+\rho_C(\lambda),
@@ -91,4 +91,6 @@ then converts once,
 \label{eq:rdpconversion}
 \end{equation}
 Each privacy-grid cell is an alternative deployment. Releasing all cells would
-require further composition.
+require further composition. Sequential summation avoids claiming parallel
+credit; it does not repair an unstable raw-graph-to-role transformation or
+extend the registered adjacency relation.

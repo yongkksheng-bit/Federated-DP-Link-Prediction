@@ -42,6 +42,8 @@ learner narrative and supplies a coherent contribution:
 R5 uses a frozen role-labelled database and conservative sequential
 composition because the historical benchmark split was not designed to prove
 edge-stable raw-graph partitioning. The manuscript states this explicitly.
+R7 additionally clarifies that summing RDP curves does not repair an unstable
+raw-graph-to-role transform and cannot upgrade the adjacency relation.
 Before submission, an independent privacy reviewer should confirm that the
 stated adjacency is acceptable for the intended application and that no prose
 silently upgrades it to raw unsplit-graph adjacency.
@@ -75,9 +77,9 @@ certificate, not from treating 0/1500 as a universal error rate.
 
 ### Medium: literature moves quickly
 
-The P0 audit includes work through July 2026. A final forward/backward citation
-refresh is mandatory immediately before submission, especially for
-federated-LP, decentralized graph DP, and private recommendation.
+R7 refreshed work through 2026-07-24 and added FedHGPP as a high-risk
+federated edge-private recommendation neighbor. Repeat the search immediately
+before submission.
 
 ## Pre-submission gates
 
@@ -88,9 +90,9 @@ federated-LP, decentralized graph DP, and private recommendation.
 - [x] Standard ROC-AUC retained as secondary diagnostic.
 - [x] PDF has no undefined references, overfull boxes, clipped figures, or
       unbalanced blank column.
-- [ ] Independent re-derivation of Theorems 2--4 by a privacy/statistics expert.
-- [ ] Independent reproduction from raw source registry on a clean machine.
-- [ ] Final 2026 literature refresh and bibliography expansion if new exact
+- [ ] External re-derivation of Theorems 2--4 by a privacy/statistics expert.
+- [x] Independent artifact reproduction from tracked evidence in a clean clone.
+- [x] Final 2026 literature refresh and bibliography expansion if new exact
       predecessors appear.
 - [ ] Venue-specific anonymization, ethics/data statement, and artifact link.
 

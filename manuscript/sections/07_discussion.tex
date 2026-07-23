@@ -15,6 +15,16 @@ sampling assumption, temporal certification window, or repeated privacy
 accounting. Shared nodes do not invalidate the finite random-partition proof,
 but they can matter for extrapolation beyond that population.
 
+\paragraph{Randomization contract.}
+The R5 partition uses a frozen edge-keyed SHA-256 map and its sampling theorem
+adopts the registered random-oracle/PRF interpretation. Because the sealed
+population was fixed before the salt was frozen and opened, it was not chosen
+adaptively against the realized assignment. A deployment in which data
+providers can select records after seeing a public salt requires a stronger
+protocol: for example, a committed secret PRF key hidden from providers until
+the population is fixed, or an auditable random draw after population freeze.
+Deterministic SHA-256 alone is not information-theoretic random sampling.
+
 \paragraph{Research metrics and deployment outputs.}
 The DP transcript includes training messages, inference-closed state, noised
 certificate statistics, the decision, and post-processed score queries.

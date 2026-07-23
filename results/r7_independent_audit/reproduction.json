@@ -1,0 +1,135 @@
+{
+  "artifacts": {
+    "manuscript_pdf": {
+      "bytes": 462679,
+      "path": "manuscript/main.pdf",
+      "sha256": "e417c9286c68878a537075d186eea13d0c1a8fed565d8cdf04c0b874682e2333"
+    },
+    "strict_records": {
+      "bytes": 11032469,
+      "path": "results\\r5_graph_phase_confirmatory\\records_strict.jsonl",
+      "sha256": "2d8c061257d6f04057e41f1dde8613c5b365d9af20bde6261077e0e1aa46daab"
+    },
+    "summary": {
+      "path": "results/r5_graph_phase_confirmatory/summary.json",
+      "sha256": "64ab7e1fa42083a885bd4432dbd054e53cb3489ecc0a54657c95e59169596a48"
+    },
+    "theory_audit": {
+      "path": "results/r7_independent_audit/theory_contract.json",
+      "sha256": "4085af8956f0cf32815618e71faaf18864d859f9ded369cb801d1ff875365b59"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "output_tail": [
+        "........................................................................ [ 71%]",
+        ".............................                                            [100%]"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "scripts/audit_r7_theory_contract.py"
+      ],
+      "output_tail": [
+        "    \"hash_assumption_is_explicit\": true,",
+        "    \"pairwise_not_auc_is_explicit\": true,",
+        "    \"rdp_curves_and_conversions_reproduced\": true,",
+        "    \"role_labelled_adjacency_is_explicit\": true,",
+        "    \"strict_record_grid_complete\": true,",
+        "    \"strict_record_keys_unique\": true,",
+        "    \"summary_independently_reconstructed\": true",
+        "  },",
+        "  \"exhaustive_certificate_l2_sensitivity\": 1.4142135623730951,",
+        "  \"expected_record_count\": 1500,",
+        "  \"maximum_rdp_curve_composition_error\": 0.0,",
+        "  \"protocol\": \"R7_INDEPENDENT_THEORY_CONTRACT_AUDIT_v1\",",
+        "  \"reconstructed_decision\": \"PASS_NONVACUOUS_CERTIFIED_POLICY\",",
+        "  \"record_count\": 1500,",
+        "  \"reported_decision\": \"PASS_NONVACUOUS_CERTIFIED_POLICY\",",
+        "  \"scope_note\": \"This audit verifies the registered role-labelled database and random-oracle/PRF-style hash contract; it does not upgrade the claim to raw-graph adjacency or information-theoretic hashing.\",",
+        "  \"source_protocol\": \"R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1\",",
+        "  \"status\": \"PASS\",",
+        "  \"summary_differences\": []",
+        "}"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "scripts/build_r6_figures.py"
+      ],
+      "output_tail": [
+        "meta NOT subset; don't know how to subset; dropped",
+        "meta NOT subset; don't know how to subset; dropped",
+        "meta NOT subset; don't know how to subset; dropped",
+        "meta NOT subset; don't know how to subset; dropped",
+        "meta NOT subset; don't know how to subset; dropped",
+        "D:\\DPLPIFS_POLY\\Federated-DP-Link-Prediction-R7-repro-bfa1148\\manuscript\\figures"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "D:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+        "-pdf",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "output_tail": [
+        "f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2025/texmf-dist/fon",
+        "ts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2025/texmf-dist/fonts/type1/p",
+        "ublic/amsfonts/cm/cmsy9.pfb><d:/texlive/2025/texmf-dist/fonts/type1/public/amsf",
+        "onts/symbols/msbm10.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucr",
+        "r8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texliv",
+        "e/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2025/texmf-dist",
+        "/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/t",
+        "imes/utmri8a.pfb>",
+        "Output written on main.pdf (9 pages, 462679 bytes).",
+        "Transcript written on main.log.",
+        "Latexmk: Getting log file 'main.log'",
+        "Latexmk: Examining 'main.fls'",
+        "Latexmk: Examining 'main.log'",
+        "Latexmk: Found input bbl file 'main.bbl'",
+        "Latexmk: Log file says output to 'main.pdf'",
+        "Latexmk: Found bibliography file(s):",
+        "  ./references.bib",
+        "Latexmk: All targets (main.pdf) are up-to-date",
+        "",
+        "Reverting Windows console CPs to (in,out) = (936,65001)"
+      ],
+      "returncode": 0
+    }
+  ],
+  "environment": {
+    "executable": "D:\\Anaconda\\python.exe",
+    "latexmk": "D:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+    "packages": {
+      "cryptography": "39.0.1",
+      "matplotlib": "3.7.0",
+      "networkx": "2.8.4",
+      "numpy": "1.26.4",
+      "pytest": "9.0.2",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.10.0"
+    },
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]"
+  },
+  "git_branch": "main",
+  "git_commit": "bfa114878fd7be385b213c6c8f9b5c575e6014a2",
+  "git_tracked_changes_after_build": "",
+  "note": "This reconstructs derived artifacts from tracked evidence. It does not decrypt, regenerate, or query the sealed R5 holdout.",
+  "protocol": "R7_CLEAN_ARTIFACT_REPRODUCTION_v1",
+  "sealed_test_reaccessed": false,
+  "status": "PASS"
+}

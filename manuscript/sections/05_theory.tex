@@ -41,15 +41,19 @@ uses only released state and public inputs, the joint transcript is
  \rho_{\mathrm{joint}}(\lambda)
  =\max\{\rho_T(\lambda),\rho_C(\lambda)\}\text{-RDP}.
 \end{equation}
-Without an edge-stable disjointness proof, the conservative bound
-$\rho_{\mathrm{joint}}\leq\rho_T+\rho_C$ is valid.
+On the registered role-labelled database, the conservative sequential bound
+$\rho_{\mathrm{joint}}\leq\rho_T+\rho_C$ is also valid without taking
+parallel-composition credit. This sum does not by itself establish privacy
+under adjacency of the raw graph before role assignment.
 \end{theorem}
 
-The proof conditions on the one role containing the neighboring edge.
+The proof conditions on the one role-labelled record containing the
+neighboring edge.
 Post-processing handles certification after a training-edge change, while
-uniform conditional DP handles a certification-edge change. R5 uses the
-sequential fallback because its historical benchmark split was not designed
-to prove edge stability.
+uniform conditional DP handles a certification-edge change. R5 reports the
+sequential sum under its registered role-labelled adjacency because its
+historical benchmark split was not designed to justify a stronger raw-graph
+partition theorem.
 
 \subsection{Finite-population no-harm certificate}
 

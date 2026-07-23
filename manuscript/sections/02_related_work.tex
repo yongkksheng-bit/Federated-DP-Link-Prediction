@@ -45,6 +45,10 @@ PP-HGRL \cite{wang2026pphgrl}
 & Client auxiliary relations, server primary graph / recommendation
 & Perturbed auxiliary edges and hidden states
 & Central recommendation over server-held interactions\\
+FedHGPP \cite{li2026fedhgpp}
+& Federated heterogeneous graphs / recommendation
+& Two-stage pure edge-DP preprocessing
+& Encrypted embedding aggregation; HR/NDCG outputs\\
 \method{} (ours)
 & Distributed ordinary edges / LP
 & Add/remove role-labelled edge DP for full transcript
@@ -76,8 +80,11 @@ heterogeneity in federated node classification
 \cite{zhang2025privfgl}. FED-PUB studies personalized learning over distributed
 subgraphs without the same edge-DP output contract \cite{baek2023fedpub}, while
 Tang and Hu perturb federated GNN training for link prediction under a local
-trust model \cite{tang2025privacy}. These systems establish that distributed ownership
-and privacy are not novel by themselves. We study a different output contract:
+trust model \cite{tang2025privacy}. FedHGPP combines edge-DP structural
+preprocessing with encrypted federated heterogeneous recommendation
+\cite{li2026fedhgpp}. These systems establish that distributed ownership,
+edge privacy, and link-oriented evaluation are not novel by themselves. We
+study a different output contract:
 ordinary interaction edges are partitioned across clients; the server-visible
 training and certification transcripts are accounted; and the released
 candidate-pair scorer cannot reread the private graph.
@@ -91,10 +98,14 @@ DPLP is the closest formal centralized predecessor
 recommendation, while its server owns the primary user-item graph and performs
 centralized training \cite{wang2026pphgrl}. CF-DPGNN applies subgraph
 sampling and DP-SGD to centralized collaborative filtering
-\cite{hu2025cfdpgnn}. Our setting distributes the prediction edges themselves
-and evaluates cross-client candidates. More importantly, \method{} addresses
-heterogeneous \emph{deployment utility}: it can wrap these or future learners
-once their privacy and inference contracts are made compatible.
+\cite{hu2025cfdpgnn}. FedHGPP is a closer federated heterogeneous
+recommendation predecessor, but its objective is learner utility under a
+two-stage edge-DP preprocessing pipeline rather than private target-domain
+branch certification \cite{li2026fedhgpp}. Our novelty is therefore not the
+combination of federation, edge privacy, and link-oriented prediction.
+\method{} addresses heterogeneous \emph{deployment utility}: it can wrap
+these or future learners once their privacy and inference contracts are made
+compatible.
 
 \subsection{Private hypothesis testing}
 

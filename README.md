@@ -6,7 +6,7 @@ Clean-room research repository for:
 
 ## Current Result
 
-R6 converts the frozen R1--R5 evidence into an IEEE journal manuscript around
+R7 independently audits the R6 IEEE journal manuscript around
 **CertFed-LP**: an architecture-agnostic deployment policy that privately
 certifies whether an inference-closed edge-DP structural branch materially
 improves over a public-only scorer, and otherwise falls back.
@@ -28,10 +28,14 @@ confidence interval.
 
 - Source: `manuscript/main.tex`
 - Compiled draft: `output/pdf/certfed_lp_r6_draft.pdf`
+- R7 audited draft: `output/pdf/certfed_lp_r7_audited.pdf`
 - Claim contract: `docs/R6_MANUSCRIPT_CONTRACT.md`
 - Evidence map: `docs/R6_EVIDENCE_MAP.md`
 - Reviewer-risk audit: `docs/R6_REVIEWER_RISK_AUDIT.md`
 - R6 closeout: `docs/R6_CLOSEOUT.md`
+- R7 theorem audit: `docs/R7_THEOREM_AUDIT.md`
+- R7 clean reproduction: `docs/R7_REPRODUCIBILITY_REPORT.md`
+- R7 literature refresh: `docs/R7_LITERATURE_REFRESH.md`
 
 Build:
 
