@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "protocol": "R1_CERTFED_LP_FORMALIZATION_v1",
+  "status": "frozen_before_any_certfedlp_experiment",
+  "method_name": "CertFed-LP",
+  "paper_title": "Differentially Private Link Prediction in Federated Setting",
+  "adjacency": "add_remove_one_canonical_undirected_edge_owned_by_exactly_one_client",
+  "public_objects": [
+    "node universe V",
+    "node descriptors X",
+    "home-client map h",
+    "edge ownership rule o",
+    "edge-partition hash and public randomness",
+    "inference query pair"
+  ],
+  "private_objects": [
+    "edge existence",
+    "edge-derived degrees and neighborhoods",
+    "training edge partition",
+    "certification edge partition",
+    "certification utility sum and count"
+  ],
+  "edge_partition": {
+    "type": "data-independent public hash of the canonical edge and frozen salt",
+    "parts": ["training", "certification", "sealed_test"],
+    "disjoint": true,
+    "one_edge_change_affects_at_most_one_part": true,
+    "fractions": "deferred_to_R2_before_data_generation"
+  },
+  "released_output": [
+    "complete server-visible DP training transcript",
+    "inference-closed DP release R",
+    "DP certification transcript",
+    "binary activate-or-fallback decision"
+  ],
+  "deployment": {
+    "public_branch": "score computed from X and public inputs only",
+    "structural_branch": "score computed from R, X, query pair, and public randomness only",
+    "private_graph_reread": false,
+    "raw_embedding_release": "permitted only when it is post-processing of R and public inputs"
+  },
+  "certification": {
+    "record": "one certification edge with a public deterministic endpoint-corrupted comparison pair",
+    "negative_rejection_sampling": false,
+    "bounded_pairwise_utility_range": [0.0, 1.0],
+    "bounded_utility_difference_range": [-1.0, 1.0],
+    "query": ["sum_of_utility_differences", "certification_edge_count"],
+    "l2_sensitivity": "sqrt(2)",
+    "mechanism": "isotropic Gaussian mechanism on the two-dimensional query",
+    "decision": "activate only when a one-sided lower certificate exceeds gamma"
+  },
+  "privacy_accounting": {
+    "training": "full RDP curve rho_T(alpha)",
+    "certification": "rho_C(alpha)=alpha/(2*sigma_C^2) for one Gaussian release calibrated to sqrt(2)",
+    "disjoint_adaptive_parallel_composition": "rho_joint(alpha)=max(rho_T(alpha),rho_C(alpha))",
+    "fallback_if_disjointness_or_uniform_conditional_DP_fails": "sequential sum",
+    "delta_conversion": "optimize rho_joint(alpha)+log(1/delta)/(alpha-1)"
+  },
+  "visibility_models": {
+    "primary": "server observes each independently noised client certification message",
+    "secondary": "ideal secure aggregation reveals only one centrally noised aggregate"
+  },
+  "no_harm_target": {
+    "primary": "expected protocol-defined corrupted-pair ranking utility difference on the target domain",
+    "not_claimed": [
+      "unconditional improvement in standard ROC-AUC",
+      "pointwise improvement for every candidate pair",
+      "cross-domain transfer without assumptions"
+    ]
+  },
+  "r1_data_access": {
+    "real_graph_experiment": false,
+    "p3_test_access": false,
+    "p5fc_reuse": false,
+    "future_source_acquisition": false
+  }
+}
