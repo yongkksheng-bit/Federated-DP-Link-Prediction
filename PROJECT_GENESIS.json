@@ -14,7 +14,7 @@
   "remote_attached": true,
   "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
   "remote_verified_empty_before_first_push": true,
-  "phase": "P6B_conservative_selector_rejected_cross_domain_extrapolation",
+  "phase": "R1_certfedlp_theory_complete_R2_synthetic_protocol_required",
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
   "p0_high_risk_fulltexts_classified": true,
@@ -47,7 +47,10 @@
   "p2_split_preparation_commit": "8b97259e3c351b1c9ccea8b6ab0e615aac4b8d02",
   "p2_split_generated": true,
   "p2_split_seeds": 5,
-  "p2_split_datasets": ["blogcatalog-v3", "facebook-musae"],
+  "p2_split_datasets": [
+    "blogcatalog-v3",
+    "facebook-musae"
+  ],
   "p2_test_accessed": false,
   "p2_validation_protocol_commit": "9ed8fc32811fe4af5fee008d8b5a891816b80e9f",
   "p2_validation_records": 10,
@@ -109,7 +112,13 @@
   "method_selected": true,
   "p3_master_datasets": 6,
   "p3_master_seeds_per_dataset": 5,
-  "p3_epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "p3_epsilon_grid": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0
+  ],
   "p3_prior_test_payloads_reused": false,
   "p3_source_contract_status": "PASS",
   "p3_source_contract_datasets": 6,
@@ -203,7 +212,7 @@
   "p5fc_confirmatory_decision": "REJECT_GENERAL_FRONTIER_CLAIM",
   "p5fc_pooled_spearman": 0.7578947368421052,
   "p5fc_flickr_spearman": 0.9999999999999999,
-  "p5fc_flickr_exact_pvalue": 5.511463844797178e-7,
+  "p5fc_flickr_exact_pvalue": 5.511463844797178e-07,
   "p5fc_reddit2_spearman": -0.5515151515151515,
   "p5fc_reddit2_exact_pvalue": 0.10488260582010582,
   "p5c2_protocol_commit": "51b684e",
@@ -239,10 +248,25 @@
   "p6b_material_precision": 0.5,
   "p6b_positive_oracle_gain_capture": 0.06986095166361724,
   "p6b_macro_dataset_policy_gain": 0.0073751391494036285,
-  "p6b_macro_dataset_policy_gain_95ci": [-0.01158325959055962, 0.026333537889366876],
+  "p6b_macro_dataset_policy_gain_95ci": [
+    -0.01158325959055962,
+    0.026333537889366876
+  ],
   "p6b_test_access_count": 0,
   "p6b_future_sources_acquired": false,
   "dataset_accessed": true,
   "experiment_run": true,
-  "experiment_scope": "synthetic_real_validation_and_one_time_confirmatory_test"
+  "experiment_scope": "synthetic_real_validation_and_one_time_confirmatory_test",
+  "r1_certfedlp_contract_commit": "5444af4",
+  "r1_candidate_framework": "CertFed-LP_target_domain_private_utility_certificate_with_public_fallback",
+  "r1_privacy_theorem": "adaptive_disjoint_edge_RDP_max_composition_with_sequential_fallback",
+  "r1_certification_query_l2_sensitivity": 1.4142135623730951,
+  "r1_no_harm_theorem": "one_sided_target_domain_corrupted_pair_utility_certificate",
+  "r1_nonidentifiability_theorem": "no_nontrivial_distribution_free_no_harm_selector_from_training_only_statistics",
+  "r1_theorem_audit": "PASS_WITH_EXPLICIT_R2_OBLIGATIONS",
+  "r1_decision": "PASS_TO_SYNTHETIC_PROTOCOL_DESIGN",
+  "r1_real_graph_experiment": false,
+  "r1_p3_test_access_count": 0,
+  "r1_p5fc_reuse": false,
+  "r1_future_sources_acquired": false
 }
