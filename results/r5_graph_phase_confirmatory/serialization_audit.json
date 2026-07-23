@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "only_invalid_bounds_are_null": true,
+    "raw_output_preserved": true,
+    "record_count_preserved": true,
+    "strict_json_reparse": true
+  },
+  "nonfinite_bounds_replaced_with_null": 585,
+  "operation": "non_destructive_strict_json_export",
+  "raw_path": "results\\r5_graph_phase_confirmatory\\records.jsonl",
+  "raw_sha256": "81db4d19b07dca5e465a3c5165e2c4134ead8cf3b87ea577a8ea19b0abfb9a4f",
+  "status": "PASS",
+  "strict_path": "results\\r5_graph_phase_confirmatory\\records_strict.jsonl",
+  "strict_sha256": "ba9df25e76080f4fed29ef58c88453029df36cbe5b0975517a0fb36631dd75ea",
+  "test_reaccessed": false
+}

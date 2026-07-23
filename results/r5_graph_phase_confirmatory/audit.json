@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "accountants_reproduce": true,
+    "all_cells_unique": true,
+    "candidate_honestly_labeled": true,
+    "decision_label_valid": true,
+    "finite_values": true,
+    "no_test_tuning": true,
+    "nonempty_disjoint_roles": true,
+    "primary_exactly_30": true,
+    "record_grid_complete": true,
+    "runner_commit_constant": true,
+    "single_access": true,
+    "summary_record_count": true
+  },
+  "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "reported_decision": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+  "status": "PASS",
+  "test_accessed": true
+}

@@ -69,6 +69,12 @@ results/**
 !results/p3_internal_validation/records.jsonl
 !results/p3_internal_validation/summary.json
 !results/p3_internal_validation/audit.json
+!results/r5_graph_phase_confirmatory/
+!results/r5_graph_phase_confirmatory/access.json
+!results/r5_graph_phase_confirmatory/records.jsonl
+!results/r5_graph_phase_confirmatory/summary.json
+!results/r5_graph_phase_confirmatory/audit.json
+!results/r5_graph_phase_confirmatory/serialization_audit.json
 artifacts/
 logs/
 tmp/

@@ -1,0 +1,12 @@
+{
+  "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "accessed_utc": "2026-07-23T14:20:03.944091+00:00",
+  "test_access_count": 1,
+  "runner_commit": "dcdbf2e14d1368ac37713b26e2650bc828de5248",
+  "config_sha256": "082e910c072a968f8b6fad534551c4974aa16d1eb55370b696a75b13e96ea523",
+  "p3_master_sha256": "09d98d0ee76e8a780209ca9407a1a0373ae5618e794ca7c89e4f02947bb5371d",
+  "p3_selection_sha256": "3b8e621f5bdfc51e85821083d336b4380fbc91c6ce4daf98a8c2f11e517f61cb",
+  "source_contract_sha256": "ac03c2c0e9a4cb87dedd34401c5b84803a706ec5149b4b8898b5cd8aed872e41",
+  "split_manifest_sha256": "fe2c366bb8f0e76407c85d7b7190fd8f62e3294da4955c30608ca17664c11691",
+  "split_audit_sha256": "e9640c9fbd78d013f5b62b41ca5c20a859f06a031a5330f86d7c8a37a0ae6fe5"
+}

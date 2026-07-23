@@ -1,0 +1,32 @@
+{
+  "accessed_utc": "2026-07-23T14:20:03.944091+00:00",
+  "decision": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+  "evidence": {
+    "access.json": {
+      "bytes": 770,
+      "path": "results/r5_graph_phase_confirmatory/access.json",
+      "sha256": "f298ded8110cee7394cee10b9b34726dac271e69ff801931cfa0c18fe74c5137"
+    },
+    "audit.json": {
+      "bytes": 598,
+      "path": "results/r5_graph_phase_confirmatory/audit.json",
+      "sha256": "3d4c845b0f3988d8c390e1cbda6c3746c116be65300b7c8b01927bb2664303bd"
+    },
+    "records.jsonl": {
+      "bytes": 11033894,
+      "path": "results/r5_graph_phase_confirmatory/records.jsonl",
+      "sha256": "81db4d19b07dca5e465a3c5165e2c4134ead8cf3b87ea577a8ea19b0abfb9a4f"
+    },
+    "summary.json": {
+      "bytes": 12745,
+      "path": "results/r5_graph_phase_confirmatory/summary.json",
+      "sha256": "64ab7e1fa42083a885bd4432dbd054e53cb3489ecc0a54657c95e59169596a48"
+    }
+  },
+  "historical_p3_manifest_status": "encrypted_never_accessed at P3 creation; superseded for R5 by this access record",
+  "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "runner_commit": "dcdbf2e14d1368ac37713b26e2650bc828de5248",
+  "schema_version": 1,
+  "status": "accessed_once_confirmatory_complete",
+  "test_access_count": 1
+}

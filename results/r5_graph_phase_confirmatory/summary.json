@@ -1,0 +1,395 @@
+{
+  "decision": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+  "diagnostic_cells": {
+    "train=0.5/cert=0.5/ideal_secagg": {
+      "activated": 6,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0309544580048635,
+      "records": 30
+    },
+    "train=0.5/cert=0.5/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.012239220160677692,
+      "records": 30
+    },
+    "train=0.5/cert=1.0/ideal_secagg": {
+      "activated": 6,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0309544580048635,
+      "records": 30
+    },
+    "train=0.5/cert=1.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.012239220160677692,
+      "records": 30
+    },
+    "train=0.5/cert=2.0/ideal_secagg": {
+      "activated": 6,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0309544580048635,
+      "records": 30
+    },
+    "train=0.5/cert=2.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.012239220160677692,
+      "records": 30
+    },
+    "train=0.5/cert=4.0/ideal_secagg": {
+      "activated": 6,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0309544580048635,
+      "records": 30
+    },
+    "train=0.5/cert=4.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.012239220160677692,
+      "records": 30
+    },
+    "train=0.5/cert=8.0/ideal_secagg": {
+      "activated": 6,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0309544580048635,
+      "records": 30
+    },
+    "train=0.5/cert=8.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.012239220160677692,
+      "records": 30
+    },
+    "train=1.0/cert=0.5/ideal_secagg": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0545577541091445,
+      "records": 30
+    },
+    "train=1.0/cert=0.5/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.027484246983929563,
+      "records": 30
+    },
+    "train=1.0/cert=1.0/ideal_secagg": {
+      "activated": 11,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05791233820143351,
+      "records": 30
+    },
+    "train=1.0/cert=1.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.027484246983929563,
+      "records": 30
+    },
+    "train=1.0/cert=2.0/ideal_secagg": {
+      "activated": 13,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.06493033850978996,
+      "records": 30
+    },
+    "train=1.0/cert=2.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.027484246983929563,
+      "records": 30
+    },
+    "train=1.0/cert=4.0/ideal_secagg": {
+      "activated": 13,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.06493033850978996,
+      "records": 30
+    },
+    "train=1.0/cert=4.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.027484246983929563,
+      "records": 30
+    },
+    "train=1.0/cert=8.0/ideal_secagg": {
+      "activated": 13,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.06493033850978996,
+      "records": 30
+    },
+    "train=1.0/cert=8.0/visible_messages": {
+      "activated": 5,
+      "activated_datasets": 1,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.027484246983929563,
+      "records": 30
+    },
+    "train=2.0/cert=0.5/ideal_secagg": {
+      "activated": 14,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08332519812717112,
+      "records": 30
+    },
+    "train=2.0/cert=0.5/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05175492941656509,
+      "records": 30
+    },
+    "train=2.0/cert=1.0/ideal_secagg": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08751402791440514,
+      "records": 30
+    },
+    "train=2.0/cert=1.0/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05175492941656509,
+      "records": 30
+    },
+    "train=2.0/cert=2.0/ideal_secagg": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08751402791440514,
+      "records": 30
+    },
+    "train=2.0/cert=2.0/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05175492941656509,
+      "records": 30
+    },
+    "train=2.0/cert=4.0/ideal_secagg": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08751402791440514,
+      "records": 30
+    },
+    "train=2.0/cert=4.0/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05175492941656509,
+      "records": 30
+    },
+    "train=2.0/cert=8.0/ideal_secagg": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08751402791440514,
+      "records": 30
+    },
+    "train=2.0/cert=8.0/visible_messages": {
+      "activated": 11,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.05482082776171875,
+      "records": 30
+    },
+    "train=4.0/cert=0.5/ideal_secagg": {
+      "activated": 17,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.09424856751945147,
+      "records": 30
+    },
+    "train=4.0/cert=0.5/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.06458867243666291,
+      "records": 30
+    },
+    "train=4.0/cert=1.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10751684637429386,
+      "records": 30
+    },
+    "train=4.0/cert=1.0/visible_messages": {
+      "activated": 10,
+      "activated_datasets": 2,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.06458867243666291,
+      "records": 30
+    },
+    "train=4.0/cert=2.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10751684637429386,
+      "records": 30
+    },
+    "train=4.0/cert=2.0/visible_messages": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08543249843377736,
+      "records": 30
+    },
+    "train=4.0/cert=4.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10751684637429386,
+      "records": 30
+    },
+    "train=4.0/cert=4.0/visible_messages": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08543249843377736,
+      "records": 30
+    },
+    "train=4.0/cert=8.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10751684637429386,
+      "records": 30
+    },
+    "train=4.0/cert=8.0/visible_messages": {
+      "activated": 15,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08543249843377736,
+      "records": 30
+    },
+    "train=8.0/cert=0.5/ideal_secagg": {
+      "activated": 18,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10446344097730012,
+      "records": 30
+    },
+    "train=8.0/cert=0.5/visible_messages": {
+      "activated": 14,
+      "activated_datasets": 3,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.08039710497397641,
+      "records": 30
+    },
+    "train=8.0/cert=1.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.11330250083895724,
+      "records": 30
+    },
+    "train=8.0/cert=1.0/visible_messages": {
+      "activated": 17,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.0936029741235585,
+      "records": 30
+    },
+    "train=8.0/cert=2.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.11330250083895724,
+      "records": 30
+    },
+    "train=8.0/cert=2.0/visible_messages": {
+      "activated": 19,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10038476101833167,
+      "records": 30
+    },
+    "train=8.0/cert=4.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.11330250083895724,
+      "records": 30
+    },
+    "train=8.0/cert=4.0/visible_messages": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10481571018612294,
+      "records": 30
+    },
+    "train=8.0/cert=8.0/ideal_secagg": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.11330250083895724,
+      "records": 30
+    },
+    "train=8.0/cert=8.0/visible_messages": {
+      "activated": 20,
+      "activated_datasets": 4,
+      "false_material_activations": 0,
+      "mean_q5_policy_gain": 0.10481571018612294,
+      "records": 30
+    }
+  },
+  "gates": {
+    "all_commitments_verified": true,
+    "all_privacy_accountants_reproduced": true,
+    "maximum_false_material_activations": true,
+    "minimum_activated_datasets": true,
+    "minimum_activated_primary_cells": true,
+    "minimum_mean_Q5_policy_gain": true,
+    "no_test_tuning": true,
+    "primary_record_count": true,
+    "single_test_access": true
+  },
+  "primary": {
+    "activated": 15,
+    "activated_datasets": [
+      "blogcatalog-v3",
+      "github-social-snap",
+      "polblogs-newman"
+    ],
+    "false_material_activations": 0,
+    "mean_q5_policy_gain": 0.08543249843377736,
+    "records": 30
+  },
+  "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "provenance": {
+    "accessed_utc": "2026-07-23T14:20:03.944091+00:00",
+    "all_commitments_verified": true,
+    "config_sha256": "082e910c072a968f8b6fad534551c4974aa16d1eb55370b696a75b13e96ea523",
+    "p3_master_sha256": "09d98d0ee76e8a780209ca9407a1a0373ae5618e794ca7c89e4f02947bb5371d",
+    "p3_selection_sha256": "3b8e621f5bdfc51e85821083d336b4380fbc91c6ce4daf98a8c2f11e517f61cb",
+    "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+    "record_count": 1500,
+    "runner_commit": "dcdbf2e14d1368ac37713b26e2650bc828de5248",
+    "source_contract_sha256": "ac03c2c0e9a4cb87dedd34401c5b84803a706ec5149b4b8898b5cd8aed872e41",
+    "split_audit_sha256": "e9640c9fbd78d013f5b62b41ca5c20a859f06a031a5330f86d7c8a37a0ae6fe5",
+    "split_audit_status": "PASS",
+    "split_manifest_sha256": "fe2c366bb8f0e76407c85d7b7190fd8f62e3294da4955c30608ca17664c11691",
+    "test_access_count": 1,
+    "test_tuning": false
+  },
+  "test_accessed": true
+}
