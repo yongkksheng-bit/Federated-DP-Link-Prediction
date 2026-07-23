@@ -1,0 +1,30 @@
+{
+  "protocol": "R2A_PRIVATE_CERTIFICATE_SYNTHETIC_v1",
+  "metrics": {
+    "record_count": 1080,
+    "trial_count": 5400000,
+    "maximum_safety_violation_rate": 0.0064,
+    "maximum_safety_violation_upper_95": 0.008587042382401372,
+    "maximum_false_activation_rate_below_gamma": 0.0022,
+    "maximum_false_activation_upper_95": 0.0036388781822236575,
+    "minimum_registered_ideal_power": 1.0,
+    "minimum_registered_visible_power": 1.0,
+    "positive_cell_activation_fraction": 0.4265925925925926,
+    "maximum_accountant_epsilon_error": 3.063798104108173e-10
+  },
+  "checks": {
+    "safety_violation_rate": true,
+    "false_activation_rate": true,
+    "safety_binomial_upper": true,
+    "false_activation_binomial_upper": true,
+    "ideal_power": true,
+    "visible_power": true,
+    "positive_nontriviality": true,
+    "accountant_reproduced": false,
+    "all_metrics_finite": true,
+    "real_data_unaccessed": true
+  },
+  "decision": "STOP_CERTFED_LP_CERTIFICATE_NOT_PRACTICALLY_FEASIBLE",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

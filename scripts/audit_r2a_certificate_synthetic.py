@@ -29,10 +29,11 @@ def main() -> None:
     summary = json.loads((OUTPUT / "summary.json").read_text(encoding="utf-8"))
     commits = {record["code_commit"] for record in stored}
     replayed = generate_records(config, code_commit=next(iter(commits)))
+    replayed_canonical = json.loads(json.dumps(replayed))
     replayed_summary = summarize(config, replayed)
     checks = {
         "record_count_complete": len(stored) == 1080 and len(replayed) == len(stored),
-        "records_exactly_replayed": stored == replayed,
+        "records_exactly_replayed": stored == replayed_canonical,
         "summary_exactly_replayed": summary == replayed_summary,
         "config_hash_current": all(
             record["config_sha256"] == sha256(CONFIG_PATH) for record in stored

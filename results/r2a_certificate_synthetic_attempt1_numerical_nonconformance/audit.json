@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "protocol": "R2A_PRIVATE_CERTIFICATE_SYNTHETIC_v1_AUDIT",
+  "status": "FAIL",
+  "checks": {
+    "record_count_complete": true,
+    "records_exactly_replayed": false,
+    "summary_exactly_replayed": true,
+    "config_hash_current": true,
+    "single_frozen_code_commit": true,
+    "metrics_finite": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "STOP_CERTFED_LP_CERTIFICATE_NOT_PRACTICALLY_FEASIBLE",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

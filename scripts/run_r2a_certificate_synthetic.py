@@ -51,6 +51,7 @@ def generate_records(config: dict, *, code_commit: str) -> list[dict]:
                     sensitivity=CERTIFICATION_L2_SENSITIVITY,
                     steps=certificate["gaussian_releases"],
                     orders=DEFAULT_ORDERS,
+                    tolerance=1e-13,
                 )
                 for client_index, clients in enumerate(config["clients"]):
                     for visibility_index, visibility in enumerate(
