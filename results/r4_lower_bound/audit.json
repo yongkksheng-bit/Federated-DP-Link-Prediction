@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "protocol": "R4_CERTIFIABLE_UTILITY_LOWER_BOUND_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "records_exactly_replayed": true,
+    "summary_exactly_replayed": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "R4_GO_TIGHT_FEASIBILITY_THEORY",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

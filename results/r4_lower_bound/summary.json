@@ -1,0 +1,33 @@
+{
+  "protocol": "R4_CERTIFIABLE_UTILITY_LOWER_BOUND_v1",
+  "metrics": {
+    "record_count": 40,
+    "maximum_dp_root_residual": 7.975897720058356e-12,
+    "minimum_upper_to_lower_ratio": 8.027722457836958,
+    "maximum_upper_to_lower_ratio": 16.576799464530964
+  },
+  "checks": {
+    "nonprivate_lower_bound_positive": true,
+    "dp_root_residual_at_most": true,
+    "lower_bound_nonincreasing_in_effect_gap": true,
+    "privacy_lower_bound_nonincreasing_in_epsilon": true,
+    "nonprivate_lower_bound_nondecreasing_in_dependence": true,
+    "r3_sufficient_count_not_below_r4_necessary_count": true,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "go_requirements": {
+    "central_alpha_order_matches_r3": true,
+    "central_epsilon_order_matches_r3": true,
+    "dependence_order_matches_r3": true,
+    "visible_message_separation_proved_or_claim_removed": true
+  },
+  "claim_scope": {
+    "central_rate_match": true,
+    "visible_message_k_separation": false,
+    "visible_message_sqrt_k_interpretation": "mechanism_specific_only"
+  },
+  "decision": "R4_GO_TIGHT_FEASIBILITY_THEORY",
+  "real_data_accessed": false,
+  "test_accessed": false
+}
