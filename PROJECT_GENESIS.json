@@ -14,7 +14,7 @@
   "remote_attached": true,
   "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
   "remote_verified_empty_before_first_push": true,
-  "phase": "R2B_certfedlp_end_to_end_synthetic_no_go_stop_before_real_data",
+  "phase": "R3_feasibility_boundary_design_started_no_real_data",
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
   "p0_high_risk_fulltexts_classified": true,
@@ -297,5 +297,9 @@
   "r2b_artifact_audit": "PASS",
   "r2b_decision": "STOP_CERTFED_LP_END_TO_END_SYNTHETIC_NO_GO",
   "r2b_real_data_accessed": false,
-  "r2b_test_access_count": 0
+  "r2b_test_access_count": 0,
+  "r3_plan": "docs/R3_FEASIBILITY_BOUNDARY_PLAN.md",
+  "r3_status": "DESIGN_STARTED_NO_EXPERIMENT",
+  "r3_real_data_accessed": false,
+  "r3_test_access_count": 0
 }
