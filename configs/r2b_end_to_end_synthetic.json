@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "protocol": "R2B_CERTFED_LP_END_TO_END_SYNTHETIC_v1",
+  "status": "frozen_before_execution",
+  "scope": "end-to-end synthetic graphs only",
+  "graph": {
+    "nodes": 800,
+    "communities": 4,
+    "clients": 5,
+    "seeds": 30,
+    "base_seed": 20260801,
+    "regimes": {
+      "weak_public_homophilic": {
+        "p_in": 0.06,
+        "p_out": 0.005,
+        "public_feature_noise": 2.0
+      },
+      "medium_public_homophilic": {
+        "p_in": 0.04,
+        "p_out": 0.01,
+        "public_feature_noise": 0.8
+      },
+      "strong_public_homophilic": {
+        "p_in": 0.06,
+        "p_out": 0.005,
+        "public_feature_noise": 0.1
+      },
+      "moderate_public_heterophilic": {
+        "p_in": 0.005,
+        "p_out": 0.025,
+        "public_feature_noise": 0.3
+      }
+    }
+  },
+  "edge_partition": {
+    "algorithm": "public splitmix64 hash of canonical edge",
+    "training_fraction": 0.6,
+    "certification_fraction": 0.2,
+    "evaluation_fraction": 0.2
+  },
+  "training_branch": {
+    "type": "one-hop GAP-style perturb-message-normalize",
+    "hops": 1,
+    "epsilon_grid": [
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "delta": 1e-06,
+    "l2_sensitivity": 1.4142135623730951,
+    "score": "equal mean of public cosine and released one-hop cosine"
+  },
+  "certification": {
+    "epsilon_grid": [
+      1.0,
+      2.0,
+      4.0
+    ],
+    "delta": 1e-06,
+    "l2_sensitivity": 1.4142135623730951,
+    "visibility_models": [
+      "ideal_secagg",
+      "visible_messages"
+    ],
+    "corruption": "public deterministic endpoint corruption without graph rejection",
+    "material_gain_gamma": 0.02,
+    "minimum_noisy_count_lower": 50,
+    "dependence_factor": 1,
+    "failure_allocation": {
+      "sum_noise": 0.01,
+      "count_noise": 0.01,
+      "sampling": 0.03
+    }
+  },
+  "primary_utility": "corrupted-pair ranking advantage over public-only",
+  "go_no_go_gate": {
+    "minimum_harmful_cells": 30,
+    "minimum_beneficial_cells": 30,
+    "maximum_harmful_activation_rate": 0.05,
+    "maximum_harmful_activation_one_sided_95_upper": 0.1,
+    "minimum_beneficial_activation_precision": 0.8,
+    "minimum_positive_oracle_gain_capture": 0.3,
+    "minimum_activation_fraction": 0.05,
+    "minimum_activated_regimes": 2,
+    "minimum_worst_regime_mean_policy_gain": -0.005,
+    "require_macro_seed_policy_gain_95ci_lower_above_zero": true,
+    "maximum_transcript_aggregate_error": 1e-12,
+    "maximum_accountant_epsilon_error": 1e-10,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "decision_if_pass": "PASS_TO_R3_REAL_DEVELOPMENT_PROTOCOL_DESIGN",
+  "decision_if_fail": "STOP_CERTFED_LP_END_TO_END_SYNTHETIC_NO_GO"
+}
