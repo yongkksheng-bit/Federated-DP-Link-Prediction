@@ -1,0 +1,67 @@
+\section{Problem and Privacy Model}
+\label{sec:problem}
+
+\subsection{Federated ordinary graph}
+
+Let $V$ be a public node universe, $X$ registered public node descriptors, and
+$h:V\rightarrow[K]$ a public home-client map. Client $k$ owns canonical
+undirected edges $E_k$ under a public ownership rule; every edge is owned once.
+Two federated databases are adjacent when one role-labelled canonical edge is
+added to or removed from one client. Features, labels, node existence, and the
+home map are outside this edge-DP guarantee.
+
+A public, edge-stable random rule assigns records to training $E^T$,
+certification $E^C$, or research evaluation $E^Q$. The deployed mechanisms
+never read $E^Q$. Our historical benchmark split did not implement an
+edge-stable partition, so the R5 accountant deliberately uses sequential
+composition rather than claiming disjoint parallel composition.
+
+\subsection{Two inference-closed branches}
+
+The public branch is
+\begin{equation}
+  s_0(u,v)=F_0(X,u,v;\omega_0),
+\end{equation}
+where $\omega_0$ is public randomness. A DP trainer releases state
+\begin{equation}
+  R\leftarrow \cM_T(E^T;X),
+\end{equation}
+including everything observed by the server. The structural branch is
+\begin{equation}
+  s_R(u,v)=F_1(R,X,u,v;\omega_1).
+\end{equation}
+Neither branch may read a private edge, degree, neighborhood, or unprotected
+embedding at inference. Hence any number of candidate-pair scores is
+post-processing of $R$ and public inputs.
+
+\subsection{Registered utility}
+
+For each certification edge $e=\{u,v\}$, a public seeded map $q$ replaces one
+endpoint without graph-dependent rejection. False-negative corruptions are
+part of the estimand. For a scorer $s$, define
+\begin{equation}
+ U_s(e)=\mathbb{1}\{s(e)>s(q(e))\}
+ +\tfrac12\mathbb{1}\{s(e)=s(q(e))\}.
+\end{equation}
+The bounded structural advantage is
+\begin{equation}
+ d_R(e)=U_{s_R}(e)-U_{s_0}(e)\in[-1,1].
+\end{equation}
+The target of the R5 theorem is the mean of $d_R$ over one registered finite
+holdout population. This pairwise target is related to ranking quality but is
+not standard ROC-AUC unless the corruption distribution equals the AUC
+negative distribution.
+
+\subsection{Adversary and released outputs}
+
+The primary adversary is an honest-but-curious server that sees every noised
+client message, the final DP state, the noised certification statistics, the
+binary decision, and all post-processed scores. Ideal secure aggregation is a
+secondary trust model in which the server sees only a global aggregate.
+Secure aggregation changes utility by reducing aggregate noise; it is not
+itself a DP proof.
+
+The deployed output is $(R,\widetilde S,\widetilde n,A)$ and scores from the
+selected branch, where $A\in\{0,1\}$ is the activation decision. Publicly
+released research metrics on $E^Q$ are evaluation evidence, not outputs of the
+deployed DP service.

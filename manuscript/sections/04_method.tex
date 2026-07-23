@@ -1,0 +1,94 @@
+\section{\method{}}
+\label{sec:method}
+
+\subsection{Private training branch}
+
+\method{} is architecture-agnostic. An admitted trainer must provide its full
+RDP curve $\rho_T(\lambda)$ for every registered order $\lambda>1$ and an
+inference-closed state $R$. In R5 we instantiate the candidate with a
+GAP-style LP adaptation: public descriptors are projected, each client
+computes bounded neighbor sums, Gaussian noise is applied per hop, and cached
+normalized channels are scored by mean cosine. We call this a
+\emph{GAP-style adaptation}, not an official GAP reproduction.
+
+For one hop, changing an undirected edge $\{u,v\}$ changes two bounded node
+aggregates. The query has $\ell_2$ sensitivity $\sqrt{2}$. If each visible
+client message uses coordinate noise standard deviation $\sigma_T$, the
+aggregate contains standard deviation $\sqrt{K}\sigma_T$, although privacy
+composes in parallel across unique edge owners. Under ideal secure
+aggregation, one aggregate noise draw suffices.
+
+\subsection{Private utility release}
+
+Condition on any realized training release $R=r$. Certification computes
+\begin{equation}
+ S_r=\sum_{e\in E^C}d_r(e),\qquad n_C=|E^C|.
+\end{equation}
+One add/remove certification edge changes $(S_r,n_C)$ by at most $(1,1)$ in
+absolute coordinates, so
+\begin{equation}
+ \Delta_2(S_r,n_C)\leq\sqrt{2}.
+\end{equation}
+Let $\sigma_{\mathrm{abs}}$ denote the absolute coordinate noise standard
+deviation. The mechanism releases
+\begin{equation}
+ (\widetilde S,\widetilde n)
+ =(S_r,n_C)+\mathcal N(0,\sigma_{\mathrm{abs}}^2 I_2).
+\end{equation}
+For visible client messages, independent local noise yields effective
+aggregate coordinate deviation
+$\nu=(\sum_k\sigma_{\mathrm{abs},k}^2)^{1/2}$; with equal client noise this is
+$\sqrt{K}\sigma_{\mathrm{abs}}$. For ideal aggregation,
+$\nu=\sigma_{\mathrm{abs}}$.
+
+\subsection{One-sided activation certificate}
+
+Let $\beta_S,\beta_n,\beta_{\rm stat}$ be registered failure allocations and
+\begin{equation}
+ b_j=\nu\Phi^{-1}(1-\beta_j/2),\quad j\in\{S,n\}.
+\end{equation}
+Define
+\begin{align}
+ S_L&=\widetilde S-b_S,\\
+ n_L&=\widetilde n-b_n,\qquad n_U=\widetilde n+b_n.
+\end{align}
+The mechanism abstains unless $S_L>0$, $n_L\geq n_{\min}$, and $n_U>0$.
+Otherwise the conservative lower certificate is
+\begin{equation}
+ L_{\rm pop}
+ =\frac{S_L}{n_U}
+ -\sqrt{\frac{2\log(1/\beta_{\rm stat})}{n_L}}.
+\label{eq:certificate}
+\end{equation}
+The deployed action is
+\begin{equation}
+ A=\mathbb{1}\{L_{\rm pop}\geq\gamma\}.
+\end{equation}
+If $A=1$, the service uses $s_R$; otherwise it uses $s_0$. The threshold
+$\gamma$ encodes a material gain, not merely non-inferiority.
+
+\subsection{Privacy accounting}
+
+A Gaussian query with sensitivity $\Delta$ and coordinate standard deviation
+$\sigma$ has RDP \cite{mironov2017rdp}
+\begin{equation}
+ \rho(\lambda)=\frac{\lambda\Delta^2}{2\sigma^2}.
+\end{equation}
+When the edge-role partition is stable, training and conditional
+certification can use adaptive parallel composition. R5 takes the safer
+fallback:
+\begin{equation}
+ \rho_{\rm total}(\lambda)
+ =\rho_T(\lambda)+\rho_C(\lambda),
+\end{equation}
+then converts once,
+\begin{equation}
+ \eps(\delta)=\min_{\lambda>1}
+ \left[
+ \rho_{\rm total}(\lambda)
+ {}+\frac{\log(1/\delta)}{\lambda-1}
+ \right].
+\label{eq:rdpconversion}
+\end{equation}
+Each privacy-grid cell is an alternative deployment. Releasing all cells would
+require further composition.

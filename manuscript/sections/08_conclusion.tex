@@ -1,0 +1,15 @@
+\section{Conclusion}
+
+Federated edge-private link prediction does not reduce to choosing a graph
+encoder with high average accuracy. A private structural branch can help one
+target graph and harm another, while training-only evidence cannot provide a
+distribution-free nontrivial no-harm decision. \method{} turns this
+heterogeneity into an explicit deployment problem: train an inference-closed
+edge-DP candidate, privately certify its bounded target-domain advantage, and
+fall back to a public-only scorer when evidence is insufficient. Its
+transcript privacy, finite-population safety guarantee, and near-matching
+feasibility bounds state exactly what is protected and certified. The
+preregistered six-network study shows that the policy is both conservative
+and nonvacuous. These results position private utility certification, rather
+than unconditional structural deployment, as a practical foundation for
+differentially private link prediction in federated settings.

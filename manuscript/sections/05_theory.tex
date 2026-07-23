@@ -1,0 +1,116 @@
+\section{Guarantees and Feasibility}
+\label{sec:theory}
+
+This section separates what can be guaranteed from what must be measured. All
+statements concern the bounded pairwise utility in \cref{sec:problem}; none is
+an AUC confidence interval.
+
+\subsection{Why training-only selection is insufficient}
+
+\begin{theorem}[Training-only non-identifiability]
+\label{thm:nonidentifiability}
+Fix any training transcript $R$ and public inputs. Over an unrestricted family
+of target-edge distributions, no selector that observes only $(R,X)$ can be
+both nonvacuous and guarantee that the selected structural branch has
+nonnegative target utility relative to the public branch.
+\end{theorem}
+
+\emph{Proof sketch.}
+Construct two target worlds with identical training data, public inputs, and
+therefore identical $R$, but reverse the probability mass of candidate pairs
+on which $s_R$ and $s_0$ disagree. Any training-only selector has the same
+decision distribution in both worlds, while the utility difference changes
+sign. A distribution-free no-harm rule must therefore abstain whenever the
+two scorers can disagree. The complete construction is in
+\cref{app:nonidentifiability}.
+
+The theorem does not say that metadata-based selectors are useless on a
+restricted graph family. It says that their safety is an empirical
+generalization assumption. \method{} instead obtains direct, private evidence
+from the target domain.
+
+\subsection{Transcript privacy}
+
+\begin{theorem}[Adaptive role-wise transcript privacy]
+\label{thm:privacy}
+Suppose the public role assignment is edge-stable, $\cM_T$ is
+$\rho_T(\lambda)$-RDP on $E^T$, and, uniformly for every fixed training
+release $r$, $\cM_C(\cdot;r)$ is $\rho_C(\lambda)$-RDP on $E^C$. If inference
+uses only released state and public inputs, the joint transcript is
+\begin{equation}
+ \rho_{\mathrm{joint}}(\lambda)
+ =\max\{\rho_T(\lambda),\rho_C(\lambda)\}\text{-RDP}.
+\end{equation}
+Without an edge-stable disjointness proof, the conservative bound
+$\rho_{\mathrm{joint}}\leq\rho_T+\rho_C$ is valid.
+\end{theorem}
+
+The proof conditions on the one role containing the neighboring edge.
+Post-processing handles certification after a training-edge change, while
+uniform conditional DP handles a certification-edge change. R5 uses the
+sequential fallback because its historical benchmark split was not designed
+to prove edge stability.
+
+\subsection{Finite-population no-harm certificate}
+
+Let $H$ be the sealed positive holdout of size $N$ and
+\begin{equation}
+ \Delta_H(R)=\frac{1}{N}\sum_{e\in H}d_R(e).
+\end{equation}
+An edge-keyed public random hash assigns each $e\in H$ independently to
+certification with probability $p_C$; $Q5$ is the complement.
+
+\begin{theorem}[Finite-holdout no-harm]
+\label{thm:noharm}
+Conditional on $(R,H,n_C)$, the certification subset is a simple random sample
+without replacement. With the certificate in \cref{eq:certificate},
+\begin{equation}
+\Pr\!\left(A=1\ \wedge\ \Delta_H(R)<\gamma\mid R,H\right)
+\leq \beta_S+\beta_n+\beta_{\mathrm{stat}}.
+\end{equation}
+\end{theorem}
+
+The edge-keyed hash is essential: adding an edge does not reassign existing
+edges. Conditional on the realized bounded values, shared graph endpoints do
+not alter the random-sampling argument. A one-sided Serfling bound
+\cite{serfling1974probability} gives the
+sampling penalty in \cref{eq:certificate}; R5 conservatively sets its
+finite-population correction to one. The result certifies the registered
+finite holdout, not future edges or another graph.
+
+\subsection{When private certification is possible}
+
+Write $\alpha=\Delta-\gamma>0$ for the effect above the material threshold,
+$\chi\geq1$ for an effective dependence factor, and $\nu$ for aggregate
+Gaussian noise. The sufficient boundary derived in
+\cref{app:feasibility} has the principal form
+\begin{equation}
+ n=O\!\left(
+ \frac{\chi\log(1/\beta)}{\alpha^2}
+ {}+\frac{\nu\sqrt{\log(1/\beta)}}{\alpha}
+ {}+n_{\min}
+ \right).
+\label{eq:sufficient-rate}
+\end{equation}
+Since Gaussian calibration gives
+$\nu=\widetilde O(1/\eps)$ under ideal aggregation, the privacy term is
+$\widetilde O(1/(\eps\alpha))$. Visible independent client messages replace
+$\nu$ by $\sqrt{K}\nu$ in this implementation; this is a utility cost, not
+extra privacy composition.
+
+\begin{theorem}[Necessary count; informal]
+\label{thm:lower}
+For block-replicated Bernoulli hard instances with dependence $\chi$, every
+central $(\eps,\delta)$-DP selector with fixed testing error requires, up to
+constants and approximate-DP logarithms,
+\begin{equation}
+ n=\Omega\!\left(\frac{\chi}{\alpha^2}
+                 {}+\frac{1}{\eps\alpha}\right).
+\end{equation}
+\end{theorem}
+
+Thus the sufficient and necessary boundaries match in their principal
+dependence on evidence, privacy, and effect size. This does not make the
+specific Gaussian certificate minimax optimal in $\delta$, nor does it prove
+that arbitrary graph edges follow the hard-instance model. The lower bound
+uses the private Le Cam inequality of \cite{acharya2021private}.

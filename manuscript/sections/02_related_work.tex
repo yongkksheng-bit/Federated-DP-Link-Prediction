@@ -1,0 +1,107 @@
+\section{Related Work}
+\label{sec:related}
+
+\begin{table*}[t]
+\caption{Positioning by task, ownership, privacy object, and released
+inference. ``NC'' denotes node classification. Entries describe the formal
+scope of each cited work rather than ranking implementations.}
+\label{tab:landscape}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{0.12\textwidth}p{0.22\textwidth}p{0.26\textwidth}p{0.31\textwidth}}
+\toprule
+Work & Ownership / task & Formal privacy object & Released inference contract\\
+\midrule
+FKGE \cite{peng2021fkge}
+& Peer knowledge graphs / KG LP
+& PATE-style privacy for generated embeddings
+& Cross-domain embeddings; not ordinary-edge adjacency\\
+GAP \cite{sajadmanesh2023gap}
+& Central ordinary graph / NC
+& Add/remove edge- and node-DP aggregation
+& Cached noisy channels; no adjacency reread\\
+DPLP \cite{ran2024dplp}
+& Central ordinary graph / LP
+& Edge-private neighborhood/path subgraphs
+& Subgraph link predictor; no federated transcript\\
+Solitude \cite{lin2022solitude}
+& Decentralized adjacency lists / NC
+& Local edge- and feature-DP collection
+& Server reconstructs a calibrated noisy graph\\
+LGA-PGNN \cite{pei2024lga}
+& Decentralized local graphs / NC
+& Feature-oriented local perturbation
+& Class probabilities with attack evaluation\\
+PDGL \cite{li2025pdgl}
+& Node-held graph records / NC
+& Edge-LDP plus cryptographic protocols
+& Secure per-node label inference\\
+PrivFGL \cite{zhang2025privfgl}
+& Cross-silo subgraphs / NC
+& Reported node-LDP/CDP transformation
+& Federated classifier; no LP score contract\\
+PP-HGRL \cite{wang2026pphgrl}
+& Client auxiliary relations, server primary graph / recommendation
+& Perturbed auxiliary edges and hidden states
+& Central recommendation over server-held interactions\\
+\method{} (ours)
+& Distributed ordinary edges / LP
+& Add/remove role-labelled edge DP for full transcript
+& Inference-closed scorer plus private utility gate\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Private graph learning and inference closure}
+
+DP graph learning must control how one edge affects aggregation, optimization,
+and inference. GAP perturbs bounded graph aggregations and caches the released
+channels, so subsequent prediction does not query the private adjacency
+\cite{sajadmanesh2023gap}. This inference-closure principle is part of our
+admission contract. DPLP instead studies centralized subgraph-based link
+prediction and bounds the dependency induced by neighborhood and path
+subgraphs \cite{ran2024dplp}. Our contribution is not a replacement GNN
+architecture. It is a private policy for deciding whether any admitted
+inference-closed structural branch should be deployed on a target graph.
+
+\subsection{Decentralized and federated private graphs}
+
+Solitude collects decentralized adjacency information with local edge DP
+\cite{lin2022solitude}. LGA-PGNN combines local perturbation, graph
+augmentation, and attack evaluation \cite{pei2024lga}. PDGL jointly protects
+decentralized neighbor lists, features, and labels using DP and cryptographic
+components \cite{li2025pdgl}. PrivFGL addresses DP-induced client
+heterogeneity in federated node classification
+\cite{zhang2025privfgl}. FED-PUB studies personalized learning over distributed
+subgraphs without the same edge-DP output contract \cite{baek2023fedpub}, while
+Tang and Hu perturb federated GNN training for link prediction under a local
+trust model \cite{tang2025privacy}. These systems establish that distributed ownership
+and privacy are not novel by themselves. We study a different output contract:
+ordinary interaction edges are partitioned across clients; the server-visible
+training and certification transcripts are accounted; and the released
+candidate-pair scorer cannot reread the private graph.
+
+\subsection{Private link prediction and recommendation}
+
+Federated knowledge-graph embedding has combined DP and link-oriented tasks
+under embedding-record adjacency \cite{peng2021fkge}. For ordinary graphs,
+DPLP is the closest formal centralized predecessor
+\cite{ran2024dplp}. PP-HGRL protects auxiliary heterogeneous relations for
+recommendation, while its server owns the primary user-item graph and performs
+centralized training \cite{wang2026pphgrl}. CF-DPGNN applies subgraph
+sampling and DP-SGD to centralized collaborative filtering
+\cite{hu2025cfdpgnn}. Our setting distributes the prediction edges themselves
+and evaluates cross-client candidates. More importantly, \method{} addresses
+heterogeneous \emph{deployment utility}: it can wrap these or future learners
+once their privacy and inference contracts are made compatible.
+
+\subsection{Private hypothesis testing}
+
+The certificate is a private one-sided test over bounded utility records.
+Our lower-bound argument uses DP versions of Le Cam's method
+\cite{acharya2021private}, while the finite-population analysis uses
+sampling-without-replacement concentration
+\cite{serfling1974probability}. Unlike generic private model selection,
+\method{} releases one frozen binary branch decision and explicitly includes
+the certification privacy cost.

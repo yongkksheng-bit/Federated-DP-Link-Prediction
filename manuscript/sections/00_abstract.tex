@@ -1,0 +1,32 @@
+\begin{abstract}
+Federated link prediction is difficult to deploy privately: interaction edges
+remain distributed across clients, yet a useful predictor must exploit graph
+structure and answer candidate-pair queries without rereading the private
+graph. A second difficulty is less visible but equally important: under edge
+differential privacy (DP), a structural channel can improve one target graph
+and harm another, so unconditional deployment can be worse than a predictor
+using only public node descriptors. We introduce \method{}, an
+architecture-agnostic policy that combines an inference-closed edge-DP
+structural learner with a private, target-domain utility certificate.
+\method{} activates the structural branch only when a one-sided lower
+certificate exceeds a registered material-gain threshold; otherwise it falls
+back to the public branch. We prove that no training-only selector can provide
+a distribution-free nontrivial no-harm guarantee, establish complete
+training-and-certification transcript privacy, and derive a finite-population
+no-harm theorem. Sufficient and necessary certification counts match in their
+principal dependence on effect gap, privacy budget, and record dependence. In
+a preregistered one-time evaluation on six social and blog networks with five
+seeds, the primary visible-message mechanism has composed privacy
+$(\eps=5.664,\delta=2\!\times\!10^{-6})$. It activates 15 of 30
+dataset-seed cells across three datasets, observes no material false
+activation, and obtains mean disjoint-holdout pairwise gain $0.0854$ over the
+public branch. An always-structural policy is harmful in 10 of 30 cells and
+achieves lower mean gain. The result supports certified fallback, rather than
+universal structural superiority, as a defensible deployment principle for
+federated edge-private link prediction.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Differential privacy, federated graph learning, link prediction, private
+certification, privacy-utility trade-off.
+\end{IEEEkeywords}

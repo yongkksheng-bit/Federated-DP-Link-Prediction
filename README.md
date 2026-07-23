@@ -1,41 +1,70 @@
 # Federated-DP-Link-Prediction
 
-Clean-room research repository for the paper:
+Clean-room research repository for:
 
 > **Differentially Private Link Prediction in Federated Setting**
 
-## Status
+## Current Result
 
-Phase 2.1: confirmatory NO-GO under a strict cross-domain +0.02 gate. The source/pilot
-protocol was frozen at commit `990df58` before acquisition. BlogCatalog v3 and
-Facebook MUSAE passed aggregate byte/schema audits; raw data remain local-only
-pending dataset-specific rights clarification. No sealed split, real result,
-final method, or manuscript claim has been admitted yet. The provisional hard
-coarsened release failed P2; the public-preserving residual then produced
-positive one-time gains on PolBlogs and LastFM, but LastFM's approximately
-+0.004 gain did not meet the frozen materiality threshold. No test may be rerun.
+R6 converts the frozen R1--R5 evidence into an IEEE journal manuscript around
+**CertFed-LP**: an architecture-agnostic deployment policy that privately
+certifies whether an inference-closed edge-DP structural branch materially
+improves over a public-only scorer, and otherwise falls back.
+
+The preregistered R5 primary cell contains six social/blog networks and five
+seeds. At composed privacy `(epsilon=5.6640, delta=2e-6)`, CertFed-LP:
+
+- activates 15/30 dataset-seed cells across three datasets;
+- observes zero material false activations on the registered finite holdout;
+- obtains mean disjoint-Q5 pairwise gain `+0.08543`;
+- avoids 10/30 cells in which always enabling private structure is harmful;
+- remains `0.00568` mean gain below a non-deployable sign oracle.
+
+The claim is certified finite-holdout fallback under heterogeneous structural
+utility. It is not universal superiority of a graph learner and not an AUC
+confidence interval.
+
+## Manuscript
+
+- Source: `manuscript/main.tex`
+- Compiled draft: `output/pdf/certfed_lp_r6_draft.pdf`
+- Claim contract: `docs/R6_MANUSCRIPT_CONTRACT.md`
+- Evidence map: `docs/R6_EVIDENCE_MAP.md`
+- Reviewer-risk audit: `docs/R6_REVIEWER_RISK_AUDIT.md`
+- R6 closeout: `docs/R6_CLOSEOUT.md`
+
+Build:
+
+```powershell
+cd manuscript
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+```
+
+Tests:
+
+```powershell
+python -m pytest -q
+```
+
+## Reproducibility
+
+The confirmatory protocol was frozen at commit `ef2cd74`; the one-time runner
+at `dcdbf2e`; and the immutable result closeout at `e8c5ea7`.
+
+Primary artifacts:
+
+- `configs/r5_graph_phase_confirmatory.json`
+- `data/manifests/r5_test_access.json`
+- `results/r5_graph_phase_confirmatory/records.jsonl`
+- `results/r5_graph_phase_confirmatory/summary.json`
+- `results/r5_graph_phase_confirmatory/audit.json`
+
+Every privacy-grid cell is an alternative deployment. Releasing the full grid
+on one private graph would require additional composition.
 
 ## Clean-Room Boundary
 
-This repository began from an empty working tree and a new Git history on
-2026-07-18. Previous implementations, configurations, data, splits, results,
-and manuscript prose are inadmissible. They must not be copied, imported, or
-cited as evidence for this project.
-
-Every future empirical artifact must be generated inside this repository after
-its protocol is committed. Every privacy claim must be bound to executable
-sensitivity and accounting checks.
-
-## Current Priorities
-
-1. Freeze dataset provenance and public/private field classifications.
-2. Freeze client ownership, candidates, splits, and sealed-test controls.
-3. Preregister an untouched pilot for the provisional mechanism family.
-4. Re-audit matched baselines and privacy accountants before execution.
-5. Preserve development, validation, and one-time sealed-test boundaries.
-
-See `docs/RESEARCH_CHARTER.md` and `docs/EVIDENCE_POLICY.md`.
-
-The P0 decision and residual obligations are recorded in
-`docs/P0_CLOSEOUT.md`; full-text evidence and citation chains remain in
-`docs/P0_FULLTEXT_AND_CITATION_AUDIT.md`.
+This repository began from an empty working tree and new Git history on
+2026-07-18. Previous implementations, configurations, results, and manuscript
+prose are inadmissible. All empirical evidence in this repository was generated
+after its corresponding protocol freeze.
