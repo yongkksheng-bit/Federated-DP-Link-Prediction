@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "protocol": "R3_CERTFED_LP_FEASIBILITY_BOUNDARY_v1",
+  "status": "frozen_before_solver_execution",
+  "scope": "analytical and synthetic bounded-utility records only; no real graph or held-out test data",
+  "population_effect_grid": [0.03, 0.05, 0.1, 0.2],
+  "epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+  "delta": 1e-6,
+  "clients": [1, 5, 20],
+  "visibility_models": ["ideal_secagg", "visible_messages"],
+  "dependence_factors": [1, 5],
+  "certificate": {
+    "query": ["bounded_utility_sum", "private_count"],
+    "l2_sensitivity": 1.4142135623730951,
+    "material_gain_gamma": 0.02,
+    "minimum_noisy_count_lower": 50,
+    "failure_allocation": {
+      "sum_noise": 0.01,
+      "count_noise": 0.01,
+      "sampling_validity": 0.03,
+      "power_sampling": 0.05
+    }
+  },
+  "boundary_solver": {
+    "maximum_certification_count": 100000000,
+    "integer_search": "exponential bracket followed by exact binary search",
+    "non_private_reference": true,
+    "inverse_effect_counts": [500, 1000, 2000, 10000, 100000]
+  },
+  "accounting": {
+    "orders": "fed_dp_lp.accounting.DEFAULT_ORDERS",
+    "calibration_tolerance": 1e-13,
+    "ideal_secagg_effective_noise": "one calibrated aggregate Gaussian query",
+    "visible_messages_effective_noise": "sqrt(K) times the per-client calibrated Gaussian standard deviation"
+  },
+  "registered_checks": {
+    "integer_boundary_exact_against_local_bruteforce": true,
+    "minimum_count_nonincreasing_in_population_effect": true,
+    "minimum_count_nonincreasing_in_epsilon": true,
+    "minimum_count_nondecreasing_in_dependence_factor": true,
+    "ideal_secagg_invariant_to_client_count": true,
+    "visible_messages_nondecreasing_in_client_count": true,
+    "forward_inverse_boundary_consistency": true,
+    "all_registered_boundaries_finite": true,
+    "accountant_reproduction_tolerance": 1e-10,
+    "real_data_access_prohibited": true
+  },
+  "decision_if_checks_pass": "PASS_TO_R3_MONTE_CARLO_CALIBRATION_PROTOCOL",
+  "decision_if_checks_fail": "INVALID_CLOSE_CERTIFICATE_BOUNDARY_ROUTE"
+}
