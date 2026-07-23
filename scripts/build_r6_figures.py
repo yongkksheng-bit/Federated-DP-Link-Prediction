@@ -47,7 +47,11 @@ def style() -> None:
 
 def save(fig: plt.Figure, name: str) -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUTPUT / f"{name}.pdf", bbox_inches="tight")
+    fig.savefig(
+        OUTPUT / f"{name}.pdf",
+        bbox_inches="tight",
+        metadata={"CreationDate": None, "ModDate": None},
+    )
     fig.savefig(OUTPUT / f"{name}.png", bbox_inches="tight")
     plt.close(fig)
 

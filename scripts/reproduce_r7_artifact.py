@@ -113,12 +113,13 @@ def main() -> None:
     if not manuscript_pdf.exists():
         raise RuntimeError("manuscript build did not produce manuscript/main.pdf")
 
+    tracked_changes = git("status", "--short", "--untracked-files=no")
     report = {
         "protocol": "R7_CLEAN_ARTIFACT_REPRODUCTION_v1",
-        "status": "PASS",
+        "status": "PASS" if not tracked_changes else "FAIL",
         "git_commit": git("rev-parse", "HEAD"),
         "git_branch": git("branch", "--show-current"),
-        "git_tracked_changes_after_build": git("status", "--short"),
+        "git_tracked_changes_after_build": tracked_changes,
         "environment": {
             "platform": platform.platform(),
             "python": sys.version,
@@ -162,6 +163,8 @@ def main() -> None:
         json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(json.dumps(report, indent=2, sort_keys=True))
+    if report["status"] != "PASS":
+        raise SystemExit("tracked artifacts changed during clean reproduction")
 
 
 if __name__ == "__main__":
