@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "status": "frozen_before_runner_implementation_and_test_access",
+  "scope": "one-time confirmatory evaluation on the untouched sealed P3 holdout",
+  "datasets": [
+    "blogcatalog-v3",
+    "facebook-musae",
+    "polblogs-newman",
+    "lastfm-asia-snap",
+    "github-social-snap",
+    "deezer-europe-snap"
+  ],
+  "seeds": [23003, 24001, 25013, 26003, 27011],
+  "candidate": {
+    "label": "GAP-style inference-closed edge-DP LP adaptation",
+    "official_reproduction": false,
+    "public_branch": "sparse cosine over registered public descriptors",
+    "private_branch_score": "equal-weight mean cosine over public and cached noisy aggregation channels",
+    "selected_validation_hyperparameters": {
+      "blogcatalog-v3": {"projection_dimension": 16, "hops": 2},
+      "facebook-musae": {"projection_dimension": 32, "hops": 1},
+      "polblogs-newman": {"projection_dimension": 8, "hops": 2},
+      "lastfm-asia-snap": {"projection_dimension": 32, "hops": 1},
+      "github-social-snap": {"projection_dimension": 32, "hops": 1},
+      "deezer-europe-snap": {"projection_dimension": 8, "hops": 1}
+    },
+    "selection_source": "results/p3_gap_validation/summary.json",
+    "selection_split": "P3 validation only"
+  },
+  "sealed_holdout_partition": {
+    "source": "original P3 encrypted test positives",
+    "certification_probability": 0.3333333333333333,
+    "assignment": "edge-keyed SHA-256 Bernoulli threshold",
+    "assignment_salt": "R5-CERT-20260723-v1",
+    "evaluation_role": "complement of certification assignment",
+    "corruption": "one deterministic endpoint corruption without graph rejection",
+    "corruption_salt": "R5-CORRUPT-20260723-v1",
+    "estimand": "finite sealed-holdout mean candidate-minus-public pairwise ranking utility",
+    "primary_scope": "global",
+    "secondary_scope": "intra/cross and original P3 ROC-AUC"
+  },
+  "privacy": {
+    "adjacency": "add_remove_one_role_labelled_canonical_undirected_edge",
+    "delta_training": 1e-6,
+    "delta_certification": 1e-6,
+    "training_epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "certification_epsilon_grid": [0.5, 1.0, 2.0, 4.0, 8.0],
+    "visibility_models": ["visible_messages", "ideal_secagg"],
+    "training_sensitivity_per_hop": 1.4142135623730951,
+    "certification_query": ["bounded_utility_sum", "private_count"],
+    "certification_l2_sensitivity": 1.4142135623730951,
+    "composition": "conservative sequential RDP composition of training and certification; no parallel-composition credit",
+    "counterfactual_cells": "each epsilon/visibility cell is an alternative deployment, not a jointly released mechanism"
+  },
+  "certificate": {
+    "material_gain_gamma": 0.02,
+    "minimum_noisy_count_lower": 50,
+    "failure_allocation": {
+      "sum_noise": 0.01,
+      "count_noise": 0.01,
+      "finite_population_sampling": 0.03
+    },
+    "finite_population_correction": true,
+    "dependence_factor": 1.0,
+    "dependence_justification": "conditional simple random sampling without replacement induced by the registered edge-keyed random hash",
+    "decision": "activate private structural branch iff the private finite-population lower confidence bound is at least gamma; otherwise use public-only"
+  },
+  "confirmatory_endpoints": {
+    "primary": [
+      "false_material_activation_count",
+      "activated_cell_count",
+      "activated_dataset_count",
+      "mean_policy_gain_on_disjoint_Q5"
+    ],
+    "secondary": [
+      "certificate_lower_bound",
+      "full_holdout_pairwise_advantage",
+      "Q5_pairwise_advantage",
+      "global/intra/cross ROC-AUC gain"
+    ]
+  },
+  "decision_gates": {
+    "maximum_false_material_activations": 0,
+    "minimum_activated_cells": 10,
+    "minimum_activated_datasets": 3,
+    "minimum_mean_Q5_policy_gain": 0.0,
+    "require_all_privacy_accountants_reproduced": true,
+    "require_all_commitments_verified": true,
+    "require_single_test_access": true,
+    "require_no_test_tuning": true
+  },
+  "decision_labels": {
+    "pass": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+    "safe_abstention": "PASS_SAFETY_BUT_VACUOUS",
+    "fail": "FAIL_CONFIRMATORY_CERTIFICATE"
+  }
+}
