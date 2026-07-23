@@ -14,7 +14,7 @@
   "remote_attached": true,
   "remote_url": "git@github.com:yongkksheng-bit/Federated-DP-Link-Prediction.git",
   "remote_verified_empty_before_first_push": true,
-  "phase": "R2A_certificate_synthetic_pass_R2B_end_to_end_protocol_required",
+  "phase": "R2B_certfedlp_end_to_end_synthetic_no_go_stop_before_real_data",
   "p0_initial_decision": "proceed_with_narrowing",
   "p0_fulltext_citation_pass_1_complete": true,
   "p0_high_risk_fulltexts_classified": true,
@@ -285,5 +285,17 @@
   "r2a_artifact_audit": "PASS",
   "r2a_decision": "PASS_TO_R2B_END_TO_END_SYNTHETIC_PROTOCOL",
   "r2a_real_data_accessed": false,
-  "r2a_test_access_count": 0
+  "r2a_test_access_count": 0,
+  "r2b_protocol_commit": "c94abfed6cd75bbff22ea9ee044e4cfa648d8387",
+  "r2b_records": 2880,
+  "r2b_harmful_cells": 1500,
+  "r2b_beneficial_cells": 1356,
+  "r2b_activation_count": 0,
+  "r2b_activation_fraction": 0.0,
+  "r2b_maximum_transcript_aggregate_error": 2.2737367544323206e-13,
+  "r2b_maximum_accountant_epsilon_error": 1.7497114868092467e-13,
+  "r2b_artifact_audit": "PASS",
+  "r2b_decision": "STOP_CERTFED_LP_END_TO_END_SYNTHETIC_NO_GO",
+  "r2b_real_data_accessed": false,
+  "r2b_test_access_count": 0
 }

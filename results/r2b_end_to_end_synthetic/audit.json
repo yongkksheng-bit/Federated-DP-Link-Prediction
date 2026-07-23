@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "protocol": "R2B_CERTFED_LP_END_TO_END_SYNTHETIC_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "record_count_complete": true,
+    "records_exactly_replayed": true,
+    "summary_exactly_replayed": true,
+    "config_hash_current": true,
+    "single_frozen_code_commit": true,
+    "metrics_finite": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "STOP_CERTFED_LP_END_TO_END_SYNTHETIC_NO_GO",
+  "real_data_accessed": false,
+  "test_accessed": false
+}
