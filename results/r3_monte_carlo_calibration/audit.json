@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "protocol": "R3_CERTFED_LP_BOUNDARY_MONTE_CARLO_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "records_exactly_replayed": true,
+    "summary_exactly_replayed": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "PASS_TO_R3_DECISION_AUDIT",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

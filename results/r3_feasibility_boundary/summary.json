@@ -1,0 +1,21 @@
+{
+  "protocol": "R3_CERTFED_LP_FEASIBILITY_BOUNDARY_v1",
+  "record_count": 558,
+  "private_minimum_count_records": 240,
+  "checks": {
+    "all_registered_boundaries_finite": true,
+    "integer_boundary_exact_against_local_bruteforce": true,
+    "minimum_count_nonincreasing_in_population_effect": true,
+    "minimum_count_nonincreasing_in_epsilon": true,
+    "minimum_count_nondecreasing_in_dependence_factor": true,
+    "ideal_secagg_invariant_to_client_count": true,
+    "visible_messages_nondecreasing_in_client_count": true,
+    "forward_inverse_boundary_consistency": true,
+    "accountant_reproduction_tolerance": true,
+    "real_data_access_prohibited": true,
+    "all_values_finite": true
+  },
+  "decision": "PASS_TO_R3_MONTE_CARLO_CALIBRATION_PROTOCOL",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

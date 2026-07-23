@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "protocol": "R3_CERTFED_LP_DECISION_AUDIT_v1",
+  "analytical_boundary_audit": "PASS",
+  "monte_carlo_calibration_audit": "PASS",
+  "analytical_records": 558,
+  "monte_carlo_cells": 128,
+  "monte_carlo_trials": 384000,
+  "minimum_boundary_power_lower_95": 0.9879946784339778,
+  "maximum_safety_false_activation_upper_95": 0.005229222163097469,
+  "r2b_cells_reaching_nonprivate_boundary": 0,
+  "r2b_total_cells": 2880,
+  "best_r2b_gap_to_nonprivate_boundary": -0.097884492895357,
+  "classification": "THEORY_ONLY_FEASIBILITY_BOUNDARY",
+  "real_data_method_authorized": false,
+  "real_data_accessed": false,
+  "test_accessed": false
+}

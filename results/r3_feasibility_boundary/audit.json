@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "protocol": "R3_CERTFED_LP_FEASIBILITY_BOUNDARY_v1_AUDIT",
+  "status": "PASS",
+  "checks": {
+    "records_exactly_replayed": true,
+    "summary_exactly_replayed": true,
+    "real_data_unaccessed": true
+  },
+  "decision_reproduced": "PASS_TO_R3_MONTE_CARLO_CALIBRATION_PROTOCOL",
+  "real_data_accessed": false,
+  "test_accessed": false
+}

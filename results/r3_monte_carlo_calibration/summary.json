@@ -1,0 +1,27 @@
+{
+  "protocol": "R3_CERTFED_LP_BOUNDARY_MONTE_CARLO_v1",
+  "metrics": {
+    "record_count": 128,
+    "power_cells": 96,
+    "safety_cells": 32,
+    "minimum_boundary_power": 0.9913333333333333,
+    "minimum_boundary_power_lower_95": 0.9879946784339778,
+    "maximum_safety_false_activation_rate": 0.003,
+    "maximum_safety_false_activation_upper_95": 0.005229222163097469,
+    "maximum_predicted_to_empirical_transition_ratio": 1.0,
+    "maximum_accountant_epsilon_error": 9.14823772291129e-14,
+    "maximum_transcript_aggregate_error": 0.0
+  },
+  "checks": {
+    "boundary_power": true,
+    "safety": true,
+    "transition_conservatism": true,
+    "all_transitions_observed": true,
+    "accountant_reproduction": true,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "decision": "PASS_TO_R3_DECISION_AUDIT",
+  "real_data_accessed": false,
+  "test_accessed": false
+}
