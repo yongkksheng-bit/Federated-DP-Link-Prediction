@@ -13,7 +13,9 @@ Audit date: 2026-07-24 (Asia/Shanghai).
 - Checkout directory:
   `D:\DPLPIFS_POLY\Federated-DP-Link-Prediction-R7-repro-bfa1148`
 - Interpreter and package versions are recorded in
-  `results/r7_independent_audit/reproduction.json`.
+  the archived `results/r7_independent_audit/reproduction.json` snapshot.
+  New runs write to `tmp/r7_independent_audit/reproduction.json` so the
+  tracked checkout remains unchanged.
 
 The checkout was cloned from GitHub. No active-worktree files were copied into
 it. The sealed P3/R5 holdout was not decrypted, regenerated, or queried.

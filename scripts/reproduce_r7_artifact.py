@@ -81,7 +81,7 @@ def main() -> None:
     parser.add_argument(
         "--output",
         type=pathlib.Path,
-        default=ROOT / "results/r7_independent_audit/reproduction.json",
+        default=ROOT / "tmp/r7_independent_audit/reproduction.json",
     )
     args = parser.parse_args()
 

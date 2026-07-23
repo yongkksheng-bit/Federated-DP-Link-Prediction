@@ -71,6 +71,9 @@ python scripts/audit_r7_theory_contract.py
 python scripts/reproduce_r7_artifact.py
 ```
 
+The reproduction command writes its environment-specific report under
+`tmp/r7_independent_audit/` so a clean checkout remains clean.
+
 Every privacy-grid cell is an alternative deployment. Releasing the full grid
 on one private graph would require additional composition.
 
