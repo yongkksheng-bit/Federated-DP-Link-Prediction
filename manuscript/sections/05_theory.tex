@@ -57,8 +57,11 @@ Let $H$ be the sealed positive holdout of size $N$ and
 \begin{equation}
  \Delta_H(R)=\frac{1}{N}\sum_{e\in H}d_R(e).
 \end{equation}
-An edge-keyed public random hash assigns each $e\in H$ independently to
-certification with probability $p_C$; $Q5$ is the complement.
+An edge-keyed SHA-256 map assigns each $e\in H$ to certification with
+probability $p_C$; $Q5$ is the complement.  The random-sampling statement
+below is conditional on the registered random-oracle (or equivalently a
+secret-key PRF) interpretation of this map.  It is not an unconditional
+information-theoretic claim about deterministic SHA-256 outputs.
 
 \begin{theorem}[Finite-holdout no-harm]
 \label{thm:noharm}
@@ -70,8 +73,9 @@ without replacement. With the certificate in \cref{eq:certificate},
 \end{equation}
 \end{theorem}
 
-The edge-keyed hash is essential: adding an edge does not reassign existing
-edges. Conditional on the realized bounded values, shared graph endpoints do
+The edge-keyed map is edge-stable: adding an edge does not reassign existing
+edges. Under the stated pseudorandomness assumption, conditional on the
+realized bounded values and certification count, shared graph endpoints do
 not alter the random-sampling argument. A one-sided Serfling bound
 \cite{serfling1974probability} gives the
 sampling penalty in \cref{eq:certificate}; R5 conservatively sets its

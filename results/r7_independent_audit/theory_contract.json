@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "certificate_sensitivity_is_sqrt2": true,
+    "corruption_calls_no_graph_loader": true,
+    "corruption_has_no_graph_or_adjacency_argument": true,
+    "diagnostic_cells_are_alternative_deployments": true,
+    "finite_target_scope_is_explicit": true,
+    "hash_assumption_is_explicit": true,
+    "pairwise_not_auc_is_explicit": true,
+    "rdp_curves_and_conversions_reproduced": true,
+    "role_labelled_adjacency_is_explicit": true,
+    "strict_record_grid_complete": true,
+    "strict_record_keys_unique": true,
+    "summary_independently_reconstructed": true
+  },
+  "exhaustive_certificate_l2_sensitivity": 1.4142135623730951,
+  "expected_record_count": 1500,
+  "maximum_rdp_curve_composition_error": 0.0,
+  "protocol": "R7_INDEPENDENT_THEORY_CONTRACT_AUDIT_v1",
+  "reconstructed_decision": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+  "record_count": 1500,
+  "reported_decision": "PASS_NONVACUOUS_CERTIFIED_POLICY",
+  "scope_note": "This audit verifies the registered role-labelled database and random-oracle/PRF-style hash contract; it does not upgrade the claim to raw-graph adjacency or information-theoretic hashing.",
+  "source_protocol": "R5_CERTFED_LP_GRAPH_PHASE_CONFIRMATORY_v1",
+  "status": "PASS",
+  "summary_differences": []
+}

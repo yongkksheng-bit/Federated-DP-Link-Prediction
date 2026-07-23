@@ -72,9 +72,13 @@ results/**
 !results/r5_graph_phase_confirmatory/
 !results/r5_graph_phase_confirmatory/access.json
 !results/r5_graph_phase_confirmatory/records.jsonl
+!results/r5_graph_phase_confirmatory/records_strict.jsonl
 !results/r5_graph_phase_confirmatory/summary.json
 !results/r5_graph_phase_confirmatory/audit.json
 !results/r5_graph_phase_confirmatory/serialization_audit.json
+!results/r7_independent_audit/
+!results/r7_independent_audit/theory_contract.json
+!results/r7_independent_audit/reproduction.json
 artifacts/
 logs/
 tmp/

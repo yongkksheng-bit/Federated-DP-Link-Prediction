@@ -56,8 +56,16 @@ Primary artifacts:
 - `configs/r5_graph_phase_confirmatory.json`
 - `data/manifests/r5_test_access.json`
 - `results/r5_graph_phase_confirmatory/records.jsonl`
+- `results/r5_graph_phase_confirmatory/records_strict.jsonl`
 - `results/r5_graph_phase_confirmatory/summary.json`
 - `results/r5_graph_phase_confirmatory/audit.json`
+
+R7 clean-artifact audit (does not reopen the sealed holdout):
+
+```powershell
+python scripts/audit_r7_theory_contract.py
+python scripts/reproduce_r7_artifact.py
+```
 
 Every privacy-grid cell is an alternative deployment. Releasing the full grid
 on one private graph would require additional composition.

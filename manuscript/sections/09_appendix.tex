@@ -54,10 +54,12 @@ then performs this conversion once.
 \section{Proof of the Finite-Holdout Certificate}
 \label{app:finite}
 
-Condition on $(R,H,n_C)$. The registered edge-keyed Bernoulli hash is
-independent across the fixed keys, so conditioning on the count makes $E^C$ a
-uniform size-$n_C$ subset of $H$. The values $d_R(e)\in[-1,1]$ are then a fixed
-finite population. For
+Condition on $(R,H,n_C)$. Under the registered random-oracle/PRF
+interpretation of the edge-keyed SHA-256 map, its outputs are independent
+across the fixed keys, so conditioning on the count makes $E^C$ a uniform
+size-$n_C$ subset of $H$. This is a computational-randomization assumption,
+not a theorem about deterministic SHA-256. The values
+$d_R(e)\in[-1,1]$ are then a fixed finite population. For
 $\widehat\Delta_C=n_C^{-1}\sum_{e\in E^C}d_R(e)$, one-sided
 sampling-without-replacement concentration gives
 \begin{equation}
