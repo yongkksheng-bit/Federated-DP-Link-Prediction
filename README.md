@@ -36,6 +36,7 @@ confidence interval.
 - R7 theorem audit: `docs/R7_THEOREM_AUDIT.md`
 - R7 clean reproduction: `docs/R7_REPRODUCIBILITY_REPORT.md`
 - R7 literature refresh: `docs/R7_LITERATURE_REFRESH.md`
+- R7 closeout: `docs/R7_CLOSEOUT.md`
 
 Build:
 

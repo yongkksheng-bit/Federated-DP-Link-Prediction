@@ -1,9 +1,9 @@
 {
   "artifacts": {
     "manuscript_pdf": {
-      "bytes": 462679,
+      "bytes": 463778,
       "path": "manuscript/main.pdf",
-      "sha256": "e417c9286c68878a537075d186eea13d0c1a8fed565d8cdf04c0b874682e2333"
+      "sha256": "93235995768b4f1507a012f73418007c39477399419db04999fd46553ae2b237"
     },
     "strict_records": {
       "bytes": 11032469,
@@ -73,7 +73,7 @@
         "meta NOT subset; don't know how to subset; dropped",
         "meta NOT subset; don't know how to subset; dropped",
         "meta NOT subset; don't know how to subset; dropped",
-        "D:\\DPLPIFS_POLY\\Federated-DP-Link-Prediction-R7-repro-bfa1148\\manuscript\\figures"
+        "D:\\DPLPIFS_POLY\\Federated-DP-Link-Prediction-R7-audited-fbe7150\\manuscript\\figures"
       ],
       "returncode": 0
     },
@@ -94,7 +94,7 @@
         "e/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2025/texmf-dist",
         "/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2025/texmf-dist/fonts/type1/urw/t",
         "imes/utmri8a.pfb>",
-        "Output written on main.pdf (9 pages, 462679 bytes).",
+        "Output written on main.pdf (9 pages, 463778 bytes).",
         "Transcript written on main.log.",
         "Latexmk: Getting log file 'main.log'",
         "Latexmk: Examining 'main.fls'",
@@ -126,7 +126,7 @@
     "python": "3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]"
   },
   "git_branch": "main",
-  "git_commit": "bfa114878fd7be385b213c6c8f9b5c575e6014a2",
+  "git_commit": "fbe71506e29884c73c894b14ca14fef67ef3d785",
   "git_tracked_changes_after_build": "",
   "note": "This reconstructs derived artifacts from tracked evidence. It does not decrypt, regenerate, or query the sealed R5 holdout.",
   "protocol": "R7_CLEAN_ARTIFACT_REPRODUCTION_v1",
