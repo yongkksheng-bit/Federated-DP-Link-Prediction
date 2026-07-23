@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "protocol": "R3_CERTFED_LP_BOUNDARY_MONTE_CARLO_v1",
+  "status": "frozen_before_implementation_and_execution",
+  "scope": "fresh synthetic bounded-utility records only; no graph, real data, or held-out test data",
+  "boundary_config": "configs/r3_feasibility_boundary.json",
+  "population_effects": [0.05, 0.1, 0.2],
+  "safety_effects": [0.0, 0.019],
+  "epsilon_grid": [1.0, 4.0],
+  "clients": 5,
+  "visibility_models": ["ideal_secagg", "visible_messages"],
+  "dependence_factors": [1, 5],
+  "count_factors": [0.25, 0.5, 1.0, 2.0],
+  "safety_count_factors": [1.0, 2.0],
+  "safety_reference_effect": 0.05,
+  "trials_per_cell": 3000,
+  "rng_seed": 20260803,
+  "utility_distribution": {
+    "type": "block-replicated Rademacher",
+    "support": [-1.0, 1.0],
+    "independent_blocks": "n/chi",
+    "block_size": "chi"
+  },
+  "registered_checks": {
+    "minimum_one_sided_95pct_power_lower_at_predicted_boundary": 0.9,
+    "maximum_one_sided_95pct_false_activation_upper": 0.06,
+    "maximum_predicted_to_empirical_90pct_transition_ratio": 4.0,
+    "all_empirical_90pct_transitions_observed": true,
+    "accountant_reproduction_tolerance": 1e-10,
+    "all_metrics_finite": true,
+    "real_data_access_prohibited": true
+  },
+  "decision_if_checks_pass": "PASS_TO_R3_DECISION_AUDIT",
+  "decision_if_checks_fail": "INVALID_OR_VACUOUS_BOUNDARY_CLOSE_ROUTE"
+}
