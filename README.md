@@ -37,6 +37,10 @@ confidence interval.
 - R7 clean reproduction: `docs/R7_REPRODUCIBILITY_REPORT.md`
 - R7 literature refresh: `docs/R7_LITERATURE_REFRESH.md`
 - R7 closeout: `docs/R7_CLOSEOUT.md`
+- R8 red-team protocol: `docs/R8_RED_TEAM_PROTOCOL.md`
+- R8 theorem audit: `docs/R8_THEOREM_RED_TEAM.md`
+- R8 mock TIFS review: `docs/R8_TIFS_MOCK_REVIEW.md`
+- External expert packet: `docs/R8_EXTERNAL_REVIEW_PACKET.md`
 
 Build:
 
@@ -70,6 +74,8 @@ R7 clean-artifact audit (does not reopen the sealed holdout):
 ```powershell
 python scripts/audit_r7_theory_contract.py
 python scripts/reproduce_r7_artifact.py
+python scripts/audit_r8_red_team.py
+python scripts/reproduce_r8_submission.py
 ```
 
 The reproduction command writes its environment-specific report under

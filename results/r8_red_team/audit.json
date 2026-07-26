@@ -1,0 +1,48 @@
+{
+  "attacks": {
+    "adaptive_public_hash": {
+      "all_selected_for_certification": true,
+      "population_size": 200,
+      "realized_certification_rate": 1.0,
+      "violates_preassignment_population_freeze": true
+    },
+    "certificate_algebra": {
+      "maximum_lower_bound_violation": -4.916608875103756e-06,
+      "no_violation": true,
+      "valid_good_event_trials": 2560
+    },
+    "lower_bound_scope": {
+      "generic_approximate_dp_inverse_epsilon_claim_is_unsafe": true,
+      "large_delta_d_star": 0.02399807765730113,
+      "large_delta_weakens_privacy_term": true,
+      "pure_closed_form": 0.0752038698388137,
+      "pure_d_star": 0.0752038698388137,
+      "pure_formula_matches": true
+    },
+    "unstable_partition": {
+      "existing_role_changes": 6,
+      "one_raw_change_reassigns_many_existing_edges": true,
+      "raw_edge_additions": 1
+    }
+  },
+  "checks": {
+    "adaptive_public_hash_attack_succeeds": true,
+    "approximate_dp_lower_bound_is_conditional": true,
+    "approximate_dp_scope_requires_exact_d_star": true,
+    "certificate_good_event_algebra_survives_attack": true,
+    "conditional_fixed_size_assignment_is_uniform": true,
+    "external_review_not_claimed": true,
+    "pairwise_not_auc": true,
+    "population_precedes_assignment_outputs": true,
+    "prf_advantage_is_accounted": true,
+    "pure_dp_inverse_epsilon_scope": true,
+    "pure_dp_lower_bound_formula_reproduces": true,
+    "random_oracle_and_prf_are_alternatives": true,
+    "raw_graph_upgrade_forbidden": true,
+    "unstable_raw_partition_attack_succeeds": true
+  },
+  "interpretation": "A passing attack means the counterexample was successfully exhibited and the manuscript explicitly excludes that invalid upgrade; it does not mean the invalid protocol is safe.",
+  "protocol": "R8_PRE_SUBMISSION_RED_TEAM_v1",
+  "sealed_holdout_accessed": false,
+  "status": "PASS"
+}

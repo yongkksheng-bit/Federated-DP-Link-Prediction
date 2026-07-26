@@ -57,15 +57,18 @@ partition theorem.
 
 \subsection{Finite-population no-harm certificate}
 
-Let $H$ be the sealed positive holdout of size $N$ and
+Let $H$ be the sealed positive holdout of size $N$, fixed independently of the
+assignment outputs, and
 \begin{equation}
  \Delta_H(R)=\frac{1}{N}\sum_{e\in H}d_R(e).
 \end{equation}
-An edge-keyed SHA-256 map assigns each $e\in H$ to certification with
-probability $p_C$; $Q5$ is the complement.  The random-sampling statement
-below is conditional on the registered random-oracle (or equivalently a
-secret-key PRF) interpretation of this map.  It is not an unconditional
-information-theoretic claim about deterministic SHA-256 outputs.
+In the ideal theorem, independent Bernoulli bits assign each $e\in H$ to
+certification with probability $p_C$; $Q5$ is the complement. R5 instantiates
+these bits with an edge-keyed SHA-256 map under the registered random-oracle
+model. A production protocol can instead use a secret-key PRF whose key is
+hidden from data providers until $H$ is fixed, yielding a computational
+analogue. Neither interpretation is an unconditional information-theoretic
+claim about deterministic public SHA-256 outputs.
 
 \begin{theorem}[Finite-holdout no-harm]
 \label{thm:noharm}
@@ -78,13 +81,17 @@ without replacement. With the certificate in \cref{eq:certificate},
 \end{theorem}
 
 The edge-keyed map is edge-stable: adding an edge does not reassign existing
-edges. Under the stated pseudorandomness assumption, conditional on the
-realized bounded values and certification count, shared graph endpoints do
-not alter the random-sampling argument. A one-sided Serfling bound
+edges. Under the stated ideal randomization, or computationally under its
+implementation contract, conditional on the realized bounded values and
+certification count, shared graph endpoints do not alter the random-sampling
+argument. A one-sided Serfling bound
 \cite{serfling1974probability} gives the
 sampling penalty in \cref{eq:certificate}; R5 conservatively sets its
 finite-population correction to one. The result certifies the registered
 finite holdout, not future edges or another graph.
+The displayed failure probability is statistical in the ideal
+Bernoulli/random-oracle model. A standard-model PRF instantiation adds the
+PRF distinguishing advantage to that bound.
 
 \subsection{When private certification is possible}
 
@@ -108,17 +115,22 @@ extra privacy composition.
 
 \begin{theorem}[Necessary count; informal]
 \label{thm:lower}
-For block-replicated Bernoulli hard instances with dependence $\chi$, every
-central $(\eps,\delta)$-DP selector with fixed testing error requires, up to
-constants and approximate-DP logarithms,
+Let $-1<\gamma<1$, $0<\alpha\leq1-\gamma$, and let the positive integer
+$\chi$ divide $n$. For block-replicated Bernoulli hard instances with
+dependence $\chi$, every central pure $\eps$-DP selector with fixed testing
+error $0<\eta<0.45$ requires, up to constants,
 \begin{equation}
  n=\Omega\!\left(\frac{\chi}{\alpha^2}
                  {}+\frac{1}{\eps\alpha}\right).
 \end{equation}
 \end{theorem}
 
-Thus the sufficient and necessary boundaries match in their principal
-dependence on evidence, privacy, and effect size. This does not make the
-specific Gaussian certificate minimax optimal in $\delta$, nor does it prove
-that arbitrary graph edges follow the hard-instance model. The lower bound
-uses the private Le Cam inequality of \cite{acharya2021private}.
+For approximate DP, \cref{app:lower} gives the exact privacy term
+$2D_\star/\alpha$, which is nontrivial when $D_\star>0$ and reduces to the
+displayed inverse-$\eps$ dependence only when the $\delta$ term is
+non-dominant. Thus the sufficient and necessary boundaries match in their
+principal dependence for pure DP and sufficiently small $\delta$, not
+uniformly over all approximate-DP regimes. This does not make the specific
+Gaussian certificate minimax optimal in $\delta$, nor does it prove that
+arbitrary graph edges follow the hard-instance model. The lower bound uses the
+private Le Cam inequality of \cite{acharya2021private}.

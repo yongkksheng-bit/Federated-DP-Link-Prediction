@@ -79,6 +79,8 @@ results/**
 !results/r7_independent_audit/
 !results/r7_independent_audit/theory_contract.json
 !results/r7_independent_audit/reproduction.json
+!results/r8_red_team/
+!results/r8_red_team/audit.json
 artifacts/
 logs/
 tmp/

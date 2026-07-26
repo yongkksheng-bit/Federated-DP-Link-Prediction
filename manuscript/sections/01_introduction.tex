@@ -67,16 +67,18 @@ Our contributions are:
 
 \begin{itemize}
   \item We formulate certified deployment for ordinary-graph federated link
-  prediction under add/remove edge adjacency, complete server-transcript
-  accounting, cross-client candidates, and inference-closed scoring.
+  prediction under registered role-labelled add/remove-edge adjacency,
+  complete server-transcript accounting, cross-client candidates, and
+  inference-closed scoring.
   \item We prove an indistinguishable-worlds result showing that no
   training-only selector has a distribution-free, nontrivial no-harm
   guarantee. Direct target-domain certification is therefore not merely a
   learned dataset selector.
   \item We establish a finite-population no-harm theorem for an edge-keyed
   random certification split. We also derive a sufficient activation boundary
-  and a central-DP testing lower bound with matching principal dependence
-  $O(\chi/\alpha^2+1/(\eps\alpha))$ up to constants and logarithms.
+  and a pure central-DP testing lower bound with matching principal dependence
+  $\chi/\alpha^2+1/(\eps\alpha)$ up to constants; approximate DP uses an
+  explicit $D_\star$ term.
   \item We conduct a preregistered, one-time, five-seed study on six social and
   blog networks. \method{} safely activates in 15/30 primary cells, avoids all
   ten harmful always-structural cells, and reaches within $0.0057$ mean

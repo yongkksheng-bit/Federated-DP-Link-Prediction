@@ -54,11 +54,13 @@ then performs this conversion once.
 \section{Proof of the Finite-Holdout Certificate}
 \label{app:finite}
 
-Condition on $(R,H,n_C)$. Under the registered random-oracle/PRF
-interpretation of the edge-keyed SHA-256 map, its outputs are independent
-across the fixed keys, so conditioning on the count makes $E^C$ a uniform
-size-$n_C$ subset of $H$. This is a computational-randomization assumption,
-not a theorem about deterministic SHA-256. The values
+Condition on $(R,H,n_C)$, where $H$ was fixed independently of assignment
+outputs. Under the ideal Bernoulli assignment, conditioning on the count makes
+$E^C$ a uniform size-$n_C$ subset of $H$. R5 models its edge-keyed SHA-256 map
+as a random oracle; a deployment can instead use a secret-key PRF hidden from
+data providers until population freeze. These are alternative computational
+implementation contracts, not a theorem that deterministic public SHA-256
+outputs are information-theoretically independent. The values
 $d_R(e)\in[-1,1]$ are then a fixed finite population. For
 $\widehat\Delta_C=n_C^{-1}\sum_{e\in E^C}d_R(e)$, one-sided
 sampling-without-replacement concentration gives
@@ -84,6 +86,9 @@ The sampling event implies
 A union bound over the two Gaussian events and the sampling event proves
 \cref{thm:noharm}. Invalid counts or a nonpositive corrected numerator cause
 abstention and cannot create a false activation.
+For a standard-model PRF implementation, a hybrid argument adds the
+distinguishing advantage of the PRF to the right-hand side of
+\cref{thm:noharm}.
 
 \section{Sufficient Feasibility Boundary}
 \label{app:feasibility}
@@ -120,8 +125,9 @@ $\gamma+a_p(n)+a_v(n)$.
 \section{Necessary Count}
 \label{app:lower}
 
-For completeness, consider the registered block-replicated Rademacher hard
-pair. Under $H_0$ each independent block is positive with probability
+For completeness, fix $-1<\gamma<1$, $0<\alpha\leq1-\gamma$, integer
+$\chi\mid n$, and testing error $0<\eta<0.45$. Consider the registered
+block-replicated Rademacher hard pair. Under $H_0$ each independent block is positive with probability
 $p_0=(1+\gamma)/2$; under $H_1$ it is positive with probability
 $p_1=(1+\gamma+\alpha)/2$. There are $n/\chi$ independent blocks and each is
 replicated $\chi$ times. Classical Le Cam and Pinsker inequalities imply
@@ -143,16 +149,17 @@ Under maximal coupling the expected replacement Hamming distance is
 $n\alpha/2$. The approximate-DP Le Cam bound in
 \cite{acharya2021private} therefore requires
 \begin{equation}
- n\geq\frac{2D_\star}{\alpha}.
+n\geq\frac{2D_\star}{\alpha}.
 \end{equation}
-For pure DP, this gives
+This exact term may be weak when $\delta_r$ dominates the defining equation.
+When $D_\star>0$ it is nontrivial. For pure DP, it gives
 $n\geq\log(0.9/(2\eta))/(10\eps\alpha)$. Since
 \begin{equation}
 D_{\mathrm{KL}}(\operatorname{Ber}(p_0)
 \Vert\operatorname{Ber}(p_1))
 =\frac{\alpha^2}{2(1-\gamma^2)}+O(\alpha^3),
 \end{equation}
-the principal necessary rate is
+the principal pure-DP necessary rate is
 $\Omega(\chi/\alpha^2+1/(\eps\alpha))$.
 
 \section{Reproducibility and Claim Boundaries}
@@ -167,3 +174,5 @@ The following are intentionally not claimed: a confidence interval for
 ROC-AUC, temporal or cross-domain no-harm, official reproduction or universal
 superiority of GAP, simultaneous private release of the phase grid, or privacy
 for an inference path that rereads an unreleased private graph.
+R7 and R8 are internal adversarial artifact audits, not an external peer
+review or an independent expert endorsement.
