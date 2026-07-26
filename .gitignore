@@ -81,6 +81,7 @@ results/**
 !results/r7_independent_audit/reproduction.json
 !results/r8_red_team/
 !results/r8_red_team/audit.json
+!results/r8_red_team/reproduction.json
 artifacts/
 logs/
 tmp/
@@ -99,3 +100,4 @@ literature/restricted/**
 *.log
 *.out
 *.synctex.gz
+manuscript/main.pdf

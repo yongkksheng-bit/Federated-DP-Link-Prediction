@@ -6,10 +6,12 @@ Clean-room research repository for:
 
 ## Current Result
 
-R7 independently audits the R6 IEEE journal manuscript around
-**CertFed-LP**: an architecture-agnostic deployment policy that privately
-certifies whether an inference-closed edge-DP structural branch materially
-improves over a public-only scorer, and otherwise falls back.
+R8 adversarially audits the R7 IEEE journal manuscript around **CertFed-LP**:
+an architecture-agnostic deployment policy that privately certifies whether
+an inference-closed edge-DP structural branch materially improves over a
+public-only scorer, and otherwise falls back. R8 stress-tests the assignment
+contract, adjacency scope, certificate algebra, and pure/approximate-DP
+lower-bound boundary without reopening the sealed holdout.
 
 The preregistered R5 primary cell contains six social/blog networks and five
 seeds. At composed privacy `(epsilon=5.6640, delta=2e-6)`, CertFed-LP:
@@ -29,6 +31,7 @@ confidence interval.
 - Source: `manuscript/main.tex`
 - Compiled draft: `output/pdf/certfed_lp_r6_draft.pdf`
 - R7 audited draft: `output/pdf/certfed_lp_r7_audited.pdf`
+- R8 red-team audited draft: `output/pdf/certfed_lp_r8_red_team_audited.pdf`
 - Claim contract: `docs/R6_MANUSCRIPT_CONTRACT.md`
 - Evidence map: `docs/R6_EVIDENCE_MAP.md`
 - Reviewer-risk audit: `docs/R6_REVIEWER_RISK_AUDIT.md`
@@ -41,6 +44,7 @@ confidence interval.
 - R8 theorem audit: `docs/R8_THEOREM_RED_TEAM.md`
 - R8 mock TIFS review: `docs/R8_TIFS_MOCK_REVIEW.md`
 - External expert packet: `docs/R8_EXTERNAL_REVIEW_PACKET.md`
+- R8 closeout: `docs/R8_CLOSEOUT.md`
 
 Build:
 
@@ -78,8 +82,10 @@ python scripts/audit_r8_red_team.py
 python scripts/reproduce_r8_submission.py
 ```
 
-The reproduction command writes its environment-specific report under
-`tmp/r7_independent_audit/` so a clean checkout remains clean.
+The R7 reproduction command writes its environment-specific report under
+`tmp/r7_independent_audit/`. The R8 clean-clone gate writes under
+`tmp/r8_red_team/`; the verified report for commit `9ffb0c2` is archived as
+`results/r8_red_team/reproduction.json`.
 
 Every privacy-grid cell is an alternative deployment. Releasing the full grid
 on one private graph would require additional composition.

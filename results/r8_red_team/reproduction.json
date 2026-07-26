@@ -1,0 +1,95 @@
+{
+  "artifacts": {
+    "manuscript_pdf": {
+      "bytes": 465659,
+      "path": "manuscript/main.pdf",
+      "sha256": "1ed06bee6f1fafc328cddbf56a3ff866cb7e47e45c09e7ee052f9838909da06e"
+    },
+    "r8_red_team": {
+      "path": "results/r8_red_team/audit.json",
+      "sha256": "cdcca665645f10163403e72f36716a7b9ae3224756dda4f9bfef8e7abe355bc3"
+    },
+    "strict_records": {
+      "bytes": 11032469,
+      "path": "results\\r5_graph_phase_confirmatory\\records_strict.jsonl",
+      "sha256": "2d8c061257d6f04057e41f1dde8613c5b365d9af20bde6261077e0e1aa46daab"
+    },
+    "summary": {
+      "path": "results/r5_graph_phase_confirmatory/summary.json",
+      "sha256": "64ab7e1fa42083a885bd4432dbd054e53cb3489ecc0a54657c95e59169596a48"
+    },
+    "theory_audit": {
+      "path": "results/r7_independent_audit/theory_contract.json",
+      "sha256": "4085af8956f0cf32815618e71faaf18864d859f9ded369cb801d1ff875365b59"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "scripts/reproduce_r7_artifact.py",
+        "--output",
+        "D:\\DPLPIFS_POLY\\Federated-DP-Link-Prediction-R8-final-9ffb0c2\\tmp\\r8_red_team\\r7_base_reproduction.json"
+      ],
+      "output_tail": [
+        "    \"packages\": {",
+        "      \"cryptography\": \"39.0.1\",",
+        "      \"matplotlib\": \"3.7.0\",",
+        "      \"networkx\": \"2.8.4\",",
+        "      \"numpy\": \"1.26.4\",",
+        "      \"pytest\": \"9.0.2\",",
+        "      \"scikit-learn\": \"1.7.2\",",
+        "      \"scipy\": \"1.10.0\"",
+        "    },",
+        "    \"platform\": \"Windows-10-10.0.26200-SP0\",",
+        "    \"python\": \"3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]\"",
+        "  },",
+        "  \"git_branch\": \"main\",",
+        "  \"git_commit\": \"9ffb0c2e4c144635f1cb30c5e5ffeaa7eae891a7\",",
+        "  \"git_tracked_changes_after_build\": \"\",",
+        "  \"note\": \"This reconstructs derived artifacts from tracked evidence. It does not decrypt, regenerate, or query the sealed R5 holdout.\",",
+        "  \"protocol\": \"R7_CLEAN_ARTIFACT_REPRODUCTION_v1\",",
+        "  \"sealed_test_reaccessed\": false,",
+        "  \"status\": \"PASS\"",
+        "}"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "scripts/audit_r8_red_team.py"
+      ],
+      "output_tail": [
+        "    \"adaptive_public_hash_attack_succeeds\": true,",
+        "    \"approximate_dp_lower_bound_is_conditional\": true,",
+        "    \"approximate_dp_scope_requires_exact_d_star\": true,",
+        "    \"certificate_good_event_algebra_survives_attack\": true,",
+        "    \"conditional_fixed_size_assignment_is_uniform\": true,",
+        "    \"external_review_not_claimed\": true,",
+        "    \"pairwise_not_auc\": true,",
+        "    \"population_precedes_assignment_outputs\": true,",
+        "    \"prf_advantage_is_accounted\": true,",
+        "    \"pure_dp_inverse_epsilon_scope\": true,",
+        "    \"pure_dp_lower_bound_formula_reproduces\": true,",
+        "    \"random_oracle_and_prf_are_alternatives\": true,",
+        "    \"raw_graph_upgrade_forbidden\": true,",
+        "    \"unstable_raw_partition_attack_succeeds\": true",
+        "  },",
+        "  \"interpretation\": \"A passing attack means the counterexample was successfully exhibited and the manuscript explicitly excludes that invalid upgrade; it does not mean the invalid protocol is safe.\",",
+        "  \"protocol\": \"R8_PRE_SUBMISSION_RED_TEAM_v1\",",
+        "  \"sealed_holdout_accessed\": false,",
+        "  \"status\": \"PASS\"",
+        "}"
+      ],
+      "returncode": 0
+    }
+  ],
+  "git_commit": "9ffb0c2e4c144635f1cb30c5e5ffeaa7eae891a7",
+  "git_tracked_changes_after_build": "",
+  "protocol": "R8_CLEAN_SUBMISSION_GATE_v1",
+  "r7_base_status": "PASS",
+  "r8_red_team_status": "PASS",
+  "sealed_holdout_accessed": false,
+  "status": "PASS"
+}
