@@ -6,7 +6,8 @@ Clean-room research repository for:
 
 ## Current Result
 
-R8 adversarially audits the R7 IEEE journal manuscript around **CertFed-LP**:
+R9 prepares the R8-audited IEEE journal manuscript around **CertFed-LP** for
+submission:
 an architecture-agnostic deployment policy that privately certifies whether
 an inference-closed edge-DP structural branch materially improves over a
 public-only scorer, and otherwise falls back. R8 stress-tests the assignment
@@ -32,6 +33,7 @@ confidence interval.
 - Compiled draft: `output/pdf/certfed_lp_r6_draft.pdf`
 - R7 audited draft: `output/pdf/certfed_lp_r7_audited.pdf`
 - R8 red-team audited draft: `output/pdf/certfed_lp_r8_red_team_audited.pdf`
+- R9 submission-preparation draft: `output/pdf/certfed_lp_r9_submission_ready.pdf`
 - Claim contract: `docs/R6_MANUSCRIPT_CONTRACT.md`
 - Evidence map: `docs/R6_EVIDENCE_MAP.md`
 - Reviewer-risk audit: `docs/R6_REVIEWER_RISK_AUDIT.md`
@@ -45,6 +47,10 @@ confidence interval.
 - R8 mock TIFS review: `docs/R8_TIFS_MOCK_REVIEW.md`
 - External expert packet: `docs/R8_EXTERNAL_REVIEW_PACKET.md`
 - R8 closeout: `docs/R8_CLOSEOUT.md`
+- R9 literature refresh: `docs/R9_LITERATURE_REFRESH.md`
+- R9 TIFS submission audit: `docs/R9_TIFS_SUBMISSION_AUDIT.md`
+- R9 external-expert sign-off: `docs/R9_EXTERNAL_EXPERT_SIGNOFF.md`
+- R9 closeout: `docs/R9_CLOSEOUT.md`
 
 Build:
 
@@ -80,6 +86,7 @@ python scripts/audit_r7_theory_contract.py
 python scripts/reproduce_r7_artifact.py
 python scripts/audit_r8_red_team.py
 python scripts/reproduce_r8_submission.py
+python scripts/reproduce_r9_submission.py
 ```
 
 The R7 reproduction command writes its environment-specific report under

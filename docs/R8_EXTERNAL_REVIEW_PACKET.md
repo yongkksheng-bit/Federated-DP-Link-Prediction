@@ -11,7 +11,8 @@ correct. The desired output is a signed or attributable memorandum listing:
 - required corrections; and
 - a final `GO`, `GO WITH REVISION`, or `NO-GO`.
 
-No sealed holdout access is needed or permitted.
+No sealed holdout access is needed or permitted. Record the attributable
+decision in `docs/R9_EXTERNAL_EXPERT_SIGNOFF.md`.
 
 ## Minimal files
 

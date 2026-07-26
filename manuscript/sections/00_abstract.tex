@@ -2,22 +2,22 @@
 Federated link prediction is difficult to deploy privately: interaction edges
 remain distributed across clients, yet a useful predictor must exploit graph
 structure and answer candidate-pair queries without rereading the private
-graph. A second difficulty is less visible but equally important: under edge
+graph. Moreover, under edge
 differential privacy (DP), a structural channel can improve one target graph
 and harm another, so unconditional deployment can be worse than a predictor
-using only public node descriptors. We introduce \method{}, an
-architecture-agnostic policy that combines an inference-closed edge-DP
+using public node descriptors. We introduce \method{}, a policy combining an
+inference-closed edge-DP
 structural learner with a private, target-domain utility certificate.
-\method{} activates the structural branch only when a one-sided lower
-certificate exceeds a registered material-gain threshold; otherwise it falls
+\method{} activates the structural branch when a one-sided lower
+certificate exceeds a material-gain threshold; otherwise it falls
 back to the public branch. We prove that no training-only selector can provide
 a distribution-free nontrivial no-harm guarantee, establish complete
 training-and-certification transcript privacy under registered role-labelled
 add/remove-edge adjacency, and derive a finite-population no-harm theorem. For
-pure DP and sufficiently small $\delta$, sufficient and necessary
-certification counts match in their principal dependence on effect gap,
-privacy budget, and record dependence. In
-a preregistered one-time evaluation on six social and blog networks with five
+pure DP, and under approximate DP when $\delta$ is non-dominant, sufficient
+and necessary certification counts match in their dependence on effect gap,
+privacy budget, and record dependence. In a preregistered one-time evaluation
+on six social and blog networks with five
 seeds, the primary visible-message mechanism has composed privacy
 $(\eps=5.664,\delta=2\!\times\!10^{-6})$. It activates 15 of 30
 dataset-seed cells across three datasets, observes no material false

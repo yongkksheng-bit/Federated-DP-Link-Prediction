@@ -8,6 +8,8 @@ disjoint interaction records and are not allowed to disclose raw
 neighborhoods. Federated optimization limits raw-data movement, but it does
 not by itself protect an edge from a server that observes model updates or
 released representations \cite{mcmahan2017fedavg,dwork2014algorithmic}.
+Poisoning-based link-inference attacks further show that observable federated
+outputs can expose cross-client structure \cite{yang2026poisoning}.
 Edge-level differential privacy (DP) supplies a record-level guarantee, but
 graph message passing makes both sensitivity and inference subtle. A model
 that consults the private graph again when answering a link query can invalidate
@@ -19,6 +21,8 @@ subgraph sensitivity for centralized link prediction
 \cite{ran2024dplp}; and decentralized or federated graph learners protect
 links, features, representations, or local training processes under several
 trust models \cite{lin2022solitude,pei2024lga,li2025pdgl,zhang2025privfgl}.
+CE-FedGNN protects cross-client representation exchange under metric DP, a
+different privacy object from ordinary-edge DP \cite{guo2026cefedgnn}.
 Private recommendation further shows that edge-DP prediction is meaningful in
 heterogeneous and collaborative-filtering settings
 \cite{wang2026pphgrl,hu2025cfdpgnn,li2026fedhgpp}. These results make a broad ``first

@@ -49,6 +49,10 @@ FedHGPP \cite{li2026fedhgpp}
 & Federated heterogeneous graphs / recommendation
 & Two-stage pure edge-DP preprocessing
 & Encrypted embedding aggregation; HR/NDCG outputs\\
+CE-FedGNN \cite{guo2026cefedgnn}
+& Coupled cross-client graphs / NC
+& Metric DP for exchanged representations
+& Moving-average embeddings; not ordinary-edge adjacency\\
 \method{} (ours)
 & Distributed ordinary edges / LP
 & Add/remove role-labelled edge DP for full transcript
@@ -82,7 +86,10 @@ subgraphs without the same edge-DP output contract \cite{baek2023fedpub}, while
 Tang and Hu perturb federated GNN training for link prediction under a local
 trust model \cite{tang2025privacy}. FedHGPP combines edge-DP structural
 preprocessing with encrypted federated heterogeneous recommendation
-\cite{li2026fedhgpp}. These systems establish that distributed ownership,
+\cite{li2026fedhgpp}. CE-FedGNN protects exchanged representations under
+public-cohort metric DP \cite{guo2026cefedgnn}, while poisoning attacks expose
+cross-client links through federated outputs \cite{yang2026poisoning}. These
+systems establish that distributed ownership,
 edge privacy, and link-oriented evaluation are not novel by themselves. We
 study a different output contract:
 ordinary interaction edges are partitioned across clients; the server-visible
