@@ -82,6 +82,8 @@ results/**
 !results/r8_red_team/
 !results/r8_red_team/audit.json
 !results/r8_red_team/reproduction.json
+!results/r9_submission/
+!results/r9_submission/reproduction.json
 artifacts/
 logs/
 tmp/

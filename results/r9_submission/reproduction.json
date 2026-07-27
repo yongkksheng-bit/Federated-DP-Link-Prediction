@@ -1,0 +1,51 @@
+{
+  "artifacts": {
+    "built_manuscript": {
+      "path": "manuscript/main.pdf",
+      "sha256": "b961d2af59d4cd456ccbf9a850754621a42490984ca79d3fe75c7a4de416eed2"
+    },
+    "tracked_r9_manuscript": {
+      "path": "output/pdf/certfed_lp_r9_submission_ready.pdf",
+      "sha256": "b961d2af59d4cd456ccbf9a850754621a42490984ca79d3fe75c7a4de416eed2"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "D:\\Anaconda\\python.exe",
+        "scripts/reproduce_r8_submission.py",
+        "--output",
+        "D:\\DPLPIFS_POLY\\Federated-DP-Link-Prediction-R9-final-ca84fa8\\tmp\\r9_submission\\r8_base_reproduction.json"
+      ],
+      "output_tail": [
+        "        \"    \\\"raw_graph_upgrade_forbidden\\\": true,\",",
+        "        \"    \\\"unstable_raw_partition_attack_succeeds\\\": true\",",
+        "        \"  },\",",
+        "        \"  \\\"interpretation\\\": \\\"A passing attack means the counterexample was successfully exhibited and the manuscript explicitly excludes that invalid upgrade; it does not mean the invalid protocol is safe.\\\",\",",
+        "        \"  \\\"protocol\\\": \\\"R8_PRE_SUBMISSION_RED_TEAM_v1\\\",\",",
+        "        \"  \\\"sealed_holdout_accessed\\\": false,\",",
+        "        \"  \\\"status\\\": \\\"PASS\\\"\",",
+        "        \"}\"",
+        "      ],",
+        "      \"returncode\": 0",
+        "    }",
+        "  ],",
+        "  \"git_commit\": \"ca84fa8d6892f68aaec39c2b38b2a660ff1a1112\",",
+        "  \"git_tracked_changes_after_build\": \"\",",
+        "  \"protocol\": \"R8_CLEAN_SUBMISSION_GATE_v1\",",
+        "  \"r7_base_status\": \"PASS\",",
+        "  \"r8_red_team_status\": \"PASS\",",
+        "  \"sealed_holdout_accessed\": false,",
+        "  \"status\": \"PASS\"",
+        "}"
+      ],
+      "returncode": 0
+    }
+  ],
+  "git_commit": "ca84fa8d6892f68aaec39c2b38b2a660ff1a1112",
+  "git_tracked_changes_after_build": "",
+  "protocol": "R9_CLEAN_SUBMISSION_PREPARATION_v1",
+  "r8_base_status": "PASS",
+  "sealed_holdout_accessed": false,
+  "status": "PASS"
+}

@@ -22,6 +22,10 @@ Decision:
 - Prepared an attributable external-expert sign-off form.
 - Added a clean-checkout R9 reproduction gate that requires the rebuilt and
   tracked submission PDFs to be byte-identical.
+- A fresh GitHub clone at commit
+  `ca84fa8d6892f68aaec39c2b38b2a660ff1a1112` passed the full R9 gate:
+  R7/R8 passed, the worktree remained clean, the PDF hashes matched, and the
+  sealed holdout was not accessed.
 - Compiled a 9-page IEEE manuscript with a 239-word abstract.
 - Visually inspected all pages; no clipping, overlap, blank page, sparse
   terminal page, or unreadable table was found.
@@ -32,6 +36,7 @@ Decision:
 ## Frozen artifact
 
 - PDF: `output/pdf/certfed_lp_r9_submission_ready.pdf`
+- Clean-clone report: `results/r9_submission/reproduction.json`
 - Bytes: `469319`
 - SHA-256:
   `b961d2af59d4cd456ccbf9a850754621a42490984ca79d3fe75c7a4de416eed2`

@@ -92,7 +92,8 @@ python scripts/reproduce_r9_submission.py
 The R7 reproduction command writes its environment-specific report under
 `tmp/r7_independent_audit/`. The R8 clean-clone gate writes under
 `tmp/r8_red_team/`; the verified report for commit `9ffb0c2` is archived as
-`results/r8_red_team/reproduction.json`.
+`results/r8_red_team/reproduction.json`. The R9 clean-clone report for commit
+`ca84fa8` is archived as `results/r9_submission/reproduction.json`.
 
 Every privacy-grid cell is an alternative deployment. Releasing the full grid
 on one private graph would require additional composition.
