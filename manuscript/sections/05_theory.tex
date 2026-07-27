@@ -72,10 +72,13 @@ claim about deterministic public SHA-256 outputs.
 
 \begin{theorem}[Finite-holdout no-harm]
 \label{thm:noharm}
-Conditional on $(R,H,n_C)$, the certification subset is a simple random sample
-without replacement. With the certificate in \cref{eq:certificate},
+Assume that, conditional on the frozen holdout $H$, its certification
+assignment bits are independent of the training release $R$. Conditional on
+$(R,H,n_C)$, the certification subset is then a simple random sample without
+replacement. With the certificate in \cref{eq:certificate},
 \begin{equation}
-\Pr\!\left(A=1\ \wedge\ \Delta_H(R)<\gamma\mid R,H\right)
+\Pr\!\left(A=1\ \wedge\ \Delta_H(R)<\gamma
+           \mid R,H,n_C\right)
 \leq \beta_S+\beta_n+\beta_{\mathrm{stat}}.
 \end{equation}
 \end{theorem}
@@ -89,6 +92,8 @@ argument. A one-sided Serfling bound
 sampling penalty in \cref{eq:certificate}; R5 conservatively sets its
 finite-population correction to one. The result certifies the registered
 finite holdout, not future edges or another graph.
+The same bound conditional on $(R,H)$ follows by averaging over $n_C$;
+counts that fail the registered validity checks force abstention.
 The displayed failure probability is statistical in the ideal
 Bernoulli/random-oracle model. A standard-model PRF instantiation adds the
 PRF distinguishing advantage to that bound.

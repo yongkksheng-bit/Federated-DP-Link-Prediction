@@ -6,8 +6,8 @@ Clean-room research repository for:
 
 ## Current Result
 
-R9 prepares the R8-audited IEEE journal manuscript around **CertFed-LP** for
-submission:
+R10 prepares the R8-audited IEEE journal manuscript around **CertFed-LP** for
+author and external-expert sign-off:
 an architecture-agnostic deployment policy that privately certifies whether
 an inference-closed edge-DP structural branch materially improves over a
 public-only scorer, and otherwise falls back. R8 stress-tests the assignment
@@ -34,6 +34,7 @@ confidence interval.
 - R7 audited draft: `output/pdf/certfed_lp_r7_audited.pdf`
 - R8 red-team audited draft: `output/pdf/certfed_lp_r8_red_team_audited.pdf`
 - R9 submission-preparation draft: `output/pdf/certfed_lp_r9_submission_ready.pdf`
+- R10 submission-gate draft: `output/pdf/certfed_lp_r10_submission_gate_ready.pdf`
 - Claim contract: `docs/R6_MANUSCRIPT_CONTRACT.md`
 - Evidence map: `docs/R6_EVIDENCE_MAP.md`
 - Reviewer-risk audit: `docs/R6_REVIEWER_RISK_AUDIT.md`
@@ -51,6 +52,10 @@ confidence interval.
 - R9 TIFS submission audit: `docs/R9_TIFS_SUBMISSION_AUDIT.md`
 - R9 external-expert sign-off: `docs/R9_EXTERNAL_EXPERT_SIGNOFF.md`
 - R9 closeout: `docs/R9_CLOSEOUT.md`
+- R10 blind theorem re-derivation: `docs/R10_BLIND_THEOREM_REDERIVATION.md`
+- R10 dataset-rights audit: `docs/R10_DATA_RIGHTS_AUDIT.md`
+- Author and portal templates: `submission/`
+- R10 closeout: `docs/R10_CLOSEOUT.md`
 
 Build:
 

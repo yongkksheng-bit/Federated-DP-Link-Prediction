@@ -54,14 +54,17 @@ then performs this conversion once.
 \section{Proof of the Finite-Holdout Certificate}
 \label{app:finite}
 
-Condition on $(R,H,n_C)$, where $H$ was fixed independently of assignment
-outputs. Under the ideal Bernoulli assignment, conditioning on the count makes
-$E^C$ a uniform size-$n_C$ subset of $H$. R5 models its edge-keyed SHA-256 map
-as a random oracle; a deployment can instead use a secret-key PRF hidden from
-data providers until population freeze. These are alternative computational
-implementation contracts, not a theorem that deterministic public SHA-256
-outputs are information-theoretically independent. The values
-$d_R(e)\in[-1,1]$ are then a fixed finite population. For
+Condition on $(R,H,n_C)$, where $H$ was frozen before its assignment bits were
+drawn and those bits are independent of $R$ conditional on $H$. This condition
+holds when $R$ is computed only from the disjoint training role and does not
+read the holdout assignment bits. Under the ideal Bernoulli assignment,
+conditioning on the count makes $E^C$ a uniform size-$n_C$ subset of $H$.
+R5 models its edge-keyed SHA-256 map as a random oracle; a deployment can
+instead use a secret-key PRF hidden from data providers until population
+freeze. These are alternative computational implementation contracts, not a
+theorem that deterministic public SHA-256 outputs are
+information-theoretically independent. The values $d_R(e)\in[-1,1]$ are then
+a fixed finite population. For
 $\widehat\Delta_C=n_C^{-1}\sum_{e\in E^C}d_R(e)$, one-sided
 sampling-without-replacement concentration gives
 \begin{equation}
@@ -86,6 +89,9 @@ The sampling event implies
 A union bound over the two Gaussian events and the sampling event proves
 \cref{thm:noharm}. Invalid counts or a nonpositive corrected numerator cause
 abstention and cannot create a false activation.
+Because the bound is uniform in valid $n_C$, averaging over the conditional
+distribution of $n_C$ gives the corresponding statement conditional on
+$(R,H)$.
 For a standard-model PRF implementation, a hybrid argument adds the
 distinguishing advantage of the PRF to the right-hand side of
 \cref{thm:noharm}.

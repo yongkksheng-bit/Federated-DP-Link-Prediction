@@ -19,7 +19,7 @@ Official sources:
 ## Passed
 
 - Regular-paper format is IEEE double-column, 10-point journal style.
-- The compiled manuscript has 9 pages, below the 13-page initial-submission
+- The R10 compiled manuscript has 10 pages, below the 13-page initial-submission
   ceiling.
 - The self-contained abstract has 239 words, within the required 150--250
   range.
@@ -57,8 +57,14 @@ These cannot be truthfully completed by an automated agent:
   proofs, code, and figures. Executable tests do not replace author review.
 - [ ] Confirm that local scholarly use of every third-party dataset complies
   with its source terms. The repository correctly avoids redistributing raw
-  bytes, but dataset-specific redistribution licenses remain ambiguous.
+  bytes, but dataset-specific redistribution licenses remain ambiguous. Use
+  `docs/R10_DATA_RIGHTS_AUDIT.md` for the per-source decision and sign-off.
 - [ ] Select the final TIFS EDICS classifications in the Author Portal.
+
+Ready-to-fill author and portal materials are under `submission/`. The
+recommended primary classification is Anonymization and Data Privacy
+(`ADP`/historically `IFS-ADP`); the corresponding author must confirm the
+label exposed by the live portal.
 
 ## Recommended portal package
 
